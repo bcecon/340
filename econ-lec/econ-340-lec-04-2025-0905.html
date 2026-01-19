@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.3.450">
+
+  <meta name="author" content="Byeong-Hak Choe">
+  <meta name="dcterms.date" content="2025-09-05">
+  <title>Lecture 4</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Lecture 4</h1>
+  <p class="subtitle">Externalities</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Byeong-Hak Choe 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:bchoe@geneseo.edu">bchoe@geneseo.edu</a>
+</div>
+        <p class="quarto-title-affiliation">
+            SUNY Geneseo
+          </p>
+    </div>
+</div>
+
+  <p class="date">September 5, 2025</p>
+</section>
+<section>
+<section id="externalities" class="title-slide slide level1 center" data-background-color="#1c4982">
+<h1>Externalities</h1>
+
+</section>
+<section id="what-is-an-externality" class="slide level2">
+<h2>What is an Externality?</h2>
+<div>
+<ul>
+<li>An <strong>externality</strong> is a side effect of a market transaction—positive or negative—that affects the <strong>well-being of people who are not directly involved</strong> as buyers or sellers.
+<ul>
+<li><strong>Negative externality</strong>: imposes costs on others (e.g., air pollution from autos).</li>
+<li><strong>Positive externality</strong>: confers benefits on others (e.g., tree planting—amenity value, carbon uptake, habitat).</li>
+</ul></li>
+<li>Comprehensive analysis must account for <strong>all members of society</strong> (and possibly ecosystems), not only buyers and sellers.</li>
+</ul>
+</div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Key idea:</strong> Markets maximize total surplus <strong>only</strong> when <em>all</em> marginal costs and benefits are internal to decision‑makers.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-market-for-automobiles" class="slide level2">
+<h2>The Market for Automobiles</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-1.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment"><strong>Supply curve</strong> ≈ <strong>PMC</strong>: private marginal cost of producing one more unit (labor, materials, energy, etc.).</li>
+<li class="fragment"><strong>Demand curve</strong> ≈ <strong>PMB</strong>: private marginal benefit (consumers’ willingness‑to‑pay for one more unit).</li>
+</ul>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Market equilibrium <span class="math inline">\((P_{M}, Q_{M})\)</span></strong> is efficient <strong>only if</strong> PMC = SMC and PMB = SMB (i.e., no externalities).</li>
+</ul>
+<!-- ::: callout-note -->
+<!-- **Figure 3.1 (explained)**: For automobiles, demand intersects supply at $(P_{M}, Q_{M})$. With no externalities, this point maximizes total private surplus. -->
+<!-- ::: -->
+</section>
+<section id="accounting-for-environmental-costs" class="slide level2">
+<h2>Accounting for Environmental Costs</h2>
+<ul>
+<li class="fragment">Auto production &amp; use create multiple <strong>negative externalities</strong>: local/regional air pollution, CO₂, water contamination, toxic wastes, habitat loss, road salt runoff, congestion.</li>
+<li class="fragment">These costs <strong>do not appear</strong> in the private supply curve; hence <strong>market overstates net social benefits</strong> at <span class="math inline">\((P_{M}, Q_{M})\)</span>.</li>
+<li class="fragment">We must <strong>internalize</strong> external costs to evaluate the market’s true impact.</li>
+</ul>
+</section>
+<section id="epa-endangerment-finding-on-ghg-emissions" class="slide level2">
+<h2>EPA Endangerment Finding on GHG Emissions</h2>
+<ul>
+<li class="fragment"><strong>Proposal Date</strong>: July 29, 2025 — EPA formally proposed rescinding the 2009 Greenhouse Gas (GHG) Endangerment Finding (<a href="https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding">US EPA</a>).</li>
+<li class="fragment"><strong>Statutory Impact</strong>: Without the Endangerment Finding, EPA would <strong>lose authority under CAA §202(a)</strong> to regulate GHG emissions from motor vehicles (<a href="https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding">US EPA</a>; <a href="https://en.wikipedia.org/wiki/Regulation_of_greenhouse_gases_under_the_Clean_Air_Act">Wikipedia</a>).
+<ul>
+<li class="fragment">CAA §202(a) is the EPA’s authority to regulate tailpipe pollution from new vehicles when it threatens public health or welfare.</li>
+</ul></li>
+<li class="fragment"><strong>Regulatory Effect</strong>: Proposal includes <strong>removal of GHG standards</strong> for light-, medium-, and heavy-duty vehicles and engines (<a href="https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding">US EPA</a>).</li>
+<li class="fragment"><strong>What Remains</strong>: Standards for <strong>criteria pollutants, toxic emissions, corporate average fuel economy (CAFE), and labeling</strong> will <strong>not be changed</strong>(<a href="https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding">US EPA</a>).</li>
+</ul>
+</section>
+<section id="epa-endangerment-finding-process-reactions" class="slide level2">
+<h2>EPA Endangerment Finding: Process &amp; Reactions</h2>
+<div style="display:block; margin:-10px;">
+
+</div>
+<ul>
+<li class="fragment"><strong>Public Hearing &amp; Comment Period</strong>:
+<ul>
+<li class="fragment">Public hearings held August 19–21 (and possibly August 22), 2025.<br>
+</li>
+<li class="fragment">Comment deadline extended from September 15 to <strong>September 22, 2025</strong> (<a href="https://www.federalregister.gov/documents/2025/08/15/2025-15512/reconsideration-of-2009-endangerment-finding-and-greenhouse-gas-vehicle-standards-extension-of">Federal Register</a>; <a href="https://advocacy.sba.gov/2025/08/15/epa-extends-comment-period-for-proposed-repeal-of-greenhouse-gas-endangerment-finding-and-vehicle-emissions-rules/">Office of Advocacy</a>; <a href="https://www.hklaw.com/en/insights/publications/2025/08/up-in-the-air-epa-opens-comment-on-repealing-endangerment-finding">Holland &amp; Knight</a>).</li>
+</ul></li>
+<li class="fragment"><strong>Deregulatory Framing</strong>:
+<ul>
+<li class="fragment">The proposal is presented as part of a broader <strong>deregulatory agenda</strong>, hailed as one of the <strong>largest in U.S. history</strong> (<a href="https://www.epa.gov/newsreleases/what-they-are-saying-leaders-praise-epa-launching-largest-deregulatory-action-us">US EPA</a>).</li>
+<li class="fragment">EPA claims the repeal could save Americans <strong>$54 billion annually</strong> and <strong>$170 billion for small businesses</strong> (<a href="https://www.epa.gov/newsreleases/epa-releases-proposal-rescind-obama-era-endangerment-finding-regulations-paved-way">US EPA</a>).</li>
+</ul></li>
+<li class="fragment"><strong>Criticisms</strong>:
+<ul>
+<li class="fragment">Critics argue the rule <strong>ignores scientific consensus</strong> and is legally weak, potentially dismantling key rules and safeguards designed to protect against climate change (<a href="https://www.washingtonpost.com/climate-environment/2025/07/22/endangerment-finding-epa-climate">The Washington Post</a>).</li>
+</ul></li>
+</ul>
+<!-- ## EPA Endangerment Finding on GHG Emissions -->
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
+<!-- ### ✅ Pro-Regulation -->
+<!-- - **Legal Duty:** CAA §202(a) requires regulation if emissions endanger health/welfare.   -->
+<!-- - **Real Reductions:** ~7.2 Gt CO₂e avoided (2027–2055).   -->
+<!-- - **Net Benefits:** ~$99 billion/yr (fuel + maintenance + health + climate).   -->
+<!-- - **Technology Pathway:** Standards accelerate hybrids, EVs, and cleaner ICEs.   -->
+<!-- - **Equity Potential:** Lower lifetime fuel costs, especially helpful to low-income drivers.   -->
+<!-- - **Global Influence:** U.S. standards push global auto market toward cleaner tech.   -->
+<!-- ::: -->
+<!-- ::: {.column width="50%"} -->
+<!-- ### ❌ Repeal Arguments -->
+<!-- - **Statutory Scope:** Section 202(a) wasn’t meant for **global pollutants** like CO₂.   -->
+<!-- - **Small Climate Effect:** Cuts only ~0.004 °C warming (~0.4 ppm CO₂).   -->
+<!-- - **Economic Concerns:** Higher sticker prices, fewer consumer choices.   -->
+<!-- - **Technology Limits:** Vehicle tech cannot meaningfully change global concentrations.   -->
+<!-- - **Transition Costs:** Infrastructure gaps (charging, minerals) raise risks.   -->
+<!-- - **Reliance Interests:** Industry & consumers already invested under prior rules.   -->
+<!-- ::: -->
+<!-- :::: -->
+</section>
+<section id="valuing-damages" class="slide level2">
+<h2>Valuing Damages</h2>
+<div>
+<ul>
+<li>Assign <strong>monetary values</strong> to external harms to build <strong>SMC</strong>:
+<ul>
+<li>Direct costs (e.g., <strong>water treatment</strong> for contaminated sources).</li>
+<li><strong>Health damages</strong> (medical expenses, morbidity, mortality risk).</li>
+<li><strong>Aesthetic/amenity</strong> losses (visibility, recreation quality).</li>
+<li><strong>Ecosystem</strong> impacts (biodiversity, habitat quality).</li>
+</ul></li>
+<li>If we assign no value, the market implicitly assigns <strong>zero</strong>—biasing decisions.</li>
+</ul>
+</div>
+<div class="callout callout-warning no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Valuation aggregates <strong>tangible</strong> and <strong>intangible</strong> impacts; precision is hard, but <strong>order‑of‑magnitude</strong> estimates guide better policy than zeros.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-market-for-automobiles-with-negative-externalities" class="slide level2">
+<h2>The Market for Automobiles with Negative Externalities</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-2.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment"><strong>SMC = PMC + EMC</strong>, where <strong>EMC</strong> is the <em>external marginal cost</em>.</li>
+<li class="fragment">Typically, <strong>EMC rises</strong> with output when pollution/congestion intensify.</li>
+</ul>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>SMC</strong> lies <strong>above</strong> <strong>PMC</strong> by the vertical distance equal to EMC.</li>
+</ul>
+<!-- ::: callout-note -->
+<!-- **Figure 3.2 (explained):** SMC above supply (PMC). Efficient quantity **$Q^{*}$** occurs where **SMC** intersects demand (PMB). For any $Q>$Q^{*}$$, SMC > MB ⇒ society worse off at the margin. -->
+<!-- ::: -->
+<!-- ## Inefficiency of the Unregulated Outcome -->
+<!-- - At the market outcome **$(P_{M}, Q_{M})$** with a negative externality: -->
+<!--   - Quantity is **too high**: $\;QM > $Q^{*}$$. -->
+<!--   - Price is **too low** relative to social cost: $\;PM < P^{*}$. -->
+<!--   - Units between **$Q^{*}$** and **QM** have **SMC > MB** → **net social loss**. -->
+</section></section>
+<section>
+<section id="internalizing-environmental-costs" class="title-slide slide level1 center" data-background-color="#1c4982">
+<h1>Internalizing Environmental Costs</h1>
+
+</section>
+<section id="fixing-the-inefficiency-pigovian-tax-on-automobiles" class="slide level2">
+<h2>Fixing the Inefficiency: Pigovian Tax on Automobiles</h2>
+<ul>
+<li class="fragment"><strong>Market failure:</strong> Prices omit pollution damages ⇒ production <strong>beyond <span class="math inline">\(Q^{*}\)</span></strong> is socially undesirable.</li>
+<li class="fragment"><strong>Goal:</strong> Get the price <strong>“right”</strong> by <strong>internalizing</strong> external costs so they enter consumer/producer decisions.</li>
+<li class="fragment"><strong>Tool — Pigovian tax:</strong> A <strong>per-unit tax (t)</strong> on automobile <strong>production or emissions</strong> that makes<br>
+<span class="math display">\[
+\text{PMC} + t = \text{SMC} \quad \text{at } Q^{*}.
+\]</span>
+<ul>
+<li class="fragment">Reflects the <strong>Polluter Pays Principle (PPP)</strong>: those causing pollution <strong>pay its external costs</strong>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="automobile-market-with-pigovian-tax" class="slide level2">
+<h2>Automobile Market with Pigovian Tax</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment">Impose a <strong>per‑unit tax</strong> <span class="math inline">\(t\)</span> equal to <strong>EMC at <span class="math inline">\(Q^{*}\)</span></strong>.</li>
+<li class="fragment">Effect: raises firms’ <strong>private marginal cost</strong> so the <em>effective</em> supply coincides with <strong>SMC</strong>.</li>
+</ul>
+</div>
+</div>
+<ul>
+<li class="fragment">New equilibrium: <strong><span class="math inline">\((P^{*}, Q^{*})\)</span></strong>—the <strong>socially efficient</strong> outcome.</li>
+</ul>
+<!-- - A per-unit tax $t$ is the **vertical gap** between the pre-tax and post-tax cost curves (**$P_0$ to $P^{*}$** in stylized diagrams).   -->
+<ul>
+<li class="fragment"><strong>Set the right rate</strong>
+<ul>
+<li class="fragment">Target the per-unit external damage at <span class="math inline">\(Q^{*}\)</span> so <strong>PMC + <span class="math inline">\(t\)</span> = SMC</strong>.</li>
+</ul></li>
+</ul>
+<!-- ::: callout-note -->
+<!-- **Figure 3.3 (explained):** Supply with tax overlaps SMC; price rises to **P^{*}**, quantity falls to **$Q^{*}$**. Burden shared by consumers (higher price) and producers (lower net‑of‑tax receipts), depending on elasticities. -->
+<!-- ::: -->
+</section>
+<section id="economic-tax-incidence-elasticities" class="slide level2">
+<h2>Economic Tax Incidence &amp; Elasticities</h2>
+<div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>A <strong>price elasticity</strong> of demand/supply measures how responsive the quantity demanded/supplied are to price changes.</p></li>
+<li><p>An <strong>inelastic</strong> demand/supply ⇒ quantity changes little for a given price change.</p>
+<ul>
+<li>The more steeper, the less elastic.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div style="display:block; margin:-15px;">
+
+</div>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment"><strong>Consumer incidence</strong>: the amount of the tax revenue paid by consumers</li>
+<li class="fragment"><strong>Producer incidence</strong>: the amount of the tax revenue paid by producers</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="who-pays-economic-incidence-elasticities" class="slide level2">
+<h2>Who Pays? Economic Incidence &amp; Elasticities</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment"><strong>Who pays more?</strong>
+<ul>
+<li class="fragment">The <strong>less elastic</strong> (steeper) side of the market bears <strong>more</strong> of the tax.<br>
+</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<ul>
+<li class="fragment">The claim “<strong>firms pass it all on</strong>” is generally <strong>false</strong>; division is <strong>empirical</strong> and depends on elasticities.</li>
+</ul>
+<!-- ## Distributional Concerns -->
+<!-- - Energy and fuel taxes can be **regressive**: lower-income households spend a **larger share** on gasoline/electricity. -->
+<!-- - Mitigation: **lump-sum dividends**, **refundable credits**, **targeted transfers**, or **rate relief** to protect low-income households while preserving **price signals**. -->
+<!-- - **Revenue recycling**   -->
+<!--   - Use proceeds for **lump-sum rebates** and **tax credits/rate relief** to bolster **equity + political feasibility**. -->
+</section>
+<section id="distributional-concerns" class="slide level2">
+<h2>Distributional Concerns</h2>
+<ul>
+<li class="fragment"><p><strong>Regressivity:</strong> Energy/fuel taxes can burden lower-income households (higher budget share on energy).</p></li>
+<li class="fragment"><p><strong>How to offset (Revenue recycling):</strong></p>
+<ul>
+<li class="fragment"><strong>Lump-sum dividends</strong> (“carbon cash-back”).</li>
+<li class="fragment"><strong>Refundable credits</strong> (e.g., energy affordability credit, EITC (earned income tax credits) top-ups).</li>
+<li class="fragment"><strong>Targeted transfers</strong> (rural mileage, extreme-climate heating, heating-oil users).</li>
+<li class="fragment"><strong>Fixed bill credits / lifeline blocks</strong> for essential usage <em>(avoid broad per-unit discounts)</em>.</li>
+<li class="fragment"><strong>Just-transition support</strong> for affected workers/communities.</li>
+</ul></li>
+<li class="fragment"><p><strong>Design notes:</strong> Preserve <strong>price signals</strong> (don’t lower per-unit energy prices), make benefits <strong>visible</strong>, and address <strong>equity/political feasibility</strong></p></li>
+</ul>
+<!-- ::: callout-note -->
+<!-- - **Orders of magnitude**: A 2013 estimate put global externalities from **primary industries** (agriculture, fishing, mining, power generation, initial materials processing) near **\$7.3T (~13% of world output)**.  -->
+<!-- - World Bank data put **2018 global tax revenues ≈ 15%** of world output.  -->
+<!-- - Comprehensive **upstream Pigovian systems** could, in principle, rival existing tax takes—think **tax swaps**, not a literal one-for-one blueprint. -->
+<!-- ::: -->
+</section>
+<section id="dont-tax-everything" class="slide level2">
+<h2>Don’t tax everything</h2>
+<ul>
+<li class="fragment">Estimating the “right” tax requires <strong>economics + science</strong>.<br>
+</li>
+<li class="fragment">For <strong>small externalities</strong>, the revenue may not justify <strong>measurement + admin</strong> costs.<br>
+</li>
+<li class="fragment">Example: “<strong>shirts</strong>” would imply product-by-product rates (cotton vs.&nbsp;synthetics, dye processes, <em>organic</em> vs.&nbsp;<em>recycled</em>) → <strong>monumental</strong> complexity.</li>
+</ul>
+</section>
+<section id="go-upstream-tax-near-resource-extraction" class="slide level2">
+<h2>Go upstream <em>(tax near resource extraction)</em></h2>
+<ul>
+<li class="fragment">Levy at <strong>raw inputs</strong> (e.g., <strong>crude oil</strong>, <strong>cotton</strong>, <strong>ores</strong>, <strong>toxic chemicals</strong>) so costs ripple through prices in proportion to input intensity.<br>
+</li>
+<li class="fragment">Focus on materials with <strong>widespread ecological damage</strong> (e.g., <strong>fossil fuels</strong>, key minerals, toxics).<br>
+</li>
+<li class="fragment">Benefits: <strong>far fewer tax points</strong>, lower admin burden, avoids bespoke rates on countless final goods.</li>
+</ul>
+</section>
+<section id="beyond-taxes-standards-mandates" class="slide level2">
+<h2>Beyond Taxes: Standards &amp; Mandates</h2>
+<ul>
+<li class="fragment"><strong>Performance/tech standards</strong> (e.g., fuel-efficiency rules) and <strong>mandated controls</strong> (e.g., catalytic converters) can cut emissions <strong>without</strong> directly pricing each unit.<br>
+</li>
+<li class="fragment">Standards often raise <strong>upfront/capital costs</strong>, so that prices can rise (<strong>resemble a tax</strong>), while <strong>energy-efficient equipment</strong> uses less fuel/power, so lifetime bills may fall.</li>
+<li class="fragment">Useful where <strong>damage estimates are uncertain</strong>, <strong>admin is hard</strong>, or <strong>health/ecological thresholds</strong> justify minimum standards alongside prices.</li>
+</ul>
+<!-- ##  -->
+<!-- <div style="display:block; margin:-80px;"></div> -->
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
+<!-- #### 💰 Market Instruments  -->
+<!-- <div style="display:block; margin:-30px;"></div> -->
+<!-- **Advantages**   -->
+<!-- - Cost-effective allocation of reductions   -->
+<!-- - Incentivizes continuous innovation   -->
+<!-- - Flexibility in compliance strategies   -->
+<!-- - Generates revenue (taxes)   -->
+<!-- - Quantity certainty (cap-and-trade) -->
+<!-- <div style="display:block; margin:-20px;"></div> -->
+<!-- **Disadvantages**   -->
+<!-- - Uncertainty (price vs. emissions)   -->
+<!-- - Requires monitoring & enforcement   -->
+<!-- - Politically unpopular (“tax”)   -->
+<!-- - Can be regressive without compensation   -->
+<!-- - Risk of carbon leakage (industry relocation) -->
+<!-- ::: -->
+<!-- ::: {.column width="50%"} -->
+<!-- #### ⚙️ Standards & Mandates   -->
+<!-- <div style="display:block; margin:-40px;"></div> -->
+<!-- **Advantages**   -->
+<!-- - Clear, simple to enforce   -->
+<!-- - Guarantees minimum protection   -->
+<!-- - Useful under uncertainty/difficult admin   -->
+<!-- - Ensures equity across firms/consumers   -->
+<!-- - Direct health & ecological co-benefits   -->
+<!-- <div style="display:block; margin:-20px;"></div> -->
+<!-- **Disadvantages**   -->
+<!-- - Less cost-effective overall   -->
+<!-- - No incentive once standard is met   -->
+<!-- - Risk of stifling innovation (if prescriptive)   -->
+<!-- - Raises upfront capital costs   -->
+<!-- - May only address part of the problem   -->
+<!-- ::: -->
+<!-- :::: -->
+<!-- ## Policy Mix -->
+<!-- - Governments often **combine tools**: -->
+<!--   - Carbon pricing for efficiency -->
+<!--   - Standards for minimum protection -->
+<!--   - Subsidies/innovation funding for new tech -->
+<!-- ## Practical Design Choices -->
+<!-- - **Set the right tax**: Requires damage estimation (economics + science). -->
+<!-- - **Administrative cost** vs **benefit**: Not every small externality warrants a bespoke tax. -->
+<!-- - **Upstream taxes**: Levy at **raw inputs** (fossil fuels, toxic chemicals, ores) to simplify coverage; costs ripple downstream to products according to input intensity. -->
+<!-- - **Revenue recycling**: Use proceeds for **rebates**, **tax credits**, **rate relief**, or **public goods** to address equity/political feasibility. -->
+<!-- ## Incidence & Elasticities -->
+<!-- - Tax burden split depends on **price elasticities** of supply and demand. -->
+<!--   - That is, how responsive the quantity supplied and demanded are to price changes. -->
+<!--   - Bottom line: Steeper (less elastic) side bears **more** burden. -->
+<!-- - Common claim “firms pass it all on” is generally **false**; division is **empirical**. -->
+<!-- ## Distributional Concerns -->
+<!-- :::{.nonincremental} -->
+<!-- - Many environmental taxes (e.g., on fuels) can be **regressive**. -->
+<!-- - Policy package can include **lump‑sum rebates**, **earned income credits**, or **targeted transfers** to protect **low‑income** households. -->
+<!-- ::: -->
+<!-- ::: callout-note -->
+<!-- A 2013 estimate put global primary‑industry externalities near **$7.3T (~13% of world output)**; in magnitude, **comprehensive Pigovian systems** could rival global tax revenues—raising ideas of **tax swaps**. (Use with caution; orders of magnitude, not precise policy blueprints.) -->
+<!-- ::: -->
+</section>
+<section id="the-top-externalities-of-the-global-market" class="slide level2">
+<h2>The Top Externalities of the Global Market</h2>
+<div style="text-align: center; width: 90%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/snp-global-externalities.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>Environmental damage costs generated by companies in the S&amp;P Global Broad Market Index by sector group in 2021.</p>
+</section>
+<section id="the-top-externalities-of-the-global-market-1" class="slide level2">
+<h2>The Top Externalities of the Global Market</h2>
+<div style="text-align: center; width: 90%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/snp-global-externalities-pct.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>Source: <a href="https://www.spglobal.com/sustainable1/en/insights/blogs/unpriced-environmental-costs-the-top-externalities-of-the-global-market">S&amp;P Global Sustainable1</a>.</p>
+</section></section>
+<section>
+<section id="positive-externalities" class="title-slide slide level1 center" data-background-color="#1c4982">
+<h1>Positive Externalities</h1>
+
+</section>
+<section id="positive-externalities-market-outcome-policy" class="slide level2">
+<h2>Positive Externalities: Market Outcome &amp; Policy</h2>
+<ul>
+<li class="fragment"><p><strong>Examples</strong>: solar panels (emissions reductions), vaccinations, R&amp;D spillovers, urban trees.</p></li>
+<li class="fragment"><p>In an unregulated market, <strong>beneficial spillovers aren’t rewarded</strong> → <strong>underproduction</strong>:</p>
+<div style="text-align:center">
+<p><em>PMB &lt; SMB ⇒ <span class="math inline">\(Q_{M}\)</span> &lt;</em> <span class="math inline">\(Q^{*}\)</span> → <strong>welfare loss</strong>.</p>
+</div></li>
+</ul>
+<div style="display:block; margin:15px;">
+
+</div>
+<ul>
+<li class="fragment"><strong>Goal:</strong> internalize social benefits to reach the <strong>efficient level</strong> <span class="math inline">\(Q^{*}\)</span></li>
+<li class="fragment"><strong>Solar PV example:</strong>
+<ul>
+<li class="fragment">Neighbors learn from one household’s installation/operation experience.</li>
+<li class="fragment">If one home’s solar panels make more electricity than that home uses during the day, the extra can flow onto the neighborhood.</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-market-for-solar-energy" class="slide level2">
+<h2>The Market for Solar Energy</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-4.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment"><strong>SMB = PMB + EMB</strong>, where <strong>EMB</strong> is <em>external marginal benefit</em>.</li>
+</ul>
+</div>
+</div>
+<!-- ::: callout-note -->
+<!-- **Figure 3.4 (explained):** SMB lies **above** demand by the vertical EMB. Market stops at **QM**, but **$Q^{*}$** is larger because **SMB > SMC** for units between QM and $Q^{*}$. -->
+<!-- ::: -->
+</section>
+<section id="the-market-for-solar-energy-with-a-subsidy" class="slide level2">
+<h2>The Market for Solar Energy with a Subsidy</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-5.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment">A <strong>producer subsidy</strong> of <span class="math inline">\(s\)</span> per unit <strong>lowers</strong> effective marginal cost (<u>downward supply shift</u>).</li>
+<li class="fragment">A <strong>consumer subsidy (e.g., tax credit)</strong> <strong>raises</strong> effective willingness‑to‑pay (<u>upward demand shift</u>).</li>
+</ul>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Correct subsidy</strong> aligns the market with <strong><span class="math inline">\(Q^{*}\)</span></strong> where <strong>SMC = SMB</strong>.</li>
+</ul>
+<!-- ::: callout-note -->
+<!-- **Figure 3.5 (explained):** With the subsidy, equilibrium quantity expands to **$Q^{*}$**; price effects differ for producers vs consumers, but the quantity target is the same. -->
+<!-- ::: -->
+</section></section>
+<section>
+<section id="welfare-analysis-of-externalities" class="title-slide slide level1 center" data-background-color="#1c4982">
+<h1>Welfare Analysis of Externalities</h1>
+
+</section>
+<section id="welfare-analysis-of-the-automobile-market" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<div class="columns">
+<div class="column" style="width:67.5%;">
+<div style="text-align: center; width: 75%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-6.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+</div><div class="column" style="width:32.5%;">
+<ul>
+<li class="fragment"><strong>Consumer Surplus (CS):</strong> Area <strong>under demand</strong> and <strong>above price</strong>.</li>
+<li class="fragment"><strong>Producer Surplus (PS):</strong> Area <strong>above supply (PMC)</strong> and <strong>below price</strong>.</li>
+</ul>
+</div>
+</div>
+<ul>
+<li class="fragment">Without externalities, equilibrium maximizes <strong>CS + PS</strong>.</li>
+</ul>
+<!-- ::: callout-note -->
+<!-- **Figure 3.6 (explained):** At $(P_{M}, Q_{M})$, CS = area **A**; PS = area **B**. -->
+<!-- ::: -->
+</section>
+<section id="welfare-analysis-of-the-automobile-market-1" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="without-pigouvian-tax">Without Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-2-cs-ps.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>Without Pigouvian tax, consumers and producers enjoys higher <span style="color:blue"><strong>CS</strong></span> and <span style="color:red"><strong>PS</strong></span> than with the tax.</p>
+<!-- - This reflects **private surplus** only. -->
+</section>
+<section id="welfare-analysis-of-the-automobile-market-2" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="without-pigouvian-tax-1">Without Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-2-cs-ps-ex.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>However, these market activities impose a <strong>negative external costs</strong> to third parties, represented by the area <strong>between PMC and SMC</strong> up to the chosen quantity (<span class="math inline">\(Q_{M}\)</span>).</p>
+</section>
+<section id="welfare-analysis-of-the-automobile-market-3" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="without-pigouvian-tax-2">Without Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-2-cs-ps-ex-net.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>With such a negative externality, true <strong>social welfare (SW)</strong> is: <span class="math display">\[
+  \begin{align}
+  &amp;\quad\;\; (\text{SW})\,=\, (\text{CS} + \text{PS}) \,-\, (\text{External Cost}).
+  \end{align}
+  \]</span></p>
+</section>
+<section id="welfare-analysis-of-the-automobile-market-4" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="without-pigouvian-tax-3">Without Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-7.png" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>Triangle <strong>C</strong> is the <strong>deadweight loss</strong> from overproduction where <strong>SMC &gt; MB</strong>.</p>
+</section>
+<section id="welfare-analysis-of-the-automobile-market-5" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="with-pigouvian-tax">With Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>With Pigouvian tax, <span style="color:blue"><strong>CS</strong></span> and <span style="color:red"><strong>PS</strong></span> are measured over quantities from 0 to <strong><span class="math inline">\(Q^{*}\)</span></strong>, the new equilibrium quantity.</p>
+</section>
+<section id="welfare-analysis-of-the-automobile-market-6" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="with-pigouvian-tax-1">With Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps-tr.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p><span style="color:green"><strong>Tax revenue</strong></span> equals <span class="math inline">\(t\times Q^{*}\)</span>.</p>
+</section>
+<section id="welfare-analysis-of-the-automobile-market-7" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="with-pigouvian-tax-2">With Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps-tr-ex.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>Pigouvian tax caps <strong>external damage</strong> by shifting the market to the efficient quantity <span class="math inline">\(Q^{*}\)</span>.</p>
+</section>
+<section id="welfare-analysis-of-the-automobile-market-8" class="slide level2">
+<h2>Welfare Analysis of the Automobile Market</h2>
+<h3 id="with-pigouvian-tax-3">With Pigouvian Tax</h3>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps-tr-ex-net.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p>With such a negative externality, true <strong>social welfare (SW)</strong> is: <span class="math display">\[
+  \begin{align}
+  &amp;\quad\;\; (\text{SW})\,=\, (\text{CS} + \text{PS} + \text{Tax Revenue}) \,-\, (\text{External Cost}).
+  \end{align}
+  \]</span></p>
+<ul>
+<li class="fragment"><strong>Pigovian Tax Improves Welfare</strong>: welfare <strong>rises by C</strong> relative to the unregulated outcome.</li>
+</ul>
+<!-- ## Pigovian Tax Improves Welfare -->
+<!-- ::::{.columns} -->
+<!-- ::: {.column width="67.5%"} -->
+<!-- <div style="text-align: center; width: 75%; margin: auto;"> -->
+<!--   <img src="https://bcdanl.github.io/lec_figs/hr-fig3-8.png" style="width: 100%; margin-bottom: -20px;"> -->
+<!--   <p style="font-weight: bold;"></p> -->
+<!-- </div> -->
+<!-- ::: -->
+<!-- ::: {.column width="32.5%"} -->
+<!-- - Set tax so that the equilibrium moves to **$Q^{*}$**. -->
+<!-- - **Tax revenue** equals the **external damages at $Q^{*}$** (rectangle **D**): revenue can **compensate** for damages. -->
+<!-- ::: -->
+<!-- :::: -->
+<!-- - Net social welfare becomes **A'' + B''**; hence welfare **rises by C** relative to the unregulated outcome. -->
+<!-- ::: callout-tip -->
+<!-- **Takeaway:** Properly set **taxes/subsidies eliminate the deadweight loss** created by externalities and **increase net social welfare**. -->
+<!-- ::: -->
+<!-- ## Deadweight Loss (DWL) — Definition -->
+<!-- - **DWL** is the loss in total surplus relative to the efficient outcome. -->
+<!-- - With negative externalities and no policy: DWL is the triangle **between $Q^{*}$** and **QM** where **SMC > MB**. -->
+</section>
+<section id="optimal-pollution" class="slide level2">
+<h2>Optimal Pollution</h2>
+<ul>
+<li class="fragment"><strong>Zero pollution</strong> generally implies <strong>zero production</strong>; instead, economists seek the <strong>efficient</strong> (not necessarily zero) level of pollution given current <u><em>technology</em></u> and <u><em>preferences</em></u>.
+<ul>
+<li class="fragment">The <strong>Pigovian tax</strong> yields <strong>optimal (residual) pollution</strong>—the remaining damages at <strong><span class="math inline">\(Q^{*}\)</span></strong>.</li>
+</ul></li>
+<li class="fragment"><strong>Caveat</strong>: If demand shifts right (e.g., autos more valued), the <strong>efficient</strong> pollution level can rise—raising questions about <strong>science‑based caps</strong> vs.&nbsp;<strong>pure efficiency</strong>.</li>
+</ul>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment"><strong>Preferences</strong> (what people want—<u>demand</u>) and <strong>technology</strong> (what/how much outputs can be produced from scarce inputs—<u>supply</u>), given <strong>endowments</strong> (initial resources) and <strong>prices</strong>, jointly determine <strong>market equilibrium</strong> and <strong>welfare</strong>, as <strong>consumers maximize utility</strong> and <strong>firms maximize profit</strong>.</li>
+<li class="fragment">Policy practice often sets <strong>health‑based standards</strong> (e.g., the Clean Air Act) and then uses market instruments to <strong>achieve</strong> those standards cost‑effectively.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="tax-incidence" class="slide level2">
+<h2>Tax Incidence</h2>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-tax-revenue.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p><span style="color:green"><strong>Tax Revenue</strong></span>: <span class="math inline">\(t \times Q^{*}\)</span></p>
+<p><strong>Tax incidence</strong>: The division of the tax burden between consumers and producers, determined by the relative elasticities of demand and supply.</p>
+</section>
+<section id="tax-incidence-1" class="slide level2">
+<h2>Tax Incidence</h2>
+<div style="text-align: center; width: 45%; margin: auto;">
+<img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-ci-pi.jpg" style="width: 100%; margin-bottom: -20px;">
+<p style="font-weight: bold;">
+</p>
+</div>
+<p><span style="color:blue"><strong>Consumer incidence</strong></span>: The amount to which <strong>CS</strong> decreases, measured over quantities from <span class="math inline">\(0\)</span> to <span class="math inline">\(Q^{*}\)</span> <span class="math inline">\(\;\rightarrow\;\)</span> Tax falls on <em>consumers</em>, who pay <span class="math inline">\(P^{*} - P_{M}\)</span> <em>more</em> per unit.</p>
+<p><span style="color:red"><strong>Producer incidence</strong></span>: The amount to which <strong>PS</strong> decreases, measured over quantities from <span class="math inline">\(0\)</span> to <span class="math inline">\(Q^{*}\)</span> <span class="math inline">\(\;\rightarrow\;\)</span> Tax falls on <em>producers</em>, who receive <span class="math inline">\(P_{M} - P_{0}\)</span> <em>less</em> per unit.</p>
+</section>
+<section id="tax-incidence-ordinary-vs.-pigouvian-tax" class="slide level2">
+<h2>Tax Incidence: Ordinary vs.&nbsp;Pigouvian Tax</h2>
+<div style="display:block; margin:-20px;">
+
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="ordinary-tax-in-a-competitive-market">Ordinary Tax (in a Competitive Market)</h4>
+<ul>
+<li class="fragment"><strong>Incidence</strong>:
+<ul>
+<li class="fragment"><span style="color:blue">Consumers</span> pay higher price (<span class="math inline">\(P^{*} - P_{M}\)</span>).<br>
+</li>
+<li class="fragment"><span style="color:red">Producers</span> receive lower price (<span class="math inline">\(P_{M} - P_{0}\)</span>).<br>
+</li>
+</ul></li>
+<li class="fragment"><strong>Welfare effect</strong>:
+<ul>
+<li class="fragment">Creates <strong>deadweight loss (DWL)</strong>.<br>
+</li>
+<li class="fragment">Total surplus falls.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h4 id="pigouvian-tax">Pigouvian Tax</h4>
+<ul>
+<li class="fragment"><strong>Incidence</strong>:
+<ul>
+<li class="fragment"><span style="color:blue">Consumers</span> and <span style="color:red">Producers</span> still share burden depending on elasticities.<br>
+</li>
+</ul></li>
+<li class="fragment"><strong>Welfare effect</strong>:
+<ul>
+<li class="fragment"><strong>Internalizes externality</strong> (e.g., pollution).<br>
+</li>
+<li class="fragment">Reduces overproduction: <span class="math inline">\(Q_{M} \rightarrow Q^{*}\)</span>.<br>
+</li>
+<li class="fragment">Improves <strong>social welfare</strong> by offsetting external damages.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div class="footer footer-default">
+
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    document.addEventListener('wheel', function(event) {
+        if (event.deltaY > 0) {
+            Reveal.next(); // Scroll down to go to the next slide
+        } else {
+            Reveal.prev(); // Scroll up to go to the previous slide
+        }
+    }, false);
+
+    window.onload = function() {
+        document.querySelectorAll('a').forEach(function(link) {
+            link.setAttribute('target', '_blank');
+        });
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Query all anchor tags within code blocks (adjust the selector as needed)
+      document.querySelectorAll('pre code a').forEach(function(element) {
+        element.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent the default anchor action
+          e.stopPropagation(); // Stop the event from bubbling up
+        });
+      });
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Target all span elements within code blocks that have IDs starting with 'cb'
+        document.querySelectorAll('pre code span[id^="cb"]').forEach(function(element) {
+            element.addEventListener('mouseenter', function() {
+                // Apply yellow background color to the hovered span element
+                this.style.backgroundColor = '#FFFF99';
+            });
+            element.addEventListener('mouseleave', function() {
+                // Revert the background color when the mouse leaves the span element
+                this.style.backgroundColor = '';
+            });
+        });
+    });
+
+
+
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+          let selectedAnnoteEl;
+          const selectorForAnnotation = ( cell, annotation) => {
+            let cellAttr = 'data-code-cell="' + cell + '"';
+            let lineAttr = 'data-code-annotation="' +  annotation + '"';
+            const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+            return selector;
+          }
+          const selectCodeLines = (annoteEl) => {
+            const doc = window.document;
+            const targetCell = annoteEl.getAttribute("data-target-cell");
+            const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+            const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+            const lineIds = lines.map((line) => {
+              return targetCell + "-" + line;
+            })
+            let top = null;
+            let height = null;
+            let parent = null;
+            if (lineIds.length > 0) {
+                //compute the position of the single el (top and bottom and make a div)
+                const el = window.document.getElementById(lineIds[0]);
+                top = el.offsetTop;
+                height = el.offsetHeight;
+                parent = el.parentElement.parentElement;
+              if (lineIds.length > 1) {
+                const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+                const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+                height = bottom - top;
+              }
+              if (top !== null && height !== null && parent !== null) {
+                // cook up a div (if necessary) and position it 
+                let div = window.document.getElementById("code-annotation-line-highlight");
+                if (div === null) {
+                  div = window.document.createElement("div");
+                  div.setAttribute("id", "code-annotation-line-highlight");
+                  div.style.position = 'absolute';
+                  parent.appendChild(div);
+                }
+                div.style.top = top - 2 + "px";
+                div.style.height = height + 4 + "px";
+                let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+                if (gutterDiv === null) {
+                  gutterDiv = window.document.createElement("div");
+                  gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                  gutterDiv.style.position = 'absolute';
+                  const codeCell = window.document.getElementById(targetCell);
+                  const gutter = codeCell.querySelector('.code-annotation-gutter');
+                  gutter.appendChild(gutterDiv);
+                }
+                gutterDiv.style.top = top - 2 + "px";
+                gutterDiv.style.height = height + 4 + "px";
+              }
+              selectedAnnoteEl = annoteEl;
+            }
+          };
+          const unselectCodeLines = () => {
+            const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+            elementsIds.forEach((elId) => {
+              const div = window.document.getElementById(elId);
+              if (div) {
+                div.remove();
+              }
+            });
+            selectedAnnoteEl = undefined;
+          };
+          // Handle positioning of the toggle
+          window.addEventListener(
+          "resize",
+          throttle(() => {
+            elRect = undefined;
+            if (selectedAnnoteEl) {
+              selectCodeLines(selectedAnnoteEl);
+            }
+          }, 10)
+          );
+          function throttle(fn, ms) {
+          let throttle = false;
+          let timer;
+            return (...args) => {
+              if(!throttle) { // first call gets through
+                  fn.apply(this, args);
+                  throttle = true;
+              } else { // all the others get throttled
+                  if(timer) clearTimeout(timer); // cancel #2
+                  timer = setTimeout(() => {
+                    fn.apply(this, args);
+                    timer = throttle = false;
+                  }, ms);
+              }
+            };
+          }
+          const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+          for (let i=0; i<annoteTargets.length; i++) {
+            const annoteTarget = annoteTargets[i];
+            const targetCell = annoteTarget.getAttribute("data-target-cell");
+            const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+            const contentFn = () => {
+              const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+              if (content) {
+                const tipContent = content.cloneNode(true);
+                tipContent.classList.add("code-annotation-tip-content");
+                return tipContent.outerHTML;
+              }
+            }
+            const config = {
+              allowHTML: true,
+              content: contentFn,
+              onShow: (instance) => {
+                selectCodeLines(instance.reference);
+                instance.reference.classList.add('code-annotation-active');
+                window.tippy.hideAll();
+              },
+              onHide: (instance) => {
+                unselectCodeLines();
+                instance.reference.classList.remove('code-annotation-active');
+              },
+              maxWidth: 300,
+              delay: [50, 0],
+              duration: [200, 0],
+              offset: [5, 10],
+              arrow: true,
+              appendTo: function(el) {
+                return el.parentElement.parentElement.parentElement;
+              },
+              interactive: true,
+              interactiveBorder: 10,
+              theme: 'light-border',
+              placement: 'right',
+              popperOptions: {
+                modifiers: [
+                {
+                  name: 'flip',
+                  options: {
+                    flipVariations: false, // true by default
+                    allowedAutoPlacements: ['right'],
+                    fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                  },
+                },
+                {
+                  name: 'preventOverflow',
+                  options: {
+                    mainAxis: false,
+                    altAxis: false
+                  }
+                }
+                ]        
+              }      
+            };
+            window.tippy(annoteTarget, config); 
+          }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

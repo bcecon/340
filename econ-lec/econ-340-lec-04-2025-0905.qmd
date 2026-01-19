@@ -1,0 +1,811 @@
+---
+title: Lecture 4
+subtitle: Externalities
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-09-05
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+
+theme_set(theme_fivethirtyeight() +
+            theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+```
+
+# Externalities {background-color="#1c4982"}
+
+## What is an Externality?
+:::{.nonincremental}
+- An **externality** is a side effect of a market transaction—positive or negative—that affects the **well-being of people who are not directly involved** as buyers or sellers.
+  - **Negative externality**: imposes costs on others (e.g., air pollution from autos).
+  - **Positive externality**: confers benefits on others (e.g., tree planting—amenity value, carbon uptake, habitat).
+- Comprehensive analysis must account for **all members of society** (and possibly ecosystems), not only buyers and sellers.
+
+:::
+
+::: callout-tip
+**Key idea:** Markets maximize total surplus **only** when *all* marginal costs and benefits are internal to decision‑makers.
+:::
+
+## The Market for Automobiles
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-1.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+- **Supply curve** ≈ **PMC**: private marginal cost of producing one more unit (labor, materials, energy, etc.).
+- **Demand curve** ≈ **PMB**: private marginal benefit (consumers’ willingness‑to‑pay for one more unit).
+
+:::
+::::
+
+- **Market equilibrium $(P_{M}, Q_{M})$** is efficient **only if** PMC = SMC and PMB = SMB (i.e., no externalities).
+
+
+<!-- ::: callout-note -->
+<!-- **Figure 3.1 (explained)**: For automobiles, demand intersects supply at $(P_{M}, Q_{M})$. With no externalities, this point maximizes total private surplus. -->
+<!-- ::: -->
+
+
+## Accounting for Environmental Costs
+
+- Auto production & use create multiple **negative externalities**: local/regional air pollution, CO₂, water contamination, toxic wastes, habitat loss, road salt runoff, congestion.
+- These costs **do not appear** in the private supply curve; hence **market overstates net social benefits** at $(P_{M}, Q_{M})$.
+- We must **internalize** external costs to evaluate the market’s true impact.
+
+
+## EPA Endangerment Finding on GHG Emissions
+
+- **Proposal Date**: July 29, 2025 — EPA formally proposed rescinding the 2009 Greenhouse Gas (GHG) Endangerment Finding ([US EPA](https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding)).
+- **Statutory Impact**: Without the Endangerment Finding, EPA would **lose authority under CAA §202(a)** to regulate GHG emissions from motor vehicles ([US EPA](https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding); [Wikipedia](https://en.wikipedia.org/wiki/Regulation_of_greenhouse_gases_under_the_Clean_Air_Act)).
+  - CAA §202(a) is the EPA’s authority to regulate tailpipe pollution from new vehicles when it threatens public health or welfare.
+- **Regulatory Effect**: Proposal includes **removal of GHG standards** for light-, medium-, and heavy-duty vehicles and engines ([US EPA](https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding)). 
+- **What Remains**: Standards for **criteria pollutants, toxic emissions, corporate average fuel economy (CAFE), and labeling** will **not be changed**([US EPA](https://www.epa.gov/regulations-emissions-vehicles-and-engines/proposed-rule-reconsideration-2009-endangerment-finding)). 
+
+
+## EPA Endangerment Finding: Process & Reactions
+
+<div style="display:block; margin:-10px;"></div>
+
+- **Public Hearing & Comment Period**:
+  - Public hearings held August 19–21 (and possibly August 22), 2025.  
+  - Comment deadline extended from September 15 to **September 22, 2025** ([Federal Register](https://www.federalregister.gov/documents/2025/08/15/2025-15512/reconsideration-of-2009-endangerment-finding-and-greenhouse-gas-vehicle-standards-extension-of); [Office of Advocacy](https://advocacy.sba.gov/2025/08/15/epa-extends-comment-period-for-proposed-repeal-of-greenhouse-gas-endangerment-finding-and-vehicle-emissions-rules/); [Holland & Knight](https://www.hklaw.com/en/insights/publications/2025/08/up-in-the-air-epa-opens-comment-on-repealing-endangerment-finding)).
+
+- **Deregulatory Framing**:
+  - The proposal is presented as part of a broader **deregulatory agenda**, hailed as one of the **largest in U.S. history** ([US EPA](https://www.epa.gov/newsreleases/what-they-are-saying-leaders-praise-epa-launching-largest-deregulatory-action-us)).
+  - EPA claims the repeal could save Americans **$54 billion annually** and **$170 billion for small businesses** ([US EPA](https://www.epa.gov/newsreleases/epa-releases-proposal-rescind-obama-era-endangerment-finding-regulations-paved-way)).
+
+- **Criticisms**:
+  - Critics argue the rule **ignores scientific consensus** and is legally weak, potentially dismantling key rules and safeguards designed to protect against climate change ([The Washington Post](https://www.washingtonpost.com/climate-environment/2025/07/22/endangerment-finding-epa-climate)).  
+   
+
+
+<!-- ## EPA Endangerment Finding on GHG Emissions -->
+
+<!-- :::: {.columns} -->
+
+<!-- ::: {.column width="50%"} -->
+
+<!-- ### ✅ Pro-Regulation -->
+
+<!-- - **Legal Duty:** CAA §202(a) requires regulation if emissions endanger health/welfare.   -->
+<!-- - **Real Reductions:** ~7.2 Gt CO₂e avoided (2027–2055).   -->
+<!-- - **Net Benefits:** ~$99 billion/yr (fuel + maintenance + health + climate).   -->
+<!-- - **Technology Pathway:** Standards accelerate hybrids, EVs, and cleaner ICEs.   -->
+<!-- - **Equity Potential:** Lower lifetime fuel costs, especially helpful to low-income drivers.   -->
+<!-- - **Global Influence:** U.S. standards push global auto market toward cleaner tech.   -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="50%"} -->
+
+<!-- ### ❌ Repeal Arguments -->
+
+<!-- - **Statutory Scope:** Section 202(a) wasn’t meant for **global pollutants** like CO₂.   -->
+<!-- - **Small Climate Effect:** Cuts only ~0.004 °C warming (~0.4 ppm CO₂).   -->
+<!-- - **Economic Concerns:** Higher sticker prices, fewer consumer choices.   -->
+<!-- - **Technology Limits:** Vehicle tech cannot meaningfully change global concentrations.   -->
+<!-- - **Transition Costs:** Infrastructure gaps (charging, minerals) raise risks.   -->
+<!-- - **Reliance Interests:** Industry & consumers already invested under prior rules.   -->
+
+<!-- ::: -->
+
+<!-- :::: -->
+
+
+## Valuing Damages
+:::{.nonincremental}
+- Assign **monetary values** to external harms to build **SMC**:
+  - Direct costs (e.g., **water treatment** for contaminated sources).
+  - **Health damages** (medical expenses, morbidity, mortality risk).
+  - **Aesthetic/amenity** losses (visibility, recreation quality).
+  - **Ecosystem** impacts (biodiversity, habitat quality).
+- If we assign no value, the market implicitly assigns **zero**—biasing decisions.
+
+:::
+
+::: callout-warning
+Valuation aggregates **tangible** and **intangible** impacts; precision is hard, but **order‑of‑magnitude** estimates guide better policy than zeros.
+:::
+
+
+
+## The Market for Automobiles with Negative Externalities
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-2.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- **SMC = PMC + EMC**, where **EMC** is the *external marginal cost*.
+- Typically, **EMC rises** with output when pollution/congestion intensify.
+
+:::
+::::
+
+- **SMC** lies **above** **PMC** by the vertical distance equal to EMC.
+
+
+<!-- ::: callout-note -->
+<!-- **Figure 3.2 (explained):** SMC above supply (PMC). Efficient quantity **$Q^{*}$** occurs where **SMC** intersects demand (PMB). For any $Q>$Q^{*}$$, SMC > MB ⇒ society worse off at the margin. -->
+<!-- ::: -->
+
+<!-- ## Inefficiency of the Unregulated Outcome -->
+
+<!-- - At the market outcome **$(P_{M}, Q_{M})$** with a negative externality: -->
+<!--   - Quantity is **too high**: $\;QM > $Q^{*}$$. -->
+<!--   - Price is **too low** relative to social cost: $\;PM < P^{*}$. -->
+<!--   - Units between **$Q^{*}$** and **QM** have **SMC > MB** → **net social loss**. -->
+
+# Internalizing Environmental Costs {background-color="#1c4982"}
+
+## Fixing the Inefficiency: Pigovian Tax on Automobiles
+
+- **Market failure:** Prices omit pollution damages ⇒ production **beyond $Q^{*}$** is socially undesirable.
+- **Goal:** Get the price **“right”** by **internalizing** external costs so they enter consumer/producer decisions.
+- **Tool — Pigovian tax:** A **per-unit tax \(t\)** on automobile **production or emissions** that makes  
+  $$
+  \text{PMC} + t = \text{SMC} \quad \text{at } Q^{*}.
+  $$
+  - Reflects the **Polluter Pays Principle (PPP)**: those causing pollution **pay its external costs**.
+
+
+
+## Automobile Market with Pigovian Tax
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- Impose a **per‑unit tax** $t$ equal to **EMC at $Q^{*}$**.
+- Effect: raises firms’ **private marginal cost** so the *effective* supply coincides with **SMC**.
+
+:::
+::::
+
+- New equilibrium: **$(P^{*}, Q^{*})$**—the **socially efficient** outcome.
+
+<!-- - A per-unit tax $t$ is the **vertical gap** between the pre-tax and post-tax cost curves (**$P_0$ to $P^{*}$** in stylized diagrams).   -->
+
+- **Set the right rate**
+  - Target the per-unit external damage at $Q^{*}$ so **PMC + $t$ = SMC**.
+  
+
+<!-- ::: callout-note -->
+<!-- **Figure 3.3 (explained):** Supply with tax overlaps SMC; price rises to **P^{*}**, quantity falls to **$Q^{*}$**. Burden shared by consumers (higher price) and producers (lower net‑of‑tax receipts), depending on elasticities. -->
+<!-- ::: -->
+
+
+## Economic Tax Incidence & Elasticities
+
+::::{.nonincremental}
+::: callout-note
+- A **price elasticity** of demand/supply measures how responsive the quantity demanded/supplied are to price changes.
+
+- An **inelastic** demand/supply ⇒ quantity changes little for a given price change.
+  - The more steeper, the less elastic.
+  
+:::
+::::
+
+<div style="display:block; margin:-15px;"></div>
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- **Consumer incidence**: the amount of the tax revenue paid by consumers
+- **Producer incidence**: the amount of the tax revenue paid by producers
+
+:::
+::::
+
+
+
+## Who Pays? Economic Incidence & Elasticities
+
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- **Who pays more?** 
+  - The **less elastic** (steeper) side of the market bears **more** of the tax.  
+:::
+::::
+
+- The claim “**firms pass it all on**” is generally **false**; division is **empirical** and depends on elasticities.
+
+<!-- ## Distributional Concerns -->
+
+<!-- - Energy and fuel taxes can be **regressive**: lower-income households spend a **larger share** on gasoline/electricity. -->
+<!-- - Mitigation: **lump-sum dividends**, **refundable credits**, **targeted transfers**, or **rate relief** to protect low-income households while preserving **price signals**. -->
+
+<!-- - **Revenue recycling**   -->
+<!--   - Use proceeds for **lump-sum rebates** and **tax credits/rate relief** to bolster **equity + political feasibility**. -->
+  
+## Distributional Concerns
+
+- **Regressivity:** Energy/fuel taxes can burden lower-income households (higher budget share on energy).
+
+- **How to offset (Revenue recycling):**
+  - **Lump-sum dividends** (“carbon cash-back”).
+  - **Refundable credits** (e.g., energy affordability credit, EITC (earned income tax credits) top-ups).
+  - **Targeted transfers** (rural mileage, extreme-climate heating, heating-oil users).
+  - **Fixed bill credits / lifeline blocks** for essential usage *(avoid broad per-unit discounts)*.
+  - **Just-transition support** for affected workers/communities.
+
+- **Design notes:** Preserve **price signals** (don’t lower per-unit energy prices), make benefits **visible**, and address **equity/political feasibility**
+
+<!-- ::: callout-note -->
+<!-- - **Orders of magnitude**: A 2013 estimate put global externalities from **primary industries** (agriculture, fishing, mining, power generation, initial materials processing) near **\$7.3T (~13% of world output)**.  -->
+<!-- - World Bank data put **2018 global tax revenues ≈ 15%** of world output.  -->
+<!-- - Comprehensive **upstream Pigovian systems** could, in principle, rival existing tax takes—think **tax swaps**, not a literal one-for-one blueprint. -->
+<!-- ::: -->
+
+
+
+## Don’t tax everything
+  - Estimating the “right” tax requires **economics + science**.  
+  - For **small externalities**, the revenue may not justify **measurement + admin** costs.  
+  - Example: “**shirts**” would imply product-by-product rates (cotton vs. synthetics, dye processes, *organic* vs. *recycled*) → **monumental** complexity.
+
+## Go upstream *(tax near resource extraction)*  
+  - Levy at **raw inputs** (e.g., **crude oil**, **cotton**, **ores**, **toxic chemicals**) so costs ripple through prices in proportion to input intensity.  
+  - Focus on materials with **widespread ecological damage** (e.g., **fossil fuels**, key minerals, toxics).  
+  - Benefits: **far fewer tax points**, lower admin burden, avoids bespoke rates on countless final goods.
+
+
+
+
+## Beyond Taxes: Standards & Mandates
+
+- **Performance/tech standards** (e.g., fuel-efficiency rules) and **mandated controls** (e.g., catalytic converters) can cut emissions **without** directly pricing each unit.  
+- Standards often raise **upfront/capital costs**, so that prices can rise (**resemble a tax**), while **energy-efficient equipment** uses less fuel/power, so lifetime bills may fall.
+- Useful where **damage estimates are uncertain**, **admin is hard**, or **health/ecological thresholds** justify minimum standards alongside prices.
+
+
+<!-- ##  -->
+
+<!-- <div style="display:block; margin:-80px;"></div> -->
+
+
+<!-- :::: {.columns} -->
+<!-- ::: {.column width="50%"} -->
+
+<!-- #### 💰 Market Instruments  -->
+
+<!-- <div style="display:block; margin:-30px;"></div> -->
+
+<!-- **Advantages**   -->
+<!-- - Cost-effective allocation of reductions   -->
+<!-- - Incentivizes continuous innovation   -->
+<!-- - Flexibility in compliance strategies   -->
+<!-- - Generates revenue (taxes)   -->
+<!-- - Quantity certainty (cap-and-trade) -->
+
+<!-- <div style="display:block; margin:-20px;"></div> -->
+
+<!-- **Disadvantages**   -->
+<!-- - Uncertainty (price vs. emissions)   -->
+<!-- - Requires monitoring & enforcement   -->
+<!-- - Politically unpopular (“tax”)   -->
+<!-- - Can be regressive without compensation   -->
+<!-- - Risk of carbon leakage (industry relocation) -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="50%"} -->
+
+<!-- #### ⚙️ Standards & Mandates   -->
+
+<!-- <div style="display:block; margin:-40px;"></div> -->
+
+<!-- **Advantages**   -->
+<!-- - Clear, simple to enforce   -->
+<!-- - Guarantees minimum protection   -->
+<!-- - Useful under uncertainty/difficult admin   -->
+<!-- - Ensures equity across firms/consumers   -->
+<!-- - Direct health & ecological co-benefits   -->
+
+<!-- <div style="display:block; margin:-20px;"></div> -->
+
+<!-- **Disadvantages**   -->
+<!-- - Less cost-effective overall   -->
+<!-- - No incentive once standard is met   -->
+<!-- - Risk of stifling innovation (if prescriptive)   -->
+<!-- - Raises upfront capital costs   -->
+<!-- - May only address part of the problem   -->
+
+<!-- ::: -->
+<!-- :::: -->
+
+<!-- ## Policy Mix -->
+<!-- - Governments often **combine tools**: -->
+<!--   - Carbon pricing for efficiency -->
+<!--   - Standards for minimum protection -->
+<!--   - Subsidies/innovation funding for new tech -->
+
+<!-- ## Practical Design Choices -->
+
+<!-- - **Set the right tax**: Requires damage estimation (economics + science). -->
+<!-- - **Administrative cost** vs **benefit**: Not every small externality warrants a bespoke tax. -->
+<!-- - **Upstream taxes**: Levy at **raw inputs** (fossil fuels, toxic chemicals, ores) to simplify coverage; costs ripple downstream to products according to input intensity. -->
+<!-- - **Revenue recycling**: Use proceeds for **rebates**, **tax credits**, **rate relief**, or **public goods** to address equity/political feasibility. -->
+
+
+<!-- ## Incidence & Elasticities -->
+
+<!-- - Tax burden split depends on **price elasticities** of supply and demand. -->
+<!--   - That is, how responsive the quantity supplied and demanded are to price changes. -->
+<!--   - Bottom line: Steeper (less elastic) side bears **more** burden. -->
+<!-- - Common claim “firms pass it all on” is generally **false**; division is **empirical**. -->
+
+
+<!-- ## Distributional Concerns -->
+<!-- :::{.nonincremental} -->
+<!-- - Many environmental taxes (e.g., on fuels) can be **regressive**. -->
+<!-- - Policy package can include **lump‑sum rebates**, **earned income credits**, or **targeted transfers** to protect **low‑income** households. -->
+<!-- ::: -->
+
+<!-- ::: callout-note -->
+<!-- A 2013 estimate put global primary‑industry externalities near **$7.3T (~13% of world output)**; in magnitude, **comprehensive Pigovian systems** could rival global tax revenues—raising ideas of **tax swaps**. (Use with caution; orders of magnitude, not precise policy blueprints.) -->
+<!-- ::: -->
+
+## The Top Externalities of the Global Market
+
+<div style="text-align: center; width: 90%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/snp-global-externalities.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+Environmental damage costs generated by companies in the S&P Global Broad Market Index by sector group in 2021.
+
+
+## The Top Externalities of the Global Market
+
+<div style="text-align: center; width: 90%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/snp-global-externalities-pct.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+Source: [S&P Global Sustainable1](https://www.spglobal.com/sustainable1/en/insights/blogs/unpriced-environmental-costs-the-top-externalities-of-the-global-market).
+
+
+
+# Positive Externalities {background-color="#1c4982"}
+
+## Positive Externalities: Market Outcome & Policy
+
+- **Examples**: solar panels (emissions reductions), vaccinations, R&D spillovers, urban trees.
+
+- In an unregulated market, **beneficial spillovers aren’t rewarded** → **underproduction**:
+<div style="text-align:center">
+  *PMB < SMB  ⇒  $Q_{M}$ <* $Q^{*}$ → **welfare loss**.
+</div>
+
+<div style="display:block; margin:15px;"></div>
+
+- **Goal:** internalize social benefits to reach the **efficient level** $Q^{*}$
+- **Solar PV example:**
+  - Neighbors learn from one household’s installation/operation experience.
+  - If one home’s solar panels make more electricity than that home uses during the day, the extra can flow onto the neighborhood.
+
+
+
+## The Market for Solar Energy
+
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-4.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- **SMB = PMB + EMB**, where **EMB** is *external marginal benefit*.
+
+:::
+::::
+
+
+
+
+<!-- ::: callout-note -->
+<!-- **Figure 3.4 (explained):** SMB lies **above** demand by the vertical EMB. Market stops at **QM**, but **$Q^{*}$** is larger because **SMB > SMC** for units between QM and $Q^{*}$. -->
+<!-- ::: -->
+
+## The Market for Solar Energy with a Subsidy
+
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-5.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- A **producer subsidy** of $s$ per unit **lowers** effective marginal cost (<u>downward supply shift</u>).
+- A **consumer subsidy (e.g., tax credit)** **raises** effective willingness‑to‑pay (<u>upward demand shift</u>).
+
+:::
+::::
+
+- **Correct subsidy** aligns the market with **$Q^{*}$** where **SMC = SMB**.
+
+
+
+<!-- ::: callout-note -->
+<!-- **Figure 3.5 (explained):** With the subsidy, equilibrium quantity expands to **$Q^{*}$**; price effects differ for producers vs consumers, but the quantity target is the same. -->
+<!-- ::: -->
+
+# Welfare Analysis of Externalities {background-color="#1c4982"}
+
+## Welfare Analysis of the Automobile Market
+
+
+::::{.columns}
+::: {.column width="67.5%"}
+
+<div style="text-align: center; width: 75%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-6.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="32.5%"}
+
+
+- **Consumer Surplus (CS):** Area **under demand** and **above price**.
+- **Producer Surplus (PS):** Area **above supply (PMC)** and **below price**.
+
+:::
+::::
+
+- Without externalities, equilibrium maximizes **CS + PS**.
+
+
+
+<!-- ::: callout-note -->
+<!-- **Figure 3.6 (explained):** At $(P_{M}, Q_{M})$, CS = area **A**; PS = area **B**. -->
+<!-- ::: -->
+
+
+
+## Welfare Analysis of the Automobile Market
+### Without Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-2-cs-ps.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+Without Pigouvian tax, consumers and producers enjoys higher <span style="color:blue">**CS**</span> and <span style="color:red">**PS**</span> than with the tax.
+
+<!-- - This reflects **private surplus** only. -->
+
+
+
+
+
+
+## Welfare Analysis of the Automobile Market
+### Without Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-2-cs-ps-ex.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+However, these market activities impose a **negative external costs** to third parties, represented by the area **between PMC and SMC** up to the chosen quantity ($Q_{M}$).
+
+
+## Welfare Analysis of the Automobile Market
+### Without Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-2-cs-ps-ex-net.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+
+With such a negative externality, true **social welfare (SW)** is:
+  $$
+  \begin{align}
+  &\quad\;\; (\text{SW})\,=\, (\text{CS} + \text{PS}) \,-\, (\text{External Cost}).
+  \end{align}
+  $$
+
+
+## Welfare Analysis of the Automobile Market
+### Without Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-7.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+Triangle **C** is the **deadweight loss** from overproduction where **SMC > MB**.
+
+
+## Welfare Analysis of the Automobile Market
+### With Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+With Pigouvian tax, <span style="color:blue">**CS**</span> and <span style="color:red">**PS**</span> are measured over quantities from 0 to **$Q^{*}$**, the new equilibrium quantity.
+
+
+## Welfare Analysis of the Automobile Market
+### With Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps-tr.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+<span style="color:green">**Tax revenue**</span> equals $t\times Q^{*}$.
+
+
+
+## Welfare Analysis of the Automobile Market
+### With Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps-tr-ex.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+Pigouvian tax caps **external damage** by shifting the market to the efficient quantity $Q^{*}$.
+
+
+## Welfare Analysis of the Automobile Market
+### With Pigouvian Tax
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-cs-ps-tr-ex-net.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+With such a negative externality, true **social welfare (SW)** is:
+  $$
+  \begin{align}
+  &\quad\;\; (\text{SW})\,=\, (\text{CS} + \text{PS} + \text{Tax Revenue}) \,-\, (\text{External Cost}).
+  \end{align}
+  $$
+  
+- **Pigovian Tax Improves Welfare**: welfare **rises by C** relative to the unregulated outcome.
+
+
+
+
+<!-- ## Pigovian Tax Improves Welfare -->
+
+<!-- ::::{.columns} -->
+<!-- ::: {.column width="67.5%"} -->
+
+<!-- <div style="text-align: center; width: 75%; margin: auto;"> -->
+<!--   <img src="https://bcdanl.github.io/lec_figs/hr-fig3-8.png" style="width: 100%; margin-bottom: -20px;"> -->
+<!--   <p style="font-weight: bold;"></p> -->
+<!-- </div> -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width="32.5%"} -->
+
+<!-- - Set tax so that the equilibrium moves to **$Q^{*}$**. -->
+<!-- - **Tax revenue** equals the **external damages at $Q^{*}$** (rectangle **D**): revenue can **compensate** for damages. -->
+
+<!-- ::: -->
+<!-- :::: -->
+
+<!-- - Net social welfare becomes **A'' + B''**; hence welfare **rises by C** relative to the unregulated outcome. -->
+
+
+<!-- ::: callout-tip -->
+<!-- **Takeaway:** Properly set **taxes/subsidies eliminate the deadweight loss** created by externalities and **increase net social welfare**. -->
+<!-- ::: -->
+
+<!-- ## Deadweight Loss (DWL) — Definition -->
+
+<!-- - **DWL** is the loss in total surplus relative to the efficient outcome. -->
+<!-- - With negative externalities and no policy: DWL is the triangle **between $Q^{*}$** and **QM** where **SMC > MB**. -->
+
+
+## Optimal Pollution
+- **Zero pollution** generally implies **zero production**; instead, economists seek the **efficient** (not necessarily zero) level of pollution given current <u>*technology*</u> and <u>*preferences*</u>.
+  - The **Pigovian tax** yields **optimal (residual) pollution**—the remaining damages at **$Q^{*}$**.
+- **Caveat**: If demand shifts right (e.g., autos more valued), the **efficient** pollution level can rise—raising questions about **science‑based caps** vs. **pure efficiency**.
+
+::: callout-note
+- **Preferences** (what people want—<u>demand</u>) and **technology** (what/how much outputs can be produced from scarce inputs—<u>supply</u>), given **endowments** (initial resources) and **prices**, jointly determine **market equilibrium** and **welfare**, as **consumers maximize utility** and **firms maximize profit**.
+- Policy practice often sets **health‑based standards** (e.g., the Clean Air Act) and then uses market instruments to **achieve** those standards cost‑effectively.
+:::
+
+## Tax Incidence
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-tax-revenue.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+<span style="color:green">**Tax Revenue**</span>: $t \times Q^{*}$
+
+**Tax incidence**: The division of the tax burden between consumers and producers, determined by the relative elasticities of demand and supply.
+
+
+## Tax Incidence
+
+<div style="text-align: center; width: 45%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig3-3-ci-pi.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+<span style="color:blue">**Consumer incidence**</span>: The amount to which **CS** decreases, measured over quantities from $0$ to $Q^{*}$ $\;\rightarrow\;$ Tax falls on *consumers*, who pay $P^{*} - P_{M}$ *more* per unit.
+
+<span style="color:red">**Producer incidence**</span>: The amount to which **PS** decreases, measured over quantities from $0$ to $Q^{*}$ $\;\rightarrow\;$ Tax falls on *producers*, who receive $P_{M} - P_{0}$ *less* per unit.
+
+
+## Tax Incidence: Ordinary vs. Pigouvian Tax
+
+<div style="display:block; margin:-20px;"></div>
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+#### Ordinary Tax (in a Competitive Market)
+- **Incidence**:  
+  - <span style="color:blue">Consumers</span> pay higher price ($P^{*} - P_{M}$).  
+  - <span style="color:red">Producers</span> receive lower price ($P_{M} - P_{0}$).  
+- **Welfare effect**:  
+  - Creates **deadweight loss (DWL)**.  
+  - Total surplus falls.
+:::
+
+::: {.column width="50%"}
+#### Pigouvian Tax
+- **Incidence**:  
+  - <span style="color:blue">Consumers</span> and <span style="color:red">Producers</span> still share burden depending on elasticities.  
+- **Welfare effect**:  
+  - **Internalizes externality** (e.g., pollution).  
+  - Reduces overproduction: $Q_{M} \rightarrow Q^{*}$.  
+  - Improves **social welfare** by offsetting external damages.
+:::
+
+:::: 

@@ -1,0 +1,90 @@
+---
+title: "Group 10"
+subtitle: "Dietary Decisions and Global Emissions: How Everyday Food Choices Shape Climate Outcomes"
+author: Byeong-Hak Choe
+institute: SUNY Geneseo
+date: 2025-11-25
+
+code-fold: false
+
+execute:
+  echo: true
+  eval: true
+  message: false
+  warning: false
+  fig-width: 9
+  fig-height: 6
+---
+
+Dear Group 10,
+
+Thank you for your **Research Kick-off Report** on dietary choices and global emissions. You did a nice job highlighting the role of high-emission foods (especially meat) and linking them to externalities. The project has strong potential, especially if you **narrow the scope to a small set of foods** and connect your narrative more tightly to **externality theory** and **clear, literature-based emission estimates**.
+
+Remember that you are working toward a **presentation** and a **final proposal**. Focus on **environmental economics reasoning**, using **existing studies, emission factors, and descriptive evidence** to build your argument and inform policy recommendations.
+
+---
+
+### Next Steps
+
+Over the next few weeks, aim to:
+
+- **Narrow the scope of foods**  
+  Choose a **small set of foods** (e.g., one or two high-emission items and one lower-emission alternative) so that your comparisons and scenarios are clear and concrete.
+
+- **Use existing emission estimates (no original data work needed)**  
+  Draw on **published life-cycle analysis estimates** of emissions for your chosen foods and summarize them in a **simple table or figure**. You can treat any numerical examples as **illustrative** rather than as a full data-analysis project.
+
+- **Develop one or two diet-shift scenarios**  
+  Specify a small number of **diet-shift scenarios** (e.g., modest reductions in a high-emission food or partial substitution toward a lower-emission option) and **approximate** the associated emissions changes using the literature-based factors you find.
+
+- **Tie everything to externality theory**  
+  Relate your scenarios explicitly to **externality theory**:  
+  - How do **unpriced emissions** from food production lead to **overconsumption** of certain foods?  
+  - How would your proposed policy tools (taxes, subsidies, information campaigns, standards, etc.) help move behavior closer to the **social optimum**?
+
+- **Clarify your policy implications**  
+  Draft a short **policy implications** section that explains how your economic framework and illustrative calculations could inform efforts to align **dietary choices** with **climate objectives**, while also considering **equity** (who is most affected by price and policy changes).
+
+---
+
+### Suggested References
+
+You do **not** need to read everything in full detail, but it will be helpful to **cite and draw simple descriptive figures or tables** from some of these:
+
+- [*“Food systems are responsible for a third of global anthropogenic GHG emissions”*](https://bcecon.github.io/docs/crippa-etal-nature-food-2021-food-system-emissions.pdf) (Nature Food, 2021)
+- [*“Global food system emissions could preclude achieving the 1.5° and 2°C climate change targets”*](https://www.science.org/doi/full/10.1126/science.aba7357) (Science, 2020)
+- [*“Livestock-related greenhouse gas emissions: impacts and options for policy makers”*](https://bcecon.github.io/docs/garnett-environmental-science-policy-2009-livestock-emissions.pdf) (Environmental Science & Policy, 2009)  
+
+Whenever possible, I **strongly recommend** adding at least **one clear visualization and/or descriptive statistic** from these references (or similar work) to your **presentation slides** and **final proposal**. For example:
+
+- A **visualization** showing the share of global emissions from food systems or livestock.
+- A **table** comparing emissions per kilogram (or per serving) of a few key foods.
+- A **graph** illustrating how food-system emissions interact with 1.5°C or 2°C climate pathways.
+
+These visuals will help **motivate your research question** and make the **economic stakes** more tangible for your audience.
+
+---
+
+### Questions to Think About as You Refine Your Final Proposal
+
+You do **not** need to answer all of these, but they may help you refine your **narrative**, **economic reasoning**, and **policy recommendations**:
+
+#### a. Behavioral & Information Barriers
+
+- What are the main **behavioral and information barriers** to shifting diets toward lower-carbon options (e.g., misperceptions about nutrition or climate impact, habits, social norms, identity, taste preferences)?
+- How might these barriers differ across **income groups or cultures**, and how could that shape which **policy tools** (taxes, subsidies, information campaigns, labeling, defaults) are most appropriate?
+
+#### b. Consumer vs. System Perspective
+
+- How much can **individual dietary changes** achieve in isolation, assuming the broader food system (prices, availability, menus, marketing) does **not** change much in the short run?  
+- In contrast, where do **system-level changes** (e.g., institutional procurement, school and workplace menus, labeling standards, public procurement) become necessary for **large emission reductions**, and how would you describe the **interaction** between individual choices and system-level constraints in economic terms?
+
+#### c. Norms & Social Spillovers
+
+- Can diet-related climate action spread through **social norms and peer effects** (for example, when seeing more plant-based options around you changes what feels “normal” to eat)?  
+- How might you model these **social spillovers** using economic concepts—for instance, as a kind of **externality**, as a shift in **preferences over time**, or as something that gradually **shifts demand curves** for different foods?
+
+---
+
+Best,  
+Byeong-Hak

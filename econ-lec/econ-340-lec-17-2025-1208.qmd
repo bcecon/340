@@ -1,0 +1,911 @@
+---
+title: Lecture 17
+subtitle: "Class Survey Results vs. Professional Consensus: Pre- and Post-Course Comparison"
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide_cluster.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-12-08
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+
+theme_set(theme_fivethirtyeight() +
+            theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+```
+
+# 📊 Class Survey Results: Pre- and Post-Course Comparison {background-color="#1c4982"}
+
+
+## 💵 Carbon Markets and Carbon Offsets
+
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-80px;"></div>![](https://bcdanl.github.io/lec_figs/agree_06_cluster.png "Carbon markets/offsets are efficient for firms")
+:::
+
+::: {.column width="25%"}
+<br>
+**Professional Economists (2023)**: *56.84%* agree
+:::
+
+::::
+
+<div style="display:block; margin:-60px;"></div>
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- **Class Support:**  
+  - **Pre-Course:** 31%  
+  - **Post-Course:** 81%  
+
+:::
+::: {.column width="50%"}
+
+- **Change:** **+50% points** → strong convergence toward market-based GHG regulation
+
+:::
+::::
+::::
+
+
+## ♻️ Recycling Carbon Revenues
+
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-80px;"></div>![](https://bcdanl.github.io/lec_figs/agree_07_cluster.png "Return carbon revenues via dividends / lower income taxes")
+:::
+
+::: {.column width="25%"}
+<br>
+**Professional Economists (2023)**: *55.5%* agree
+:::
+
+::::
+
+
+<div style="display:block; margin:-60px;"></div>
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- **Class Support:**  
+  - **Pre-Course:** 24%  
+  - **Post-Course:** 71%  
+
+:::
+::: {.column width="50%"}
+- **Change:** **+47% points** → major shift toward revenue-recycling policy
+
+:::
+::::
+::::
+
+
+## 🌍 Carbon Border Adjustment Mechanism (CBAM)
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-80px;"></div>![](https://bcdanl.github.io/lec_figs/favor_04_cluster.png "Tax imports based on embedded GHGs (border adjustment)")
+:::
+
+::: {.column width="25%"}
+<br>
+**Professional Economists (2023)**: *67.72%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-60px;"></div>
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- **Class Support:**  
+  - **Pre-Course:** 44%  
+  - **Post-Course:** 76%  
+
+:::
+
+::: {.column width="50%"}
+- **Change:** **+32% points** → increased awareness of carbon leakage and trade policy
+
+:::
+::::
+::::
+
+
+## 📈 Limits to Economic Growth
+
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-80px;"></div>![](https://bcdanl.github.io/lec_figs/agree_10_cluster.png "There exists a maximum sustainable level of economic growth")
+:::
+
+::: {.column width="25%"}
+<br>
+**Professional Economists (2023)**: *44.21%* agree
+:::
+
+::::
+
+
+<div style="display:block; margin:-60px;"></div>
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Class Support:**  
+  - **Pre-Course:** 56%  
+  - **Post-Course:** 81%  
+
+:::
+
+::: {.column width="50%"}
+- **Change:** **+25% points** → increased awareness of long-run growth limits under climate change
+
+:::
+::::
+::::
+
+## 🏠⚡ Home Clean-Energy Tax Credits
+
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-80px;"></div>![](https://bcdanl.github.io/lec_figs/favor_07_cluster.png "Home clean‑energy tax credits")
+:::
+
+::: {.column width="25%"}
+<br>
+**Professional Economists (2023)**: *61.26%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-60px;"></div>
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- **Class Support:**  
+  - **Pre-Course:** 81%  
+  - **Post-Course:** 100%  
+
+:::
+
+
+::: {.column width="50%"}
+- **Change:** **+19% points** → unanimous post-course support
+
+:::
+::::
+::::
+
+
+## 🏛️ EPA Regulatory Authority
+
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-80px;"></div>![](https://bcdanl.github.io/lec_figs/agree_02_cluster.png "Reducing EPA regulatory power improves efficiency")
+:::
+
+::: {.column width="25%"}
+<br>
+**Professional Economists (2023)**: *80.63%* disagree
+:::
+
+::::
+
+<div style="display:block; margin:-60px;"></div>
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+- **Class Disagreement:**  
+  - **Pre-Course:** 38%  
+  - **Post-Course:** 57%  
+
+:::
+
+::: {.column width="50%"}
+- **Change:** **+19% points** → Growing recognition that **EPA regulation improves economic efficiency**
+
+
+:::
+::::
+::::
+
+
+# ✅ **Course Summary** {background-color="#1c4982"}
+
+
+
+## 📘 What We Learned This Semester
+<div style="display:block; margin:-10px;"></div>
+
+:::: nonincremental
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: fragment
+- **Market Failures**
+  - **Externalities**
+  - **Open Access**
+  - **Public Goods**
+  - **Information Problems**
+  - **Incentive Problems**
+  - **Behavioral Anomalies**
+
+:::
+
+<div style="display:block; margin:-18px;"></div>
+::: fragment
+- **The Coase Theorem**
+
+- **Policy Design:** **Incentives**,**Information**, **Institutions**, & **Social Norms**
+
+:::
+
+<div style="display:block; margin:-18px;"></div>
+::: fragment
+- **Career in Sustainability & Environmental Economics**
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: fragment
+
+- **Cost–Benefit Analysis**
+  - **Discount Rate**
+  - **Social Cost of Carbon**
+  - **Value of Statistical Life**
+
+:::
+
+
+<div style="display:block; margin:-18px;"></div>
+::: fragment
+
+- **Market for Pollution: Price vs. Quantity Approaches**
+
+:::
+
+<div style="display:block; margin:-18px;"></div>
+::: fragment
+
+- **Climate Agreements**
+  - **Institutions & Incentives**
+  - **Game Theory**
+
+:::
+
+<div style="display:block; margin:-18px;"></div>
+::: fragment
+
+- **Climate Risk and Adaptation**
+
+:::
+
+<div style="display:block; margin:-18px;"></div>
+::: fragment
+
+- 🌍👤 **<u>Course Project</u>: Climate Change and the Individual**
+
+:::
+
+<!-- <div style="display:block; margin:-45px;"></div> -->
+
+<!-- <div style="text-align: center;"> -->
+<!-- <span class="fragment"><u></u></span> -->
+
+<!-- </div> -->
+
+:::
+::::
+::::
+
+
+
+  
+## 📝 Student Course Evaluation (SCE)
+<div style="display:block; margin:-10px;"></div>
+
+:::{.nonincremental}
+I have made every effort to enhance your learning experience in this course.  
+
+<div style="display:block; margin:-10px;"></div>
+
+Your feedback is extremely valuable and helps improve future classes.  
+
+<div style="display:block; margin:-10px;"></div>
+
+I sincerely encourage your participation in the **Student Course Evaluation (SCE)**.
+:::
+
+<div style="display:block; margin:40px;"></div>
+
+::: fragment
+### ✅ Please Take 10 Minutes Now to Complete the SCE
+
+<div style="display:block; margin:-10px;"></div>
+
+On your laptop, follow these steps to access the SCE for **ECON 340**:
+
+1. Log in to the [**SCE Survey Portal**](https://go.geneseo.edu/scesurveys)
+2. Click on **“Surveys”**
+3. Select **ECON 340** and complete the evaluation
+
+<div style="display:block; margin:-30px;"></div>
+<span class="fragment">Thank you for your time and thoughtful feedback.</span>
+
+:::
+
+
+# Post-Course Survey Results {background-color="#1c4982"}
+
+## Concern: Air quality
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/concern_01_cluster.png "How concerned are you about air quality?")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: 57.14% concerned
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 31% more concerned than professional economists.
+- **After**: Our class is 46% more concerned than professional economists.
+
+## Concern: Environmental justice
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/concern_02_cluster.png "How concerned are you about environmental justice?")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *53.97%* concerned
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 21% more concerned than professional economists.
+- **After**: Our class is 27% more concerned than professional economists.
+
+
+## Concern: Renewable energy
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/concern_03_cluster.png "How concerned are you about renewable energy?")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *45.21%* concerned
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 35% more concerned than professional economists.
+- **After**: Our class is 46% more concerned than professional economists.
+
+
+## Concern: Mining impacts
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/concern_04_cluster.png "How concerned are you about mining impacts?")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *40.64%* concerned
+:::
+
+::::
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 16% more concerned than professional economists.
+- **After**: Our class is 17% more concerned than professional economists.
+
+## Concern: Solid waste
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/concern_05_cluster.png "How concerned are you about solid waste?")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *39.46%* unconcerned
+:::
+
+::::
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 37% more concerned than professional economists.
+- **After**: Our class is 23% more concerned than professional economists.
+
+
+## Concern: Hazardous waste
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/concern_06_cluster.png "How concerned are you about hazardous waste?")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *38.38%* neutral
+:::
+
+::::
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 50% more concerned than professional economists.
+- **After**: Our class is 48% more concerned than professional economists.
+
+## Policy Support: Methane limits (natural gas production)
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_01_cluster.png "Establish strict methane limits in natural gas production")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *75.39%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 7% more supportive than professional economists.
+- **After**: Our class is as supportive as professional economists.
+
+## Policy Support: International agreements
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_02_cluster.png "International environmental agreements")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *74.35%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 26% more supportive than professional economists.
+- **After**: Our class is 12% more supportive than professional economists.
+
+
+## Policy Support: EV charging stations (federal funding)
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_03_cluster.png "EV charging stations (federal funding)")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *68.95%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 31% less supportive than professional economists.
+- **After**: Our class is 31% less supportive than professional economists.
+
+
+## Policy Support: Border carbon adjustment (tax imports by GHG)
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_04_cluster.png "Tax imports based on embedded GHGs (border adjustment)")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *67.72%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 24% less supportive than professional economists.
+- **After**: Our class is 9% more supportive than professional economists.
+
+
+## Policy Support: Higher fuel-efficiency standards
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_05_cluster.png "Higher fuel-efficiency standards")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *66.84%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 15% more supportive than professional economists.
+- **After**: Our class is 20% more supportive than professional economists.
+
+
+## Policy Support: Business incentives for clean energy
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_06_cluster.png "Business tax incentives for clean energy")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *63.35%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 18% more supportive than professional economists.
+- **After**: Our class is 18% more supportive than professional economists.
+
+
+## Policy Support: Home clean‑energy tax credits
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_07_cluster.png "Home clean‑energy tax credits")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *61.26%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 20% more supportive than professional economists.
+- **After**: Our class is 39% more supportive than professional economists.
+
+
+## Policy Support: EV purchase tax credits
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/favor_08_cluster.png "EV purchase tax credits")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *51.85%* favor
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is as supportive as professional economists.  
+- **After**: Our class is as supportive as professional economists.
+
+
+## Agree: EJ regulation should be implemented
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_01_cluster.png "Regulation should address environmental justice")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *81.15%* agree
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 6% more supportive than professional economists.
+- **After**: Our class is 9% more supportive than professional economists.
+
+
+
+## Agree: Reduce EPA regulatory power improves efficiency
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_02_cluster.png "Reducing EPA regulatory power improves efficiency")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *80.63%* disagree
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 42% less disagreement than professional economists.
+- **After**: Our class is 24% less disagreement than professional economists.
+
+
+
+## Agree: Communities near hazardous waste sites are aware/accepting
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_03_cluster.png "Communities near hazardous waste sites are aware/accepting")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *75.39%* disagree
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 12% more supportive than professional economists.
+- **After**: Our class is as supportive as professional economists.
+
+
+## Agree: Free market / property rights / tort law are best tools
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_04_cluster.png "Free market/property rights/tort law are best tools")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *73.44%* disagree
+:::
+
+::::
+
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 49% less disagreement than professional economists.
+- **After**: Our class is 25% less disagreement than professional economists.
+
+
+## Agree: Economic growth always harms the environment
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_05_cluster.png "Economic growth always harms the environment")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *70.16%* disagree
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 5% more disagreement than professional economists.
+- **After**: Our class is 18% more disagreement than professional economists.
+
+
+## Agree: Carbon markets and offsets are efficient for firms
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_06_cluster.png "Carbon markets/offsets are efficient for firms")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *56.84%* agree
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 26% less supportive than professional economists.
+- **After**: Our class is 24% more supportive than professional economists.
+
+
+## Agree: Return carbon revenues via dividends / lower taxes
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_07_cluster.png "Return carbon revenues via dividends / lower income taxes")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *55.5%* agree
+:::
+
+::::
+
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 32% less supportive than professional economists.
+- **After**: Our class is 15% more supportive than professional economists.
+
+
+## Agree: Use carbon revenues to reduce national debt
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_08_cluster.png "Use carbon revenues to reduce national debt")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *42.63%* neutral
+:::
+
+::::
+
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 5% less neutral than professional economists.  
+- **After**: Our class is 17% less neutral than professional economists.
+
+## Agree: Emission standards are rigid / insensitive to differences
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_09_cluster.png "Emissions standards are rigid / insensitive to differences")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *49.74%* agree
+:::
+
+::::
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 13% more supportive than professional economists.
+- **After**: Our class is as supportive as professional economists.
+
+
+## Agree: Max sustainable level of economic growth exists
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_10_cluster.png "There exists a maximum sustainable level of economic growth")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *44.21%* agree
+:::
+
+::::
+
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 12% more supportive than professional economists.
+- **After**: Our class is 37% more supportive than professional economists.
+
+
+## Agree: Population growth degrades the environment
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="display:block; margin:-40px;"></div>![](https://bcdanl.github.io/lec_figs/agree_11_cluster.png "Population growth inevitably degrades the environment")
+:::
+
+::: {.column width="25%"}
+<br>
+**Economists**: *41.58%* disagree
+:::
+
+::::
+
+
+<div style="display:block; margin:-75px;"></div>
+- **Before**: Our class is 24% less disagreement than professional economists.
+- **After**: Our class is 28% less disagreement than professional economists.
+

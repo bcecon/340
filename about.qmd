@@ -1,0 +1,84 @@
+---
+title: Byeong-Hak Choe
+# subtitle: <div style="display:block"><bh>Byeong-Hak Choe</bh></div>
+date: ""
+date-modified: ""
+about:
+  template: trestles # jolla trestles solana marquee broadside
+  image: img/bchoe-github.png
+  image-width: 12.5em
+  links: 
+    # - text: "{{< fa brands x-twitter >}}"
+    #   href: https://twitter.com/climate_econ
+    #   target: _blank
+    - icon: github
+      href: https://github.com/bcecon
+      target: _blank
+    - icon: linkedin
+      href: https://www.linkedin.com/in/byeonghakchoe/
+      target: _blank
+    - text: CV
+      href: https://bcecon.github.io/choe-cv.pdf
+      target: _blank
+    - icon: envelope
+      href: mailto:bchoe@geneseo.edu
+
+cood-tools: false
+comments: false
+toc: false
+from: markdown+emoji
+css: front.css
+page-layout: full
+---
+
+
+
+<font size = "4">Hello! 👋 </font>
+
+<div style="display:block; margin:15px;"></div>
+
+I am an **assistant professor of data analytics and economics** at School of Business at SUNY Geneseo.
+
+I am particularly interested in the **economic aspects of environmental issues and climate change**.
+
+In teaching, I combine **economics, data science, and generative AI**. My students use **data visualization**, **machine learning**, **econometrics**, and **AI-assisted methods** to address challenges in **business strategy**, **public policy**, and **individual decision-making**.
+
+🔗 Teaching website for data analytics:  
+
+- <a href="https://bcdanl.github.io/210" target="_blank" rel="noopener">DANL 210: Data Preparation and Management, Spring 2026</a>
+- <a href="https://bcdanl.github.io/310" target="_blank" rel="noopener">DANL 310: Data Visualization and Presentation, Spring 2026</a>
+- <a href="https://bcdanl.github.io/320" target="_blank" rel="noopener">DANL 320: Big Data Analytics, Spring 2026</a>
+- <a href="https://bcdanl.github.io/410" target="_blank" rel="noopener">DANL 410: Data Analytics Capstone, Spring 2026</a>
+- <a href="https://bcdanl.github.io/101" target="_blank" rel="noopener">DANL 101: Introduction to Data Analytics, Fall 2025</a>
+- <a href="https://bcecon.github.io/340" target="_blank" rel="noopener">ECON 340: Environmental Economics, Fall 2025</a>
+
+<div style="display:block; margin:50px;"></div>
+
+
+<!-- Teaching website for data analytics is [here](https://bcdanl.github.io/){target="_blank"}. -->
+
+
+## Research
+
+<div style="display:block; margin:-10px;"></div>
+
+### Working papers
+
+1️⃣ Social Media Campaign, Lobbying, and Legislation: Evidence from #cliamtechange and Energy Lobbies\
+2️⃣ Climate Finance under Conflicts and Renegotiations: A Dynamic Contract Approach
+
+
+### Work in progress
+
+🌟 '*Hiding Behind a Small Cake*' in an Online Dictator Game: The Way You Hide Matters!, (with Tabaré Capitan (1st author) , Jason Shogren, and Benjamin White).\
+🌟 Estimating the Value of Statistical Life through Big Data, (with [Stephen Newbold](https://www.stevenewbold.com)).
+
+
+
+### Book chapters
+
+💡 [Governance and Climate Finance in the Developing World](https://link.springer.com/chapter/10.1007/978-981-97-3308-8_7) (with [Tilsa Oré-Monago](https://tilsaore.github.io)).\
+  -&nbsp;In Wu, F., Zhang, D., and Ji, Q. (Eds.), *Climate Finance: Supporting a Sustainable Energy Transition*, Chapter 7, Springer Nature (July, 2024).
+  
+
+<br>

@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Byeong-Hak Choe">
+<meta name="dcterms.date" content="2025-12-02">
+
+<title>Homework 5 | Byeong-Hak Choe</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../assets/css/font.css">
+<meta property="og:title" content="Homework 5 | Byeong-Hak Choe">
+<meta property="og:description" content="Climate Adaptation">
+<meta property="og:image" content="/assets/img/posts.png">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/geneseo-logo-squared.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">💡 What I Do</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text"> </span></li>
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Homework 5</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📓 Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://mylearning.suny.edu/d2l/home/2152120" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">🅱 Brightspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-lec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🚀 Lecture</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-cw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📝 Classwork</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📚 Homework</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-rw-feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">💡 Research Feedback</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">✍️️ Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-team-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📄 Guideline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-project-kickoff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🧾 Research Kick-off</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">🗓️ Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 05</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 06</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 08</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 09</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weeks 15-16</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title"><img src="../img/logo-geneseo.jpg" style="height:48px; display:inline-block; vertical-align:middle; margin-right:0px;"> <span style="display:inline-block; vertical-align:middle; font-family:Arial; font-weight:bold; line-height:1.05;"> Environmental<br>Economics </span><br>
+<br>On this page</h2>
+   
+  <ul>
+  <li><a href="#homework-instructions" id="toc-homework-instructions" class="nav-link active" data-scroll-target="#homework-instructions">Homework Instructions</a></li>
+  <li><a href="#question-0.-survey-on-environmental-economics" id="toc-question-0.-survey-on-environmental-economics" class="nav-link" data-scroll-target="#question-0.-survey-on-environmental-economics">Question 0. Survey on Environmental Economics</a></li>
+  <li><a href="#question-1.-extreme-climate-risk-uncertainty-and-policy" id="toc-question-1.-extreme-climate-risk-uncertainty-and-policy" class="nav-link" data-scroll-target="#question-1.-extreme-climate-risk-uncertainty-and-policy">Question 1. Extreme Climate Risk, Uncertainty, and Policy</a>
+  <ul>
+  <li><a href="#background-extreme-climate-risk" id="toc-background-extreme-climate-risk" class="nav-link" data-scroll-target="#background-extreme-climate-risk">Background: Extreme Climate Risk</a></li>
+  <li><a href="#scenario-a-simple-climate-policy-choice" id="toc-scenario-a-simple-climate-policy-choice" class="nav-link" data-scroll-target="#scenario-a-simple-climate-policy-choice">Scenario: A Simple Climate Policy Choice</a>
+  <ul>
+  <li><a href="#policy-x-moderate-protection" id="toc-policy-x-moderate-protection" class="nav-link" data-scroll-target="#policy-x-moderate-protection">Policy X: Moderate Protection</a></li>
+  <li><a href="#policy-y-strong-protection-precaution" id="toc-policy-y-strong-protection-precaution" class="nav-link" data-scroll-target="#policy-y-strong-protection-precaution">Policy Y: Strong Protection / Precaution</a></li>
+  </ul></li>
+  <li><a href="#calculations-expected-damages-and-total-expected-cost" id="toc-calculations-expected-damages-and-total-expected-cost" class="nav-link" data-scroll-target="#calculations-expected-damages-and-total-expected-cost">Calculations: Expected Damages and Total Expected Cost</a>
+  <ul>
+  <li><a href="#expected-damages-under-policy-x" id="toc-expected-damages-under-policy-x" class="nav-link" data-scroll-target="#expected-damages-under-policy-x">Expected damages under Policy X</a></li>
+  <li><a href="#expected-damages-under-policy-y" id="toc-expected-damages-under-policy-y" class="nav-link" data-scroll-target="#expected-damages-under-policy-y">Expected damages under Policy Y</a></li>
+  </ul></li>
+  <li><a href="#homework-questions" id="toc-homework-questions" class="nav-link" data-scroll-target="#homework-questions">Homework Questions</a>
+  <ul>
+  <li><a href="#part-a.-comparing-policies-by-expected-total-cost" id="toc-part-a.-comparing-policies-by-expected-total-cost" class="nav-link" data-scroll-target="#part-a.-comparing-policies-by-expected-total-cost">Part A. Comparing policies by expected total cost</a></li>
+  <li><a href="#part-b.-role-of-the-rare-catastrophic-outcome" id="toc-part-b.-role-of-the-rare-catastrophic-outcome" class="nav-link" data-scroll-target="#part-b.-role-of-the-rare-catastrophic-outcome">Part B. Role of the rare catastrophic outcome</a></li>
+  <li><a href="#part-c.-risk-aversion-and-expected-total-cost" id="toc-part-c.-risk-aversion-and-expected-total-cost" class="nav-link" data-scroll-target="#part-c.-risk-aversion-and-expected-total-cost">Part C. Risk aversion and expected total cost</a></li>
+  <li><a href="#part-d.-risk-vs.-uncertainty" id="toc-part-d.-risk-vs.-uncertainty" class="nav-link" data-scroll-target="#part-d.-risk-vs.-uncertainty">Part D. Risk vs.&nbsp;uncertainty</a></li>
+  <li><a href="#part-e.-link-to-the-precautionary-principle" id="toc-part-e.-link-to-the-precautionary-principle" class="nav-link" data-scroll-target="#part-e.-link-to-the-precautionary-principle">Part E. Link to the Precautionary Principle</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#question-2.-moral-hazard-and-the-national-flood-insurance-program-nfip" id="toc-question-2.-moral-hazard-and-the-national-flood-insurance-program-nfip" class="nav-link" data-scroll-target="#question-2.-moral-hazard-and-the-national-flood-insurance-program-nfip">Question 2. Moral Hazard and the National Flood Insurance Program (NFIP)</a>
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#scenario" id="toc-scenario" class="nav-link" data-scroll-target="#scenario">Scenario</a></li>
+  <li><a href="#part-a.-no-insurance" id="toc-part-a.-no-insurance" class="nav-link" data-scroll-target="#part-a.-no-insurance">Part A. No insurance</a></li>
+  <li><a href="#part-b.-nfip-with-subsidized-premium" id="toc-part-b.-nfip-with-subsidized-premium" class="nav-link" data-scroll-target="#part-b.-nfip-with-subsidized-premium">Part B. NFIP with subsidized premium</a></li>
+  <li><a href="#part-c.-nfip-with-risk-based-actuarially-fair-premium" id="toc-part-c.-nfip-with-risk-based-actuarially-fair-premium" class="nav-link" data-scroll-target="#part-c.-nfip-with-risk-based-actuarially-fair-premium">Part C. NFIP with risk-based (actuarially fair) premium</a></li>
+  <li><a href="#part-d.-moral-hazard-and-nfip-policy" id="toc-part-d.-moral-hazard-and-nfip-policy" class="nav-link" data-scroll-target="#part-d.-moral-hazard-and-nfip-policy">Part D. Moral hazard and NFIP policy</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 5</h1>
+<p class="subtitle lead">Climate Adaptation</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Byeong-Hak Choe </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 2, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">December 2, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="homework-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="homework-instructions">Homework Instructions</h2>
+<ul>
+<li><p><strong>No Generative AI</strong>: You are <strong>not</strong> allowed to use generative AI tools for Homework Assignment 5.</p></li>
+<li><p><strong>Deadline</strong>:</p>
+<ul>
+<li>Question 0: <strong>Saturday, December 6, 2025, 11:59 PM</strong>
+<ul>
+<li>Copy the survey completion code and paste it to Brightspace.</li>
+</ul></li>
+<li>Questions 1-2: <strong>Tuesday, December 9, 2025 at 5:00 PM</strong>
+<ul>
+<li>Upload a screenshot (e.g., <code>.png</code>), PDF, or Word document to Brightspace.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+</section>
+<section id="question-0.-survey-on-environmental-economics" class="level1">
+<h1>Question 0. Survey on Environmental Economics</h1>
+<ul>
+<li><p>Please complete the <strong>anonymous</strong> <a href="../survey-post.html" target="_blank">Survey on Environmental Economics</a>.</p></li>
+<li><p>After you submit the survey, a <strong>completion code</strong> will appear for 12 seconds on the screen.</p></li>
+<li><p>Copy that code and paste it as a <strong>comment</strong> on your Homework 5 - Question 1 submission in Brightspace to receive participation credit.</p></li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="question-1.-extreme-climate-risk-uncertainty-and-policy" class="level1">
+<h1>Question 1. Extreme Climate Risk, Uncertainty, and Policy</h1>
+<section id="background-extreme-climate-risk" class="level2">
+<h2 class="anchored" data-anchor-id="background-extreme-climate-risk">Background: Extreme Climate Risk</h2>
+<p>In “normal” risk situations:</p>
+<ul>
+<li>We can list possible outcomes.</li>
+<li>We have <strong>probabilities</strong> that we (more or less) trust.</li>
+<li>We can compute an <strong>expected value</strong> and compare projects using CBA.</li>
+</ul>
+<p>For <strong>extreme climate risks</strong>, things are harder:</p>
+<ul>
+<li>There may be <strong>tipping points</strong> or <strong>irreversible damages</strong>, such as:
+<ul>
+<li>Large-scale <strong>species loss</strong>,</li>
+<li>Collapse of a major <strong>ice sheet</strong>,</li>
+<li>Major shifts in ocean circulation (e.g., Atlantic Meridional Overturning Circulation / Gulf Stream),</li>
+<li>Large <strong>methane releases</strong> from thawing permafrost.</li>
+</ul></li>
+<li>Probabilities of these events are:
+<ul>
+<li><strong>Highly uncertain</strong>,</li>
+<li>Difficult to estimate from historical data,</li>
+<li>Possibly <strong>changing over time</strong>.</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>In short: we face <strong>very large potential losses</strong> with <strong>poorly known probabilities</strong>.</p>
+</blockquote>
+<hr>
+</section>
+<section id="scenario-a-simple-climate-policy-choice" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-a-simple-climate-policy-choice">Scenario: A Simple Climate Policy Choice</h2>
+<p>You are advising a government about a <strong>climate adaptation + mitigation package</strong>.<br>
+They are comparing two stylized policy options over the next 50 years.</p>
+<section id="policy-x-moderate-protection" class="level3">
+<h3 class="anchored" data-anchor-id="policy-x-moderate-protection">Policy X: Moderate Protection</h3>
+<ul>
+<li>Reduces annual climate damages in “normal” years, but <strong>does not fully address</strong> extreme tipping risks.</li>
+<li><strong>Implementation cost</strong> (present value) of the policy: <strong>$10 billion</strong>.</li>
+<li>Based on current models, you estimate <strong>residual climate damages</strong> (not counting the policy cost) as:
+<ul>
+<li>With probability <span class="math inline">\(0.98\)</span>, damages are <strong>$100 billion</strong>.<br>
+</li>
+<li>With probability <span class="math inline">\(0.02\)</span>, a <strong>tipping point</strong> is crossed, leading to <strong>irreversible damages</strong> of <strong>$3,000$ billion</strong>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="policy-y-strong-protection-precaution" class="level3">
+<h3 class="anchored" data-anchor-id="policy-y-strong-protection-precaution">Policy Y: Strong Protection / Precaution</h3>
+<ul>
+<li>Includes <strong>aggressive mitigation</strong> and <strong>robust adaptation</strong>:
+<ul>
+<li>Higher upfront costs,</li>
+<li>But stronger effort to avoid tipping.</li>
+</ul></li>
+<li><strong>Implementation cost</strong> (present value) of the policy: <strong>$40 billion</strong>.</li>
+<li>Rough expert judgment suggests <strong>residual climate damages</strong>:
+<ul>
+<li>With probability <span class="math inline">\(0.99\)</span>, damages are <strong>$200 billion</strong>.<br>
+</li>
+<li>With probability <span class="math inline">\(0.01\)</span>, a tipping point is still crossed, but damages are <strong>$1,500$ billion</strong>.</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>In what follows, <strong>damages</strong> refer to climate-related losses only; the <strong>policy cost</strong> will be added on top when we compute total expected cost.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="calculations-expected-damages-and-total-expected-cost" class="level2">
+<h2 class="anchored" data-anchor-id="calculations-expected-damages-and-total-expected-cost">Calculations: Expected Damages and Total Expected Cost</h2>
+<section id="expected-damages-under-policy-x" class="level3">
+<h3 class="anchored" data-anchor-id="expected-damages-under-policy-x">Expected damages under Policy X</h3>
+<p>Here we compute the expected <strong>climate damages</strong> under Policy X:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[\text{Damages}_X] &amp;= P(\text{no tipping}) \times \text{Damages (no tipping)} \\
+                    &amp;\quad + P(\text{tipping}) \times \text{Damages (tipping)} \\
+                    &amp;= 0.98 \times \$100\text{ billion} \;+\; 0.02 \times \$3{,}000\text{ billion}
+\end{aligned}
+\]</span></p>
+<p>So expected damages:</p>
+<p><span class="math display">\[
+E[\text{Damages}_X] = \$98\text{ billion} + \$60\text{ billion} = \$158\text{ billion}.
+\]</span></p>
+<p>Add the policy cost of <strong>$10 billion</strong>:</p>
+<p><span class="math display">\[
+E[\text{Total Cost}_X] = \$10\text{ billion} + \$158\text{ billion} = \$168\text{ billion}.
+\]</span></p>
+<hr>
+</section>
+<section id="expected-damages-under-policy-y" class="level3">
+<h3 class="anchored" data-anchor-id="expected-damages-under-policy-y">Expected damages under Policy Y</h3>
+<p>Here we compute the expected <strong>climate damages</strong> under Policy Y:</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[\text{Damages}_Y] &amp;= P(\text{no tipping}) \times \text{Damages (no tipping)} \\
+                    &amp;\quad + P(\text{tipping}) \times \text{Damages (tipping)} \\
+                    &amp;= 0.99 \times \$200\text{ billion} \;+\; 0.01 \times \$1{,}500\text{ billion}
+\end{aligned}
+\]</span></p>
+<p>So expected damages:</p>
+<p><span class="math display">\[
+E[\text{Damages}_Y] = \$198\text{ billion} + \$15\text{ billion} = \$213\text{ billion}.
+\]</span></p>
+<p>Add the policy cost of <strong>$40 billion</strong>:</p>
+<p><span class="math display">\[
+E[\text{Total Cost}_Y] = \$40\text{ billion} + \$213\text{ billion} = \$253\text{ billion}.
+\]</span></p>
+<hr>
+</section>
+</section>
+<section id="homework-questions" class="level2">
+<h2 class="anchored" data-anchor-id="homework-questions">Homework Questions</h2>
+<section id="part-a.-comparing-policies-by-expected-total-cost" class="level3">
+<h3 class="anchored" data-anchor-id="part-a.-comparing-policies-by-expected-total-cost">Part A. Comparing policies by expected total cost</h3>
+<p>Based <strong>only</strong> on expected total cost (policy cost + expected damages), which policy looks better?<br>
+Explain briefly using the calculations from the Section of <strong>Calculations: Expected Damages and Total Expected Cost</strong></p>
+<blockquote class="blockquote">
+<p><strong>Answer (1–3 sentences):</strong><br>
+________________________________________<br>
+________________________________________</p>
+</blockquote>
+<hr>
+</section>
+<section id="part-b.-role-of-the-rare-catastrophic-outcome" class="level3">
+<h3 class="anchored" data-anchor-id="part-b.-role-of-the-rare-catastrophic-outcome">Part B. Role of the rare catastrophic outcome</h3>
+<p>Does the <strong>rare but catastrophic</strong> outcome play a big role in your expected value calculations?<br>
+Why or why not? Use the numbers from Policy X as an example.</p>
+<blockquote class="blockquote">
+<p><strong>Answer (2–4 sentences):</strong><br>
+________________________________________<br>
+________________________________________</p>
+</blockquote>
+<hr>
+</section>
+<section id="part-c.-risk-aversion-and-expected-total-cost" class="level3">
+<h3 class="anchored" data-anchor-id="part-c.-risk-aversion-and-expected-total-cost">Part C. Risk aversion and expected total cost</h3>
+<p>Imagine you are a <strong>risk-averse</strong> policymaker who is very worried about irreversible, catastrophic damages. Would you be comfortable relying <strong>only</strong> on expected total cost to choose between Policy X and Policy Y? Why or why not?</p>
+<blockquote class="blockquote">
+<p><strong>Answer (2–4 sentences):</strong><br>
+________________________________________<br>
+________________________________________</p>
+</blockquote>
+<hr>
+</section>
+<section id="part-d.-risk-vs.-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="part-d.-risk-vs.-uncertainty">Part D. Risk vs.&nbsp;uncertainty</h3>
+<p>Give <strong>one reason</strong> why extreme climate risks are closer to <strong>uncertainty</strong> (in the economist’s sense) than to well-defined risk.</p>
+<blockquote class="blockquote">
+<p><strong>Answer (1–3 sentences):</strong> ________________________________________ <!-- > \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ --></p>
+</blockquote>
+<hr>
+</section>
+<section id="part-e.-link-to-the-precautionary-principle" class="level3">
+<h3 class="anchored" data-anchor-id="part-e.-link-to-the-precautionary-principle">Part E. Link to the Precautionary Principle</h3>
+<p>In <strong>2–4 sentences</strong>, explain how <strong>extreme climate risks</strong> (tipping points, irreversible damages, uncertain probabilities, very large losses) can justify:</p>
+<ul>
+<li>Following a <strong>precautionary principle</strong>, and/or<br>
+</li>
+<li>Adopting a <strong>safe minimum standard</strong> for climate policy.</li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Answer (2–4 sentences):</strong><br>
+________________________________________<br>
+________________________________________</p>
+</blockquote>
+<p><br><br></p>
+</section>
+</section>
+</section>
+<section id="question-2.-moral-hazard-and-the-national-flood-insurance-program-nfip" class="level1">
+<h1>Question 2. Moral Hazard and the National Flood Insurance Program (NFIP)</h1>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<ul>
+<li>Answer Parts A–D using <strong>average (expected) annual cost</strong> as your decision rule.<br>
+</li>
+<li>Show your calculations and briefly explain your reasoning in words.</li>
+</ul>
+</section>
+<section id="scenario" class="level2">
+<h2 class="anchored" data-anchor-id="scenario">Scenario</h2>
+<p>A homeowner is choosing between two locations:</p>
+<ul>
+<li><strong>Location S (Safe):</strong>
+<ul>
+<li>Annual housing cost (rent/mortgage, etc.): <span class="math inline">\(20{,}000\)</span><br>
+</li>
+<li>No flood risk.</li>
+</ul></li>
+<li><strong>Location F (Flood-prone):</strong>
+<ul>
+<li>Annual housing cost: <span class="math inline">\(18{,}000\)</span><br>
+</li>
+<li>Each year, there is a <span class="math inline">\(10\%\)</span> chance of a flood causing <span class="math inline">\(100{,}000\)</span> in damage to the house.</li>
+</ul></li>
+</ul>
+<p>Assume the homeowner cares only about <strong>minimizing their average annual cost</strong>.<br>
+You can think of:</p>
+<blockquote class="blockquote">
+<p><strong>Average annual cost without insurance</strong> <span class="math inline">\(=\)</span> housing cost<br>
+<span class="math inline">\(\;\quad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad +\)</span> average (expected) flood damage cost</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Average annual cost with insurance</strong> <span class="math inline">\(=\)</span> housing cost<br>
+<span class="math inline">\(\quad\quad\qquad\qquad\qquad\qquad\qquad\qquad\qquad +\)</span> any insurance premiums paid.</p>
+</blockquote>
+<hr>
+</section>
+<section id="part-a.-no-insurance" class="level2">
+<h2 class="anchored" data-anchor-id="part-a.-no-insurance">Part A. No insurance</h2>
+<p>There is <strong>no flood insurance</strong> available.</p>
+<ol type="1">
+<li>Compute the homeowner’s <strong>average annual cost</strong> in <strong>Location S</strong>.<br>
+</li>
+<li>Compute the homeowner’s <strong>average annual cost</strong> in <strong>Location F</strong>.</li>
+<li>Which location is cheaper on average?<br>
+</li>
+<li>If the homeowner wants to <strong>minimize average annual cost</strong>, which location will they choose?</li>
+</ol>
+<p><br></p>
+</section>
+<section id="part-b.-nfip-with-subsidized-premium" class="level2">
+<h2 class="anchored" data-anchor-id="part-b.-nfip-with-subsidized-premium">Part B. NFIP with subsidized premium</h2>
+<p>Now suppose the government offers NFIP flood insurance in Location F:</p>
+<ul>
+<li>The NFIP policy <strong>fully covers any flood damage</strong> in Location F.<br>
+</li>
+<li>The annual insurance premium is <strong><span class="math inline">\(2{,}000\)</span></strong> (this is a <strong>subsidized, below-market</strong> premium).<br>
+</li>
+<li>If the homeowner lives in Location F, assume they <strong>buy</strong> this insurance.</li>
+</ul>
+<ol type="1">
+<li>Compute the homeowner’s <strong>average annual cost</strong> in Location S (with NFIP available but not needed).<br>
+</li>
+<li>Compute the homeowner’s <strong>average annual cost</strong> in Location F <strong>with subsidized NFIP insurance</strong>.<br>
+</li>
+<li>Which location is now cheaper on average?<br>
+</li>
+<li>How might this change the homeowner’s location choice compared to Part A?</li>
+</ol>
+<p><br></p>
+</section>
+<section id="part-c.-nfip-with-risk-based-actuarially-fair-premium" class="level2">
+<h2 class="anchored" data-anchor-id="part-c.-nfip-with-risk-based-actuarially-fair-premium">Part C. NFIP with risk-based (actuarially fair) premium</h2>
+<p>Now suppose instead that the NFIP charges a <strong>risk-based premium</strong> in Location F.<br>
+A <strong>risk-based (actuarially fair)</strong> premium is set equal to the <strong>average annual flood damage</strong>.</p>
+<ol type="1">
+<li>Calculate the <strong>risk-based premium</strong> for Location F.<br>
+</li>
+<li>With this risk-based premium, compute the <strong>average annual cost</strong> of living in:
+<ul>
+<li>Location S<br>
+</li>
+<li>Location F (assuming the homeowner buys insurance in Location F)</li>
+</ul></li>
+<li>Which location is cheaper on average with a risk-based premium?<br>
+</li>
+<li>How does this compare to your answer in Part B?</li>
+</ol>
+<p><br></p>
+</section>
+<section id="part-d.-moral-hazard-and-nfip-policy" class="level2">
+<h2 class="anchored" data-anchor-id="part-d.-moral-hazard-and-nfip-policy">Part D. Moral hazard and NFIP policy</h2>
+<p>Answer in words (no new calculations needed):</p>
+<ol type="1">
+<li>Using your results from Parts A–C, explain how <strong>subsidized NFIP premiums</strong> can create <strong>moral hazard</strong> in location choices (deciding where to live).<br>
+</li>
+<li>Explain how <strong>risk-based premiums</strong> (and measures like <strong>premium discounts for elevating buildings or floodproofing</strong>) could help <strong>reduce moral hazard</strong> in the NFIP.<br>
+</li>
+<li>Give one concrete policy idea for the NFIP (for example, a rule about rebuilding or premium discounts) that could <strong>discourage risky behavior</strong> while still helping people manage flood risk.</li>
+</ol>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.querySelector('.quarto-btn-toggle');
+  if (!btn || !window.bootstrap) return;
+
+  btn.addEventListener('click', function (e) {
+    ['#quarto-sidebar', '#quarto-sidebar-glass'].forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) bootstrap.Collapse.getOrCreateInstance(el).toggle();
+    });
+  }, { capture: true });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">powered with github, quarto, and rstudio<br>byeong-hak choe, 2025</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<div id="scroll-padding"></div>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/posts.js"></script>
+
+
+
+</body></html>

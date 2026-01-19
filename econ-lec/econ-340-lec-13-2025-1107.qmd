@@ -1,0 +1,769 @@
+---
+title: Lecture 13
+subtitle: "Market for Pollution: Price vs. Quantity Approaches"
+
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-11-07
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+library(formattable)
+
+theme_set(theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+
+
+```
+
+
+# **Market for Pollution: Price vs. Quantity Approaches** {background-color="#1c4982"}
+
+## ❓ Why Not Just Regulate?
+
+<div class="fragment" style="font-size:1.75rem; margin-top:1.5rem;">
+  <blockquote>
+    “If the government knows the **socially optimal level of pollution**, why not just **mandate** it directly?”
+  </blockquote>
+</div>
+
+- **Regulation (quantity control)** has been the **traditional approach**, since it seems straightforward:
+  - 1970s: U.S. **limited SO₂ emissions** rather than taxing them.  
+  - 1987: Global **ban on CFCs** to protect the ozone layer instead of taxing them.
+
+- For **climate change**, however, economists highlight **market-based policies** that use prices or permits to guide behavior.
+  - **Carbon taxes** (price-based) and **cap-and-trade** (quantity-based) are the two main policy instruments for reducing GHG emissions.
+
+- Let's examine **when** each—**price** or **quantity**—is more effective for achieving climate goals.
+
+## 🌍 Climate Policy Instruments: The Core Idea
+
+<div style="display:block; margin:5px;"></div>
+
+<div style="font-size:1.9rem; max-width:1000px; margin:0.5rem auto;">
+
+| **Approach** | **Instrument** | **Mechanism** | **Examples** |
+|---|---|---|---|
+| <span class="fragment">**Price-based**</span> | <span class="fragment">**Carbon Tax**</span> | <span class="fragment">Sets a **price per ton of CO₂**; firms reduce emissions until <u>*MC = tax*</u>.</span> | <span class="fragment">Sweden CO₂ tax; Canada’s national carbon pricing system</span> |
+| <span class="fragment">**Quantity-based (with flexibility)**</span> | <span class="fragment">**Cap-and-Trade**</span> | <span class="fragment">Sets a **cap on total emissions**; firms trade emission permits until<br><u>*permit price = MC*</u>.</span> | <span class="fragment">European Union Emissions Trading System (EU ETS); California’s Cap-and-Trade Program</span> |
+
+</div>
+
+<div class="fragment" style="font-size:2rem; text-align:center; margin-top:1.5rem;">
+  Goal: **Achieve climate targets at the lowest total social cost.**
+</div>
+
+
+
+
+## 🔄 From Goods to Pollution Reduction
+
+To compare **price** and **quantity** approaches effectively, we must shift focus:
+
+<div class="fragment" style="font-size:1.75rem; text-align:center; margin-top:2rem;">
+  <blockquote>
+    From the **market for a product** (like automobile)  
+    → to the **market for pollution reduction** (like CO₂) itself.
+  </blockquote>
+</div>
+
+
+- In basic models, the only way to cut pollution was to **reduce output**.  
+- In reality, firms can also **adopt cleaner technologies**:
+  - Power plants install **CCUS** to capture CO₂.  
+  - Cars use **catalytic converters** to reduce NOₓ emissions.
+
+<div style="display:block; margin:-15px;"></div>
+
+<div class="fragment" style="font-size:2rem; margin-top:1.2rem;">
+👉  This shift helps us analyze **abatement decisions directly** — how firms respond to
+  <strong>taxes (prices)</strong> or <strong>caps (quantities)</strong> when multiple reduction options exist.
+</div>
+
+<div style="display:block; margin:-15px;"></div>
+
+ 
+ 
+## ⚙️ Market for Pollution Reduction: Carbon Market
+
+
+:::: {.columns}
+::: {.column width="72.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/mkt-for-pollution.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="27.5%"}
+
+<!-- - **Q (Pollution Reduction)**: Moving right → **more reduction, less pollution**.   -->
+<!-- - The **MC of pollution reduction (SMC = PMC)** rises as firms take on more abatement.   -->
+<!-- - The **MB of reduction (SMB = MD (Marginal Damage of Pollution))** is drawn flat for simplicity.   -->
+
+- **Marginal Damage (MD)** equals **SMB** — each unit of reduction **prevents one unit of harm** to society.  
+- **Private MC (PMC)** equals **Social MC (SMC)** — there are **no externalities** in pollution reduction itself.
+
+:::
+
+::::
+
+:::: {.columns}
+::: {.column width="72.5%"}
+
+<div style="display:block; margin:-180px;"></div>
+- **$A$**: **Free market outcome** occurs where **PMC = PMB** — with **no incentive** to reduce pollution.
+- **$B$**: **Optimal outcome** occurs where **SMC = SMB**.
+
+<!-- - The **market outcome** occurs where **PMC = PMB** — with no incentive to reduce pollution.   -->
+<!-- - The **social optimum** is where **SMC = SMB**, which determines the **efficient level of pollution reduction (R\*)** and the corresponding **pollution level (P\*)**. -->
+<!-- - The **optimal reduction (R\*)** occurs where **SMC = SMB**, defining the corresponding **optimal pollution level (P\*)**. -->
+
+:::
+
+::: {.column width="27.5%"}
+
+:::
+
+::::
+
+
+
+
+## 💸 Price Regulation: Carbon Tax
+
+
+:::: {.columns}
+::: {.column width="72.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/mkt-for-pollution-t.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="27.5%"}
+
+<!-- - Set tax **τ = MD** (e.g., \$100/tCO₂).   -->
+<!-- - Each firm abates while **MC ≤ τ**, then pays the tax for remaining emissions.   -->
+<!-- - **Cost certainty**, **quantity uncertain**; hits **R\*** if MD and MC known.   -->
+
+- Government imposes a **Pigouvian tax (τ)** on each unit of pollution equal to its **marginal damage (MD)** — for example, \$100 per ton of CO₂.
+
+:::
+
+::::
+
+<div style="display:block; margin:-25px;"></div>
+
+- Each plant **reduces emissions** as long as its **marginal abatement cost (MC)** is **below τ**, and pays the tax on remaining emissions.  
+- Once **MC = τ**, further abatement would **cost more than the tax**, so the firm stops reducing.
+
+## 📏 Quantity Regulation: Mandated Reduction
+
+
+:::: {.columns}
+::: {.column width="72.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/mkt-for-pollution-q.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="27.5%"}
+
+- **Regulation**: Government simply **mandates** that firms reduce pollution by the **optimal amount (R\*)**.
+
+
+:::
+
+::::
+
+<div style="display:block; margin:-10px;"></div>
+
+::: callout-note
+- If **MD is constant**, this is manageable;
+  but when **MD declines** with more reduction, the regulator must know **both MD & MC curves** to determine either the **optimal tax** or the **optimal quantity**.
+
+:::
+
+<!-- - Appears straightforward — but to set the right **quantity**, the government must know: -->
+<!--   - The **marginal damage (MD)** from pollution, **and** -->
+<!--   - The **shape of the marginal cost (MC)** curve for reduction. -->
+
+
+
+<!-- <div class="fragment" style="font-size:1.6rem; text-align:center; margin-top:1rem;"> -->
+<!--   ⚖️ Regulation fixes the **amount** of pollution reduction, but requires **more information** than a tax. -->
+<!-- </div> -->
+
+
+# **Heterogeneous Plants** {background-color="#1c4982"}
+
+
+## 🏭 Heterogeneous Plants
+<div style="display:block; margin:-20px;"></div>
+
+We now consider a case with **two plants** that have **different marginal abatement costs (MC)** — a more realistic setting for policy design.
+
+<div style="display:block; margin:10px;"></div>
+
+| **Plant** | **MC** | **Efficient Reduction (example)** |
+|---|---:|---:|
+| A (newer tech) | Lower | 150 |
+| B (older tech) | Higher | 50 |
+
+<div style="display:block; margin:10px;"></div>
+
+- In reality, firms differ in **technology, age, and fuel mix**, leading to **unequal costs** of pollution reduction.  
+<!-- - An **efficient policy** must account for these differences — the **same total reduction** can be achieved **at lower total cost** if **low-cost firms reduce more** and **high-cost firms reduce less**.   -->
+- This setup helps us compare how **quantity regulation (like command-and-control)** and **price-based policies (like a carbon tax & cap-and-trade)** perform under realistic conditions.
+
+<div style="display:block; margin:-25px;"></div>
+
+:::callout-note
+- **Command-and-control regulation**: Government **mandates specific pollution reductions** or **sets technology standards** that firms must **follow directly** to control emissions.
+:::
+
+<!-- <div class="fragment" style="font-size:1.6rem; text-align:center; margin-top:1rem;"> -->
+<!--   ⚙️ Real-world efficiency requires **equalizing marginal costs**, not equal reductions. -->
+<!-- </div> -->
+
+
+<!-- - **Equal command-and-control cuts** (100 each) → **inefficient**. -->
+<!-- - **Tax (τ = MD)** or **tradable permits** → *A reduces more, B less*, total reduction unchanged, **costs minimized**.   -->
+
+
+
+## 🏭 Heterogeneous Plants: Command-and-Control
+
+
+:::: {.columns}
+::: {.column width="72.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/mkt-pollution-firms-q-v2.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="27.5%"}
+
+
+- **Equal command-and-control cuts** (e.g., 100 units each) simplifies enforcement and compliance — every firm follows the same rule.
+
+:::
+::::
+
+<div style="display:block; margin:-30px;"></div>
+
+- Total Social Cost of Pollution Reduction
+
+<div class="fragment" style="font-size:2rem; text-align:center; margin-top:1.5rem;">
+
+<div style="display:block; margin:-35px;"></div>
+
+$$
+\underbrace{\frac{1}{2}\times(100-50)\times50}_{\text{Plant A}} + \underbrace{\frac{1}{2}\times100\times200}_{\text{Plant B}} = \$11,250
+$$
+</div>
+
+
+
+## 🏭 Heterogeneous Plants: Price Regulation
+
+
+:::: {.columns}
+::: {.column width="72.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/mkt-pollution-firms-p2-v2.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::
+
+::: {.column width="27.5%"}
+
+
+- Under a **Pigouvian tax (τ = MD)**, each firm decides how much to reduce pollution.  
+- Firms abate until their **marginal cost (MC)** equals the **tax rate (τ)**.  
+
+
+
+:::
+::::
+
+<div style="display:block; margin:-30px;"></div>
+
+- Total Social Cost of Pollution Reduction
+
+<div class="fragment" style="font-size:2rem; text-align:center; margin-top:1.5rem;">
+
+<div style="display:block; margin:-35px;"></div>
+
+
+$$
+\begin{aligned}
+\underbrace{\frac{1}{2}\times(150-50)\times100}_{\text{Plant A}} + \underbrace{\frac{1}{2}\times50\times100}_{\text{Plant B}} = \$7,500
+\end{aligned}
+$$
+
+</div>
+
+## 🏭 Heterogeneous Plants: Quantity with Flexibility
+
+- The government sets a **total emissions cap** (e.g., 200 permits, socially optimal level of pollution) and lets firms **trade** them.   
+  - Each permit allows **one unit of pollution**. <span class="fragment">(**Coase Theorem!**)</span>
+
+- **A firm will:**
+  - **Abate** if its **MC** is **less than the permit price** → cheaper to clean than to buy.  
+  - **Buy permits** if its **MC** is **greater than the permit price** → cheaper to pollute than to clean.  
+  - Trading continues until **no further mutually beneficial trades exist** — just like in a *Coase bargain*.  
+
+<div style="display:block; margin:-35px;"></div>
+
+<div class="fragment" style="font-size:1.75rem; text-align:center; margin-top:1rem; margin-bottom:1rem; color:#0072B2;">
+
+**MC<sub>A</sub>(Q<sub>A</sub>) = MC<sub>B</sub>(Q<sub>B</sub>) = Permit Price**. 
+
+</div>
+
+<div style="display:block; margin:-35px;"></div>
+
+<div class="fragment" style="font-size:1.75rem; text-align:center; margin-top:1rem; margin-bottom:1rem; color:#0072B2;">
+
+<span class="fragment">(Because the cap is the socially optimal level,)</span> **Permit Price = MD**.$\qquad\qquad\quad\;$
+
+</div>
+<div style="display:block; margin:-10px;"></div>
+
+
+- <u>The result</u>: the **pollution target is met** at the **lowest total cost**.
+
+<!-- as all firms face the **same marginal cost of abatement**. -->
+  
+<!-- ## 🏭 Heterogeneous Plants: Quantity with Flexibility -->
+
+<!-- - The government sets a **total emissions cap** (e.g., 200 permits) and lets firms **trade** them. <span class="fragment">(**Coase Theorem!**)</span>   -->
+<!-- - Each permit allows one unit of pollution.   -->
+<!-- <!-- - **Low-cost firms** can reduce emissions cheaply, so they **cut more** and **sell permits**.   --> -->
+<!-- <!-- - **High-cost firms** find abatement expensive, so they **buy permits** instead of cutting as much.   --> -->
+<!-- <!-- - Trading continues until   --> -->
+<!-- <!--   **MCₐ(Qₐ) = MCᵦ(Qᵦ) = permit price = MD**,   --> -->
+<!-- <!--   meaning all firms face the **same marginal cost** of abatement.   --> -->
+
+<!-- - **A firm will:** -->
+<!--   - **Abate** if its MC is **less than the permit price** (cheaper to clean than buy). -->
+<!--   - **Buy permits** if its MC is **greater than the permit price** (cheaper to pollute than clean). -->
+<!--   - This trading continues until **no further mutually beneficial trades exist:**. -->
+
+<!-- <div style="font-size:1.5rem; text-align="center"> -->
+
+<!-- **MCₐ(Qₐ) = MCᵦ(Qᵦ) = permit price = MD** -->
+
+<!-- <div> -->
+
+<!-- - <u>The result</u>: the **pollution target is met** at the **lowest total cost**.   -->
+<!-- - Works just like a **carbon tax**, but the **price** emerges from the **permit market** instead of being set by the government. -->
+
+<!-- ## 🏭 Heterogeneous Plants: Quantity with Flexibility -->
+
+<!-- - Instead of mandating equal cuts, the government sets a **total emissions cap** (e.g., 200 permits) and allows **trading** among firms.   -->
+<!-- - Each permit gives the right to emit one unit of pollution.   -->
+<!-- - Firms **buy or sell** permits until   -->
+<!--   **MC$_{A}$ = MC$_{B}$ = permit price = MD** — achieving **cost-effective abatement**.   -->
+<!-- - **Low-cost plant (A)** reduces more and sells excess permits.   -->
+<!-- - **High-cost plant (B)** buys permits instead of reducing at high cost.   -->
+<!-- - The final allocation **minimizes total cost** while still meeting the **environmental target**.   -->
+<!-- - This outcome is **identical to the efficient allocation** under a **Pigouvian tax**, but achieved through **market trading** rather than a fixed price. -->
+
+## 🏭 Heterogeneous Plants: Summary
+
+<div style="font-size:1.4rem; max-width:1000px; margin:0.5rem auto;">
+
+| **Policy Type** | **What Is Set (Policy Lever)** | **Who Decides Reduction?** | **Efficiency** | 
+|---|---|---|---|
+| **Command-and-control** | <span class="fragment">Set **reduction amount** (e.g., 100 each)</span> | <span class="fragment">**Government mandates** cuts</span> | <span class="fragment">❌ *Inefficient* if abatement costs differ</span> | 
+| **Price Regulation (Tax)** | <span class="fragment">Set **price per unit (τ)**</span> | <span class="fragment">**Firms choose** abatement</span> | <span class="fragment">✅ *Efficient* — firms reduce until **MC = τ**</span> | 
+| **Cap-and-Trade** | <span class="fragment">Set **total emissions cap**</span> | <span class="fragment">**Firms trade permits**</span> | <span class="fragment">✅ *Efficient* — firms trade until **MCₐ = MCᵦ = permit price**</span> | 
+
+
+</div>
+
+<div style="display:block; margin:-15px;"></div>
+
+
+- ⚖️ **Command-and-control** regulations are **simple but often inefficient**.  
+- 💡 **Market-based instruments** — such as **carbon taxes** and **cap-and-trade** — let firms decide **how much to abate** based on their own costs.  
+- This flexibility ensures the <span style="color:#009E73; font-weight:bold;">Cost-Effectiveness (Equimarginal) Principle</span> holds: <span class="fragment">**MCs** become **equalized across firms**</span><span class="fragment">, leading to an **efficient allocation of abatement**.</span>
+- ✅ <u>Result</u>: the **climate target is achieved at the lowest total social cost**.
+
+<!-- <div class="fragment" style="font-size:2rem; text-align:center; margin-top:1rem;"> -->
+<!-- - ⚖️ **Command-and-control** is simple but inefficient.   -->
+<!-- - 💡 Allowing firms to choose **how much to abate** based on their own costs leads Cost-Effectiveness Equimarginal Principle **MCs to equalize across firms**, resulting in an **efficient allocation of abatement**. <span class="fragment">(<u>*Cost-Effectiveness Equimarginal Principle*</u>)</span> -->
+<!-- - ✅ **Carbon taxes** and **cap-and-trade** reach the same environmental target **at the lowest total cost**. -->
+<!-- </div> -->
+
+
+<!-- - However, this approach **ignores differences in abatement costs** across firms. -->
+
+<!-- - But it's **inefficient** when plants have **different abatement costs**.   -->
+<!-- - A **low-cost plant (A)** can reduce pollution cheaply, while a **high-cost plant (B)** faces steep costs for the same reduction.   -->
+
+<!-- <div style="display:block; margin:-30px;"></div> -->
+
+<!-- <div class="fragment" style="font-size:1.6rem; text-align:center; margin-top:1rem;"> -->
+<!--   ♻️ **Cap-and-trade = quantity control with built-in price flexibility.** -->
+<!-- </div> -->
+
+
+<!-- - **Low-cost firms** reduce **more**, **high-cost firms** reduce **less** — but the total reduction is the **most cost-effective**.   -->
+<!-- - This flexibility ensures **equalized MC across firms**, achieving the **efficient allocation of abatement**. -->
+
+
+
+<!-- ## 🏭 Heterogeneous Plants: Quantity with Flexibility -->
+
+<!-- - Issue **200 permits** total (example) and allow **trading**.   -->
+<!-- - Firms trade until **MAC_A = MAC_B = permit price = MD**.   -->
+<!-- - **Implements the same allocation** as a Pigouvian tax **without** regulator knowing each firm’s MAC.   -->
+
+
+<!-- ## ⚖️ Uncertain Abatement Costs -->
+
+<!-- When the regulator mis-estimates **MC of reduction**, the **better instrument** depends on the **shape of MD**: -->
+
+<!-- | **Case** | **MD shape** | **Preferred Instrument** | **Intuition** | -->
+<!-- |---|---|---|---| -->
+<!-- | 🌡 Global warming | **Flat** (benefits change slowly) | **Price (tax)** | Avoid massive cost blowups if MC is higher than expected; quantity mistakes are less costly. | -->
+<!-- | ☢️ Nuclear leakage | **Steep** (benefits change sharply) | **Quantity (cap/standard)** | Must **hit the quantity target**; under-abatement is very costly. | -->
+
+
+# **Uncertainty about Costs of Reduction** {background-color="#1c4982"}
+
+## 🌫️ Uncertainty about Costs of Reduction
+
+- In reality, **marginal abatement costs (MC)** are **uncertain** — policymakers may not know the exact cost of cutting pollution.  
+  - They can estimate the overall **MC curve**, but cannot know its exact **slope or position** when designing policy.
+- This uncertainty means the **actual abatement level** may differ from what policymakers intended — the **socially optimal level**.
+- The **welfare loss from being wrong** depends on how **sensitive marginal damages (MD)** are to changes in emissions.  
+- Under uncertainty, the **preferred policy instrument** — **price (tax)** or **quantity (cap)** — depends on the **slope of the MD curve**:
+  - If **MD is steep**, errors in abatement lead to **large welfare losses**. 
+  - If **MD is flat**, errors in abatement cause **only minor welfare impacts**.
+  
+  
+  
+## Case 1: Flat Marginal Damage - Tax
+
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-flat-dwl-p.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+## Case 1: Flat Marginal Damage - Cap-and-Trade
+
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-flat-dwl-q.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+
+## Case 1: Flat Marginal Damage
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-flat-dwl-p.png" style="width: 100%; margin-bottom: -30px;">
+  <p style="font-weight: bold;">Tax</p>
+</div>
+
+:::
+::: {.column width="50%"}
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-flat-dwl-q.png" style="width: 100%; margin-bottom: -30px;">
+  <p style="font-weight: bold;">Cap-and-Trade</p>
+</div>
+:::
+::::
+
+- If the **marginal damage (MD)** curve is **flat** (damage changes little with small emission changes)  
+  → **Taxes (price instruments)** are preferred.  
+  
+<!-- - If **MD is flat**, damages change little with small emission differences → society values **price stability** → **carbon tax** is better. -->
+
+## Case 2: Steep Marginal Damage - Tax
+
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-steep-dwl-p.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+## Case 2: Steep Marginal Damage - Cap-and-Trade
+
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-steep-dwl-q.png" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+
+## Case 2: Steep Marginal Damage
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-steep-dwl-p.png" style="width: 100%; margin-bottom: -30px;">
+  <p style="font-weight: bold;">Tax</p>
+</div>
+
+:::
+::: {.column width="50%"}
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/p-v-q-steep-dwl-q.png" style="width: 100%; margin-bottom: -30px;">
+  <p style="font-weight: bold;">Cap-and-Trade</p>
+</div>
+:::
+::::
+
+
+- If the **MD** curve is **steep** (damages rise sharply with small emission increases)  
+  → **Quotas or cap-and-trade (quantity instruments)** are preferred. 
+
+<!-- - If the **MD curve is steep**, a small increase in emissions causes **large damages** → society cares a lot about the *quantity* of emissions.   -->
+
+<!-- - If **MD is steep**, errors in emissions are very costly → **quantity control (cap-and-trade)** is better.   -->
+
+## 🌍 Climate Change and Policy Design: 
+### Stock vs. Flow
+<div style="text-align: center; width: 50%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/stock-flow-co2.jpg" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+:::{.nonincremental}
+- **Question:** Under uncertainty, consider two cases —  
+  a **flat marginal damage (MD)** curve vs. a **steep MD** curve.  
+- 👉 **Which case best represents climate change?**  
+  (Hint: the **benefits of emission reductions** depend on the **stock** of CO₂, not short-term fluctuations in flow.)
+:::
+
+  
+
+
+## 🌍 Climate Change and Policy Design
+### Carbon Tax vs. Cap-and-Trade
+
+- The **benefits** of emissions reductions are linked to the **stock of greenhouse gases** in the atmosphere.  
+  - What matters for climate damage is the **total accumulated CO₂**, not short-term fluctuations.
+
+- The **costs** of emissions reductions are tied to the **flow of emissions** —  
+  how much we cut **this year** or **in the near term**.  
+
+<div style="display:block; margin:-30px;"></div>
+
+<div class="fragment" style="text-align:center; font-size:2rem; color:#0072B2; margin-top:1rem;">
+
+💡 The **marginal benefits** of emission reductions are **insensitive** to the current level of abatement  
+→ small short-run emission changes have little effect on total warming.
+
+</div>
+
+- Under **uncertainty about abatement costs**, a **carbon tax** is preferred to **cap-and-trade** for **stock pollutants** like CO₂ <span class="fragment">, because **emission errors are low-cost**, while **price errors can be large**.</span>
+
+
+
+
+# 🌍 Carbon Pricing in Practice: Carbon Tax vs. Cap-and-Trade  {background-color="#1c4982"}
+
+
+## ⚖️ Price vs. Quantity: The Policy Trade-off
+
+- Policymakers face a fundamental trade-off between:
+  - Achieving a **specific emissions target** with certainty, and  
+  - Ensuring **stable and predictable costs** for firms and consumers.
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+:::{.fragment}
+### **Carbon Tax**
+- Provides **price certainty** — firms know exactly what a ton of CO₂ costs.
+- But **emissions outcomes** can fluctuate with energy demand and economic cycles.
+
+:::
+:::
+
+::: {.column width="50%"}
+:::{.fragment}
+### **Cap-and-Trade**
+- Provides **environmental certainty** — a fixed cap on total emissions.
+- But **abatement costs** can vary widely depending on shocks and economic conditions.
+
+:::
+:::
+::::
+
+## 📄 Carbon Tax — Big Advantages
+
+- **Simple & Transparent**
+  <!-- - Clear structure; easy to understand and implement. -->
+  - Requires fewer new institutions and less administrative complexity.
+
+
+- **Adapts to Technological Change**
+  - If abatement costs fall or cleaner technologies become cheaper, **a carbon tax leads to greater emissions reductions** because firms cut more whenever it becomes cost-effective.
+  - Under **cap-and-trade**, lower abatement costs simply **push permit prices downward**:
+    - Demand for permits falls, but supply is fixed → **permit prices drop**.
+    - **Total emissions stay capped**, so the overall quantity doesn’t fall—and some firms may even emit more because compliance has become cheaper.
+    
+<!-- - **Adapts to Technological Change** -->
+<!--   - If abatement costs fall or cleaner technologies become cheaper, **a carbon tax automatically delivers greater emissions reductions** because firms reduce more wherever it's economically efficient. -->
+<!--   - Under **cap-and-trade**, lower abatement costs simply **drive down permit prices**.    -->
+<!--     - Demand for permits falls, but the supply of permits is fixed → permit prices drop. -->
+<!--     - Total emissions remain fixed at the cap, and some firms may even emit more as compliance becomes cheaper. -->
+
+
+<!-- - **Adapts to Technological Change** -->
+<!--   - If abatement costs fall, **emissions fall automatically** under a tax. -->
+<!--   - Under cap-and-trade, falling costs simply **lower permit prices**, not emissions. -->
+
+<!-- ## Cap-and-Trade — Big Advantages -->
+
+
+<!-- - **Political Acceptability** -->
+<!--   - Avoids the word “tax,” which reduces resistance from voters and interest groups. -->
+
+<!-- - **Transition Options for Firms** -->
+<!--   - Free permit allocations can **soften early costs** and increase industry support. -->
+
+<!-- - **Emissions Certainty** -->
+<!--   - The cap **fixes total emissions** directly, achieving a defined pathway without needing to adjust tax rates. -->
+
+
+## 🗺️ Global Map of ETS and Carbon Taxes
+<div style="display:block; margin:-10px;"></div>
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/wb-carbon-tax-cap-and-trade-map.png" style="width: 100%; margin-bottom: -32px;">
+  <p style="font-weight: bold;">
+Source: <a href="https://carbonpricingdashboard.worldbank.org" target="_blank">World Bank (2025)</a>
+</p>
+</div>
+
+## 📊 Share of Global GHG Emissions Covered by an Emission Trading System (ETS) or Carbon Tax
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/wb-carbon-tax-cap-and-trade.png" style="width: 100%; margin-bottom: -30px;">
+  <p style="font-weight: bold;">
+Source: <a href="https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing" target="_blank">World Bank (2025)</a>
+</p>
+</div>
+
+
+
+
+## 🌍💰️ Emission Coverage and Pricing Level
+<div style="display:block; margin:-15px;"></div>
+
+<div style="text-align: center; width: 80%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/wb-carbon-pricing-coverage-by-country.png" style="width: 100%; margin-bottom: -32px;">
+  <p style="font-weight: bold;">
+Source: <a href="https://www.worldbank.org/en/publication/state-and-trends-of-carbon-pricing" target="_blank">World Bank (2025)</a>
+</p>
+</div>
+
+
+## 🎯 Why Cap-and-Trade Is More Popular in Practice
+<div style="display:block; margin:-10px;"></div>
+<div class="fragment" style="font-size:1.75rem; margin-top:1.5rem;">
+  <blockquote>
+    _“It has become too politically divisive and a distraction from the important issues we are tackling.”_ Government of British Colombia, “B.C. Eliminates Carbon Tax,” (March 31, 2025)
+  </blockquote>
+</div>
+
+- Even though economists often prefer **carbon taxes** (price stability + administrative simplicity), **cap-and-trade** is more politically feasible:
+  - It avoids the politically sensitive term **“tax,”** reducing public resistance.
+    - Introducing a new tax is often **politically infeasible**, even when it is economically efficient.
+  - It enables governments to **grant free permits** in the early stages, helping secure industry buy-in.
+  - It is presented as a **flexible, market-driven mechanism**, which appeals to policymakers and firms.
+  
+  <!-- - It provides **clear, measurable emissions targets**, allowing politicians and environmental groups to easily track and communicate progress. -->
+
+<!-- ## Why Cap-and-Trade Is More Popular in Practice -->
+
+<!-- - Even though economists often prefer **carbon taxes** (price stability + administrative simplicity), cap-and-trade is more politically feasible because: -->
+<!--   - It **avoids the politically sensitive term** “tax.” -->
+<!--   - It allows governments to **distribute free permits**, which builds business support. -->
+<!--   - It is framed as **flexible and market-based**, appealing to policy makers and firms. -->
+<!--   - It provides **visible control over emissions**, which is attractive to environmental groups. -->
+<!--   - Politicians can point to a clear **emissions target** (the cap) and show progress. -->
+<!--   - New taxes are often not an option, even if economically efficient. -->
+
+<!-- - Theoretical preference: **Carbon Tax** → simplicity + price certainty. -->
+<!-- - Practical reality: **Cap-and-Trade** → political acceptability + emissions certainty. -->
+
+

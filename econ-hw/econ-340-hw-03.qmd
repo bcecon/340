@@ -1,0 +1,442 @@
+---
+title: Homework 3
+subtitle: Cost–Benefit Analysis of Investment in CCUS
+date: 2025-11-05
+from: markdown+emoji
+comments: false
+echo: false
+code-fold: false
+
+toc: true
+toc-depth: 6
+toc-expand: 3
+
+execute: 
+  warning: false
+  message: false
+  fig-width: 9
+  fig-height: 7
+  fig-align: center
+
+---
+```{r}
+#| include: false
+
+library(tidyverse)
+library(skimr)
+library(DT)
+library(hrbrthemes)
+library(ggthemes)
+
+theme_set(theme_ipsum() +
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = element_text(size = rel(1.5),),
+                axis.title.y = element_text(size = rel(1.5),
+                                            angle = 360),
+                legend.title = element_text(size=rel(1.25))
+                ))
+
+
+df <- data.frame(
+  q = seq(0,4,.25),
+  mb_p = 4 - seq(0,4,.25),
+  mc = seq(0,4,.25) + 2
+) |> 
+  pivot_longer(cols = mb_p:mc,
+               names_to = 'type',
+               values_to = 'p') |> 
+  mutate(type = factor(type, labels = c('mb_p',
+                                        'mc')),
+         label = recode(type, 'mb_p' = "MB today", 'mc' = "MC"),
+         group = interaction(type, label)  # Creating a unique identifier for color and linetype
+  )
+
+```
+
+
+
+# Homework Instructions
+
+- **No Generative AI**: You are **not** allowed to use generative AI tools for Homework Assignment 3.  
+
+- **Allowed Tools**: You **must use a calculator or computational tool** such as **R, Python, or Excel** to perform the required cost–benefit and $\text{PV}_{NB}$ calculations.  
+  - Show your **intermediate steps with formula** and **final numeric results** clearly.  
+
+- **Deadline**: **Wednesday, November 12, 2025, at 10:30 A.M.**
+
+---
+
+A mid-sized energy company is considering investing in **Carbon Capture, Utilization, and Storage (CCUS)** at one of its gas-fired power plants.  
+The project would allow the company to **capture carbon dioxide (CO₂)** before it reaches the atmosphere, then **transport and store** it underground or **sell it** to industrial users for other applications.
+
+The **total investment cost** is **\$500 million**, paid at the start of the project (**Year 0**).  
+Once operational, the system can **capture 1 million metric tons of CO₂ per year**.  
+The company’s **cost of capital** (discount rate) is **4%**, and the **Social Cost of Carbon (SCC)** is **\$190 per metric ton of CO₂**.
+
+---
+
+# 🌍 What Is CCUS?
+
+**Carbon Capture, Utilization, and Storage (CCUS)** is a technology designed to reduce greenhouse gas emissions from power plants and industrial facilities. It involves three main stages:
+
+1. **Capture** – separating CO₂ from other gases in emissions.  
+2. **Utilization** – reusing CO₂ to make products such as building materials or fuels.  
+3. **Storage** – injecting CO₂ deep underground to store it permanently.
+
+CCUS is a **transitional technology**, helping decarbonize existing fossil-fuel infrastructure while renewable energy capacity continues to expand.
+
+::: callout-note
+## 🌐 Real-World Uses of CCUS
+- **Industrial Decarbonization:** Captures emissions from cement, steel, and fertilizer production—industries difficult to electrify.  
+- **Carbon Recycling:** Converts CO₂ into synthetic fuels or chemicals.  
+- **Direct Air Capture (DAC):** Removes CO₂ directly from the air for storage or reuse.  
+- **Regional Storage Hubs:** Shared “CO₂ pipeline and storage” networks now serve multiple emitters.
+:::
+
+::: callout-note
+## 💧 Enhanced Oil Recovery (EOR) — A Form of CO₂ Utilization
+- **Enhanced Oil Recovery (EOR)** is one of the main *utilization pathways* in CCUS. Captured CO₂ is **injected into depleted oil reservoirs** to push out additional crude oil that would otherwise be unrecoverable.
+- EOR creates a **private revenue opportunity** for CCUS operators by selling captured CO₂ to oil producers.
+- However, its **climate benefit depends** on whether the injected CO₂ remains **permanently stored underground** and how much **additional fossil fuel** extraction it leads to overall.
+- In practice, EOR can serve as a **transitional market** for CO₂ utilization while broader storage and industrial uses expand.
+:::
+
+---
+
+# 💵 Where Do the Costs and Benefits Come From?
+
+| **Type** | **Example Sources** | **Explanation** |
+|-----------|----------------------|-----------------|
+| **Private Costs** | Building, operating, and maintaining capture units, pipelines, compression, monitoring | Upfront and ongoing expenses the company must pay. |
+| **Private Benefits** | 1) **45Q tax credits** per ton captured/stored; 2) CO₂ sales (e.g., to industry/EOR); 3) Avoided future carbon fees | **Cash inflows** that improve the firm’s bottom line. |
+| **Social Benefits** | 1) Avoided climate damages (**SCC = \$190/tCO₂**); 2) Local air-quality improvements | **External benefits** not reflected in market prices. |
+| **Social Costs** | Construction disturbance, extra energy use (energy penalty), long-term monitoring | Typically **smaller** than the avoided climate damages. |
+
+
+## 🏛️ Section 45Q Tax Credit
+
+The **Section 45Q tax credit** was first created under the **Energy Improvement and Extension Act of 2008** ([Division B of the Emergency Economic Stabilization Act of 2008, Public Law 110–343](https://www.congress.gov/110/plaws/publ343/PLAW-110publ343.htm)) and later **expanded under the Inflation Reduction Act of 2022**.  
+In this homework, we refer to the updated policy framework as the **One Big Beautiful Bill Act**, which broadened support for both **utilization** and **storage** under Section 45Q by equalizing credit values across different CO₂ end uses and expanding eligibility for utilization projects.
+
+<!-- 🧩 **Key idea:** -->
+<!-- - The **private perspective** includes only *revenues and costs* that affect the firm. -->
+<!-- - The **social perspective** adds *societal benefits* from avoided emissions and environmental improvements. -->
+
+---
+
+## ⚙️ Project Details
+
+### Construction and Operation Timeline
+- **Investment (Capital Outlay):** Year 0  
+- **Operation:** 5 years (Years 1–5) for this exercise  
+- **Project Lifetime:** 20+ years (only the first 5 years are analyzed)
+
+---
+
+## 🏗️ Investment Cost
+
+| **Year** | **Investment Outlay (Million \$)** |
+|-----------|------------------------------------:|
+| 0 | 500 |
+| **Total** | **500** |
+
+## 💰 Expected Annual Net Benefits (Private, before discounting and without 45Q tax credits)
+
+The company estimates the following **annual net benefits** (in **millions of dollars**), after paying all **operating** costs but before discounting.
+
+| **Year of Operation** | **Net Benefit (Million \$)** | **Main Sources of Benefit** |
+|:--:|:--:|:--|
+| 1 | -15 | Ramp-up phase, limited CO₂ sales, no full-scale operation
+ |
+| 2 | 10 | Full CO₂ capture, CO₂ sales |
+| 3 | 10 | Continued steady operation |
+| 4 | 10 | Same as above |
+| 5 | 5 | Slight drop due to maintenance and reduced output |
+
+
+
+## 🏦 The Cost of Capital
+
+- The **cost of capital** (4%) is the company’s *required rate of return* — what investors expect to earn.  
+- It also serves as the **discount rate** that a company uses to determine the **present value** of its future benefits and costs.  
+- This rate reflects the **opportunity cost of money** — the return they could earn from alternative investments.  
+- A project must earn **at least** this rate to be **financially worthwhile**.
+
+<br><br>
+
+---
+
+# ✏️ Homework Tasks
+
+## Question 1. Private Present Value OF Net Benefit ($\text{PV}_{NB}$)
+
+1. Use the annual benefits table to calculate the **Present Value (PV)** of benefits at **4%**.  
+2. Subtract the \$500 million investment to find the **Private $\text{PV}_{NB}$**.  
+3. Interpret whether the project is financially attractive for the company.
+
+**PV of Total Benefits (Million \$)** | **PV of Costs (Million \$)** | **Private $\text{PV}_{NB}$ (Million \$)** |
+|------------------------|------------------:|-------------------:|
+|  | 500 |  |
+
+
+::: {.callout-tip collapse="true"}
+### Show answer
+
+From the table, the **private net benefits (excluding 45Q and SCC)** in millions of dollars are:
+
+$(-15,\; 10,\; 10,\; 10,\; 5)$ for Years 1–5.
+
+Compute the **PV of benefits at 4%**:
+
+$$
+\text{PV}_B(4\%)
+= \frac{-15}{1.04}
++ \frac{10}{1.04^2}
++ \frac{10}{1.04^3}
++ \frac{10}{1.04^4}
++ \frac{5}{1.04^5}.
+$$
+
+Numerically (in millions):
+
+- Year 1: $-15/1.04 \approx -14.42$  
+- Year 2: $10/1.04^2 \approx 9.25$  
+- Year 3: $10/1.04^3 \approx 8.89$  
+- Year 4: $10/1.04^4 \approx 8.55$  
+- Year 5: $5/1.04^5 \approx 4.11$
+
+So
+
+$$
+\text{PV}_B(4\%)
+\approx -14.42 + 9.25 + 8.89 + 8.55 + 4.11
+\approx 16.37\ \text{million}.
+$$
+
+Now subtract the Year-0 investment of \$500 million:
+
+$$
+\text{Private PV}_{NB}(4\%)
+= -500 + 16.37
+\approx -483.63\ \text{million}.
+$$
+
+
+
+| **PV of Total Benefits (Million \$)** | **PV of Costs (Million \$)** | **Private $\text{PV}_{NB}$ (Million \$)** |
+|--------------------------------------:|-----------------------------:|------------------------------------------:|
+| 16.37                                 | 500                          | -483.63                                   |
+
+**Interpretation:**  
+At a 4% discount rate, the private $\text{PV}_{NB}$ is **strongly negative** (about **-\$484 million**), so the project is **not financially attractive** for the company based only on private costs and benefits (ignoring SCC and 45Q).
+
+:::
+
+<br>
+
+## Question 2. Add the Social Value of Carbon (SCC = \$190/tCO₂)
+
+Each year, CCUS prevents **1 million metric tons of CO₂**, avoiding **\$190 million** in climate damages.
+
+1. Add **\$190 million per year** to each annual benefit.  
+2. Recalculate the **Social $\text{PV}_{NB}$** at 4%.  
+3. Compare your results and discuss what changes.
+
+<!-- | **Discount Rate** | **PV of Benefits (Private + SCC)** | **PV of Costs** | **Social $\text{PV}_{NB}$** | -->
+
+| **PV of Total Benefits (Private + SCC) (Million \$) ** | **PV of Costs (Million \$)** | **Social $\text{PV}_{NB}$ (Million \$)** |
+|--------------------------------|---------------------:|-------------------:|
+|  | 500 |  |
+
+
+
+::: {.callout-tip collapse="true"}
+### Show answer
+
+**Baseline private net benefits (excluding 45Q):**  
+$(-15,\; 10,\; 10,\; 10,\; 5)$ million dollars.
+
+**Add SCC = \$190 million per year:**  
+$(-15+190,\; 10+190,\; 10+190,\; 10+190,\; 5+190)
+= (175,\; 200,\; 200,\; 200,\; 195).$
+
+**Compute PV of benefits at 4%:**
+
+$$
+\text{PV}_B(4\%) =
+\frac{175}{1.04}
++ \frac{200}{1.04^2}
++ \frac{200}{1.04^3}
++ \frac{200}{1.04^4}
++ \frac{195}{1.04^5}.
+$$
+
+**Then Social NPV:**
+
+$$
+\text{Social PV}_{NB}(4\%) =
+-500
++ \left(
+\frac{175}{1.04}
++ \frac{200}{1.04^2}
++ \frac{200}{1.04^3}
++ \frac{200}{1.04^4}
++ \frac{195}{1.04^5}
+\right).
+$$
+
+**Numerical results (millions):**
+
+$$
+\text{PV}_B(4\%) \approx 862.22
+\quad\Rightarrow\quad
+\text{Social PV}_{NB}(4\%) \approx -500 + 862.22
+= \mathbf{+362.22}.
+$$
+
+| **Discount Rate** | **PV of Benefits (Private excl. 45Q + SCC)** | **PV of Costs** | **Social $\text{PV}_{NB}$** |
+|---:|---:|---:|---:|
+| 4% | 862.22 | 500 | **+362.22** |
+
+**Interpretation:**  
+Even without counting the 45Q credit, adding the **social value of avoided CO₂** makes the project **strongly positive** from a social perspective at 4%.
+
+:::
+
+
+<br>
+
+## Question 3. How Large Should the 45Q Credit Be? (Realism Check)
+
+### Part A
+Using your $\text{PV}_{NB}$ setup from Question 1 (at 4%), show that the project’s **Private $\text{PV}_{NB}$** with the current **\$85/t** credit is negative.  
+
+
+::: {.callout-tip collapse="true"}
+#### Show answer
+
+Using the **benefit stream that excludes 45Q** from Q1, $(-15,\,10,\,10,\,10,\,5)$ (in millions), adding the existing 45Q credit contributes **\$85 million per year** (since capture is 1 Mt/yr). The NPV at $r=4\%$ is:
+
+$$
+\text{Private PV}_{NB}(4\%) \;=\;
+-500
++ \left(\frac{-15}{1.04} + \frac{10}{1.04^2} + \frac{10}{1.04^3} + \frac{10}{1.04^4} + \frac{5}{1.04^5}\right)
++ \left(\frac{85}{1.04} + \frac{85}{1.04^2} + \frac{85}{1.04^3} + \frac{85}{1.04^4} + \frac{85}{1.04^5}\right).
+$$
+
+Numerically (millions):
+
+- Baseline PV (excl. 45Q): $\approx 16.37$  
+- PV of \$85/t credit: $85 \times \left(\frac{1}{1.04} + \cdots + \frac{1}{1.04^5}\right) \approx 85 \times 4.4518 \approx 378.41$
+
+So
+$$
+\text{Private PV}_{NB}(4\%) \approx -500 + 16.37 + 378.41 \;=\; \mathbf{-105.23} \;<\; 0.
+$$
+
+**Conclusion:** With the current \$85/t credit, the **private NPV is negative** at 4%.
+
+:::
+
+
+### Part B
+Calculate the **minimum 45Q credit per ton** needed to make the **Private $\text{PV}_{NB}$ ≈ 0** (breakeven).  
+
+| **Scenario** | **Credit per ton (\$)** | **Private $\text{PV}_{NB}$ @ 4% (Million \$)** | **Investment Decision** |
+|---------------|------------------------:|-----------------------------------:|--------------------------|
+| Current policy | 85 | Negative | Not attractive |
+| Breakeven (your estimate) |  | ≈ 0 | Borderline |
+| Above breakeven |  | Positive | Attractive |
+
+
+
+::: {.callout-tip collapse="true"}
+#### Show answer
+Let $p_{\text{total}}$ be the **total** credit per ton (in \$). Since 1 Mt is captured each year, this adds $p_{\text{total}}$ million per year. Set NPV to zero:
+
+$$
+0 \;=\;
+-500
++ \underbrace{\left(\frac{-15}{1.04} + \frac{10}{1.04^2} + \frac{10}{1.04^3} + \frac{10}{1.04^4} + \frac{5}{1.04^5}\right)}_{\approx\,16.37}
++ \; p_{\text{total}} \!\!\left(\frac{1}{1.04} + \frac{1}{1.04^2} + \frac{1}{1.04^3} + \frac{1}{1.04^4} + \frac{1}{1.04^5}\right).
+$$
+
+The sum of discount factors is
+$$
+\frac{1}{1.04} + \frac{1}{1.04^2} + \frac{1}{1.04^3} + \frac{1}{1.04^4} + \frac{1}{1.04^5}
+\;\approx\; 4.4518.
+$$
+
+Solve for $p_{\text{total}}$:
+$$
+p_{\text{total}} \;=\; \frac{500 - 16.37}{4.4518} \;\approx\; \mathbf{108.64\ \text{dollars per ton}}.
+$$
+
+So a **total** credit of about **\$109/t** is needed for breakeven at 4% (which implies an **incremental** $\Delta p \approx \$24/t$ above today’s \$85/t).
+
+
+#### Decision Table (at 4%)
+
+| **Scenario**            | **Credit per ton (\$)** | **Private NPV @ 4% (Million \$)** | **Investment Decision** |
+|-------------------------|------------------------:|-----------------------------------:|--------------------------|
+| Current policy          | 85                      | -105.23                            | Not attractive           |
+| Breakeven (rounded)     | 109                     | ≈ 0.00                              | Borderline               |
+| Above breakeven (ex.)   | 120                     | +50.59                              | Attractive               |
+
+
+
+:::
+
+
+<br>
+
+## Question 4. Short Answer
+
+### Part A
+Explain how per-ton tax credits (like 45Q) help align private and social goals. Why might *higher* per-ton credits be economically justified beyond simply achieving a positive social $\text{PV}_{NB}$? In your answer, discuss the underlying economic mechanisms and sources of market failure.
+
+
+
+::: {.callout-tip collapse="true"}
+#### Show answer
+
+Per-ton tax credits (like **45Q**) internalize the **positive externality** of carbon removal/storage by paying firms for the **social benefit** their actions create but cannot monetize privately. By raising the private return, the credit aligns **private incentives** with **socially efficient levels** of abatement or carbon storage.
+
+Higher per-ton credits can be justified when there are **additional market failures** beyond the carbon externality itself. These include:  
+
+- **Learning-by-doing and technology spillovers**: Early CCUS deployment lowers future costs, but firms cannot capture these spillover benefits.  
+- **Capital market failures and risk premiums**: Long-lived, uncertain CCUS projects face financing frictions that suppress investment below the social optimum.  
+- **Coordination failures** (e.g., shared transport/storage infrastructure): Private actors underinvest when projects depend on complementary assets.  
+- **Policy uncertainty**: Expectations of future political reversal reduce investment; higher credits can counter this risk discount.  
+
+Thus, credits may need to exceed the “Pigouvian” level implied by social $\text{PV}_{NB}$ to overcome compounded market failures and unlock socially optimal deployment.
+
+:::
+
+
+
+
+### Part B
+Why might private investors hesitate to build CCUS projects without government incentives?
+
+
+
+::: {.callout-tip collapse="true"}
+#### Show answer
+
+Private investors hesitate because CCUS projects involve **high upfront capital costs**, **long payback periods**, and **uncertain revenue streams**—especially when the market does not pay for avoided emissions. Carbon storage provides **public benefits** but generates little to no private cash flow.
+
+Additional barriers include:  
+
+- **Policy and regulatory uncertainty** about future carbon credit rules or liability for stored CO₂.  
+- **Technological and operational risks**, which raise the required rate of return.  
+- **Lack of pipeline and storage infrastructure**, making early projects risky and expensive.  
+- **No natural market demand** for CO₂ storage, so without incentives there is no revenue model.  
+
+Because private returns are far below social returns, investors rationally underinvest absent government support.
+
+:::
+
+
+
+

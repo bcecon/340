@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Byeong-Hak Choe">
+<meta name="dcterms.date" content="2025-11-03">
+
+<title>Week 11 | Byeong-Hak Choe</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../assets/css/font.css">
+<link rel="stylesheet" href="styles-wk.css">
+<meta property="og:title" content="Week 11 | Byeong-Hak Choe">
+<meta property="og:description" content="Valuing Climate and Human Welfare: SCC, VSL, and Policy Responses">
+<meta property="og:image" content="/assets/img/posts.png">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/geneseo-logo-squared.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">💡 What I Do</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text"> </span></li>
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../econ-wk/wk-01.html">🗓️ Weeks</a></li><li class="breadcrumb-item"><a href="../econ-wk/wk-11.html">Week 11</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📓 Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://mylearning.suny.edu/d2l/home/2152120" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">🅱 Brightspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-lec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🚀 Lecture</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-cw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📝 Classwork</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📚 Homework</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-rw-feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">💡 Research Feedback</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">✍️️ Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-team-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📄 Guideline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-project-kickoff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🧾 Research Kick-off</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">🗓️ Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 05</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 06</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 08</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 09</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-11.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weeks 15-16</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title"><img src="../img/logo-geneseo.jpg" style="height:48px; display:inline-block; vertical-align:middle; margin-right:0px;"> <span style="display:inline-block; vertical-align:middle; font-family:Arial; font-weight:bold; line-height:1.05;"> Environmental<br>Economics </span><br>
+<br>On this page</h2>
+   
+  <ul>
+  <li><a href="#classwork" id="toc-classwork" class="nav-link active" data-scroll-target="#classwork">✍️ Classwork</a></li>
+  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">📚 Recommended Reading</a>
+  <ul>
+  <li><a href="#references-for-the-evolution-of-the-u.s.-social-cost-of-carbon-scc" id="toc-references-for-the-evolution-of-the-u.s.-social-cost-of-carbon-scc" class="nav-link" data-scroll-target="#references-for-the-evolution-of-the-u.s.-social-cost-of-carbon-scc">🔍 References for the Evolution of the U.S. Social Cost of Carbon (SCC)</a></li>
+  <li><a href="#references-for-carbon-capture-utilization-and-storage-ccus" id="toc-references-for-carbon-capture-utilization-and-storage-ccus" class="nav-link" data-scroll-target="#references-for-carbon-capture-utilization-and-storage-ccus">🧪 References for Carbon Capture, Utilization, and Storage (CCUS)</a>
+  <ul>
+  <li><a href="#why-ccus-is-highly-relevant" id="toc-why-ccus-is-highly-relevant" class="nav-link" data-scroll-target="#why-ccus-is-highly-relevant">🌍 Why CCUS Is Highly Relevant</a></li>
+  <li><a href="#where-ccus-adds-the-most-value" id="toc-where-ccus-adds-the-most-value" class="nav-link" data-scroll-target="#where-ccus-adds-the-most-value">⚙️ Where CCUS Adds the Most Value</a></li>
+  <li><a href="#limitations-and-caveats" id="toc-limitations-and-caveats" class="nav-link" data-scroll-target="#limitations-and-caveats">⚠️ Limitations and Caveats</a></li>
+  <li><a href="#policy-and-economic-perspective" id="toc-policy-and-economic-perspective" class="nav-link" data-scroll-target="#policy-and-economic-perspective">🧭 Policy and Economic Perspective</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">🧩 Summary</a>
+  <ul>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">🔍 References</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">💬 Discussion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 11</h1>
+<p class="subtitle lead">Valuing Climate and Human Welfare: SCC, VSL, and Policy Responses</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Byeong-Hak Choe </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 3, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 5, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>In <strong>Week 11</strong>, we will continue our discussion on the <strong>Social Cost of Carbon (SCC)</strong> and then move on to explore the <strong>Value of Statistical Life (VSL)</strong> as well as key <strong>policies and regulations</strong> designed to address <strong>climate change challenges</strong>.</p>
+<section id="classwork" class="level1">
+<h1>✍️ Classwork</h1>
+<ul>
+<li><strong>Classwork 9: <em>Dynamic Efficiency, Discounting, and the SCC</em></strong><br>
+<a href="../econ-cw/econ-340-cw-09.html" target="_blank">📄 View Classwork</a></li>
+</ul>
+<p><br></p>
+</section>
+<section id="recommended-reading" class="level1">
+<h1>📚 Recommended Reading</h1>
+<ul>
+<li><a href="https://www.rff.org/publications/explainers/social-cost-carbon-101/">Social Cost of Carbon 101</a>, Resources for the Future, March 13, 2025</li>
+</ul>
+<section id="references-for-the-evolution-of-the-u.s.-social-cost-of-carbon-scc" class="level2">
+<h2 class="anchored" data-anchor-id="references-for-the-evolution-of-the-u.s.-social-cost-of-carbon-scc">🔍 References for the Evolution of the U.S. Social Cost of Carbon (SCC)</h2>
+<ul>
+<li><strong>Obama Administration (2010 – 2016)</strong>
+<ul>
+<li>Interagency Working Group on Social Cost of Greenhouse Gases (IWG). (2010, 2013, 2016). <a href="https://obamawhitehouse.archives.gov/sites/default/files/omb/assets/inforeg/technical-update-social-cost-of-carbon-for-regulator-impact-analysis.pdf"><em>Technical Support Document: Social Cost of Carbon for Regulatory Impact Analysis.</em></a><br>
+→ Central SCC ≈ $50 / ton (2020 USD) at <strong>3 % discount rate</strong>, with sensitivity at 2.5 % and 5 %.</li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li><strong>Trump Administration (2017 – 2020)</strong>
+<ul>
+<li>Columbia University Center on Global Energy Policy. (2020). <a href="https://www.energypolicy.columbia.edu/publications/trump-vs-obama-social-cost-carbon-and-why-it-matters"><em>Trump vs.&nbsp;Obama: The Social Cost of Carbon and Why It Matters.</em></a><br>
+→ SCC reduced to <strong>$1 – $7 / ton</strong>, using <strong>3 %–7 % discount rates</strong> and <strong>domestic-only damages</strong>.</li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li><strong>Biden Administration (2021 – 2025)</strong>
+<ul>
+<li>U.S. Environmental Protection Agency (EPA). (2023). <a href="https://www.epa.gov/system/files/documents/2023-12/epa_scghg_2023_report_final.pdf"><em>Report on the Social Cost of Greenhouse Gases: Estimates Incorporating Recent Scientific Advances.</em></a><br>
+→ Updated <strong>global SCC ≈ $190 / ton</strong>, using <strong>declining near-term discount rates (~2 % → 1 %)</strong> based on the RFF GIVE model.<br>
+</li>
+<li>Resources for the Future (2022). <a href="https://www.resources.org/common-resources/the-us-environmental-protection-agency-introduces-a-new-social-cost-of-carbon-for-public-comment/"><em>The US Environmental Protection Agency Introduces a New Social Cost of Carbon for Public Comment</em></a></li>
+<li>Nature. (2022). <a href="https://www.nature.com/articles/s41586-022-05224-9"><em>Comprehensive evidence implies a higher social cost of CO2</em></a></li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li><strong>Trump Administration (2025 – )</strong>
+<ul>
+<li>The White House. (2025). <a href="https://www.whitehouse.gov/presidential-actions/2025/01/unleashing-american-energy/"><em>Executive Orders - Unleashing American Energy</em></a><br>
+→ <em>“The Interagency Working Group on the Social Cost of Greenhouse Gases (IWG), which was established pursuant to Executive Order 13990, is hereby disbanded”</em><br>
+→ <em>‘The calculation of the “social cost of carbon” is marked by logical deficiencies, a poor basis in empirical science, politicization, and the absence of a foundation in legislation.’</em></li>
+<li>The EPA (2025). <a href="https://www.epa.gov/newsreleases/epa-launches-biggest-deregulatory-action-us-history?utm_source=chatgpt.com"><em>EPA Launches Biggest Deregulatory Action in U.S. History</em></a><br>
+→ <em>“Today is the greatest day of deregulation our nation has seen. We are driving a dagger straight into the heart of the climate change religion to drive down cost of living for American families, unleash American energy, bring auto jobs back to the U.S. and more”</em></li>
+</ul></li>
+</ul>
+<p><br></p>
+<hr>
+</section>
+<section id="references-for-carbon-capture-utilization-and-storage-ccus" class="level2">
+<h2 class="anchored" data-anchor-id="references-for-carbon-capture-utilization-and-storage-ccus">🧪 References for Carbon Capture, Utilization, and Storage (CCUS)</h2>
+<p>CCUS is <em>one of the most relevant clean technologies</em> to address climate change —<br>
+but it comes with <strong>important caveats</strong>.<br>
+It is not a panacea and must be part of a <strong>broader portfolio of solutions</strong>.</p>
+<hr>
+<section id="why-ccus-is-highly-relevant" class="level3">
+<h3 class="anchored" data-anchor-id="why-ccus-is-highly-relevant">🌍 Why CCUS Is Highly Relevant</h3>
+<ol type="1">
+<li><strong>Captures CO₂ from hard-to-abate sectors</strong>
+<ul>
+<li>Targets industrial sources (cement, steel, chemicals) where emissions are <strong>process-based</strong>, not just from fuel.<br>
+</li>
+<li>Supported by the <strong>International Energy Agency (IEA)</strong> and <strong>Center for Climate and Energy Solutions (C2ES)</strong> as essential for net-zero pathways.<br>
+</li>
+<li><a href="https://www.iea.org/energy-system/carbon-capture-utilisation-and-storage">IEA: CCUS Overview</a></li>
+</ul></li>
+<li><strong>Enables both mitigation and removal</strong>
+<ul>
+<li>Can <strong>capture current emissions</strong> and enable <strong>negative emissions</strong> (e.g., BECCS (Bioenergy with Carbon Capture and Storage), DACCS (Direct Air Carbon Capture and Storage)).<br>
+</li>
+<li>Addresses both the <em>flow</em> and <em>stock</em> of CO₂ externalities.</li>
+</ul></li>
+<li><strong>Large-scale potential</strong>
+<ul>
+<li>Featured in nearly all <strong>1.5 °C / 2 °C scenarios</strong>.<br>
+</li>
+<li>Over <strong>30 commercial-scale projects</strong> are already operating globally.<br>
+</li>
+<li><a href="https://www.c2es.org/content/carbon-capture">C2ES: Carbon Capture</a></li>
+</ul></li>
+<li><strong>Complementary to other clean technologies</strong>
+<ul>
+<li>Supports decarbonization where <strong>electrification is difficult</strong>.<br>
+</li>
+<li>Works best <strong>alongside renewables</strong>, not instead of them.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="where-ccus-adds-the-most-value" class="level3">
+<h3 class="anchored" data-anchor-id="where-ccus-adds-the-most-value">⚙️ Where CCUS Adds the Most Value</h3>
+<ul>
+<li><strong>Heavy industries</strong>: cement, steel, fertilizer, chemical plants.<br>
+</li>
+<li><strong>Existing fossil infrastructure</strong>: retrofits reduce emissions during transition.<br>
+</li>
+<li><strong>Regions with storage potential</strong>: saline aquifers, depleted reservoirs.<br>
+</li>
+<li><strong>Negative-emissions systems</strong>: BECCS and DACCS integration.</li>
+</ul>
+<hr>
+</section>
+<section id="limitations-and-caveats" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-and-caveats">⚠️ Limitations and Caveats</h3>
+<ol type="1">
+<li><strong>High cost and energy penalty</strong>
+<ul>
+<li>Capture and compression are expensive and energy-intensive.<br>
+</li>
+<li>May offer lower cost-effectiveness than renewables in some cases.</li>
+</ul></li>
+<li><strong>Storage feasibility and safety</strong>
+<ul>
+<li>Long-term monitoring and liability remain concerns.<br>
+</li>
+<li>Requires strict regulations for storage integrity.</li>
+</ul></li>
+<li><strong>Risk of fossil-fuel lock-in</strong>
+<ul>
+<li>Over-reliance could <strong>delay energy transition</strong>.<br>
+</li>
+<li>May allow fossil firms to justify extended operations.</li>
+</ul></li>
+<li><strong>Scale and timing challenge</strong>
+<ul>
+<li>Deployment lags far behind modeled requirements for net-zero.<br>
+</li>
+<li>Early deployment is crucial to avoid cumulative emissions.</li>
+</ul></li>
+<li><strong>Utilization vs.&nbsp;storage trade-offs</strong>
+<ul>
+<li>Using CO₂ to make fuels often re-releases it later.<br>
+</li>
+<li>Permanent storage provides stronger climate benefit.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="policy-and-economic-perspective" class="level3">
+<h3 class="anchored" data-anchor-id="policy-and-economic-perspective">🧭 Policy and Economic Perspective</h3>
+<ul>
+<li><strong>Essential but conditional</strong>: Needed for deep decarbonization but not sufficient.<br>
+</li>
+<li><strong>Strategic value</strong>: Best deployed where emissions are hardest to eliminate.<br>
+</li>
+<li><strong>Economic design</strong>: Requires carbon pricing, tax credits (e.g., 45Q), or subsidies.<br>
+</li>
+<li><strong>Distributional implications</strong>: Who pays, who benefits, and local justice concerns.</li>
+</ul>
+<hr>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">🧩 Summary</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th><strong>Dimension</strong></th>
+<th><strong>Assessment</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Climate relevance</td>
+<td>🔹 <strong>High</strong> — critical for hard-to-abate sectors</td>
+</tr>
+<tr class="even">
+<td>Cost-effectiveness</td>
+<td>⚖️ <strong>Moderate</strong> — improving but still expensive</td>
+</tr>
+<tr class="odd">
+<td>Risks</td>
+<td>⚠️ Fossil lock-in, leakage, monitoring burden</td>
+</tr>
+<tr class="even">
+<td>Policy role</td>
+<td>🧭 Part of a diverse mitigation portfolio</td>
+</tr>
+</tbody>
+</table>
+<p><strong>In short:</strong><br>
+CCUS is <strong>very relevant</strong> for climate mitigation — especially for industrial and negative-emission pathways —<br>
+but its success depends on <strong>cost reduction, regulation, and integration</strong> with broader decarbonization efforts.</p>
+<hr>
+<section id="references" class="level4">
+<h4 class="anchored" data-anchor-id="references">🔍 References</h4>
+<ul>
+<li><a href="https://www.iea.org/energy-system/carbon-capture-utilisation-and-storage">International Energy Agency (IEA): CCUS</a><br>
+</li>
+<li><a href="https://www.c2es.org/content/carbon-capture">C2ES: Carbon Capture</a><br>
+</li>
+<li><a href="https://www.nature.com/articles/s41558-024-02104-0">Nature Climate Change (2024): Role of CCUS in 1.5°C pathways</a><br>
+</li>
+<li><a href="https://www.thirdway.org/memo/the-science-based-case-for-ccus">Third Way: Science-Based Case for CCUS</a><br>
+</li>
+<li><a href="https://earthjustice.org/article/carbon-capture-the-fossil-fuel-industrys-false-climate-solution">Earthjustice: Critiques of CCUS</a></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="discussion" class="level1">
+<h1>💬 Discussion</h1>
+<p><font size="5">Welcome to our Week 11 Discussion Board! 👋 </font></p>
+<p>This space is designed for you to engage with your classmates about the material covered in Week 11.</p>
+<p>Whether you are looking to delve deeper into the content, share insights, or have questions about the content, this is the perfect place for you.</p>
+<p>If you have any specific questions for Byeong-Hak (<strong><span class="citation" data-cites="bcecon">@bcecon</span></strong>) or peer classmate (<span class="citation" data-cites="GitHub-Username">@GitHub-Username</span>) regarding the Week 11 materials or need clarification on any points, don’t hesitate to ask here.</p>
+<p>Let’s collaborate and learn from each other!</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.querySelector('.quarto-btn-toggle');
+  if (!btn || !window.bootstrap) return;
+
+  btn.addEventListener('click', function (e) {
+    ['#quarto-sidebar', '#quarto-sidebar-glass'].forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) bootstrap.Collapse.getOrCreateInstance(el).toggle();
+    });
+  }, { capture: true });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="bcecon/340" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">powered with github, quarto, and rstudio<br>byeong-hak choe, 2025</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<div id="scroll-padding"></div>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/posts.js"></script>
+
+
+
+</body></html>

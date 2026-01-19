@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Byeong-Hak Choe">
+<meta name="dcterms.date" content="2025-11-19">
+
+<title>Classwork 13 | Byeong-Hak Choe</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../assets/css/font.css">
+<meta property="og:title" content="Classwork 13 | Byeong-Hak Choe">
+<meta property="og:description" content="Self-test for Midterm Exam II">
+<meta property="og:image" content="/assets/img/posts.png">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/geneseo-logo-squared.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">💡 What I Do</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text"> </span></li>
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Classwork 13</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📓 Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://mylearning.suny.edu/d2l/home/2152120" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">🅱 Brightspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-lec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🚀 Lecture</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-cw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📝 Classwork</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📚 Homework</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-rw-feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">💡 Research Feedback</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">✍️️ Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-team-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📄 Guideline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-project-kickoff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🧾 Research Kick-off</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">🗓️ Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 05</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 06</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 08</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 09</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weeks 15-16</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title"><img src="../img/logo-geneseo.jpg" style="height:48px; display:inline-block; vertical-align:middle; margin-right:0px;"> <span style="display:inline-block; vertical-align:middle; font-family:Arial; font-weight:bold; line-height:1.05;"> Environmental<br>Economics </span><br>
+<br>On this page</h2>
+   
+  <ul>
+  <li><a href="#section-1.-multiple-choice" id="toc-section-1.-multiple-choice" class="nav-link active" data-scroll-target="#section-1.-multiple-choice">Section 1. Multiple Choice</a>
+  <ul>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  </ul></li>
+  <li><a href="#section-2.-filling-in-the-blanks" id="toc-section-2.-filling-in-the-blanks" class="nav-link" data-scroll-target="#section-2.-filling-in-the-blanks">Section 2. Filling-in-the-Blanks</a>
+  <ul>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
+  </ul></li>
+  <li><a href="#section-4.-analytical-modeling-critique" id="toc-section-4.-analytical-modeling-critique" class="nav-link" data-scroll-target="#section-4.-analytical-modeling-critique">Section 4. Analytical Modeling &amp; Critique</a>
+  <ul>
+  <li><a href="#question-9" id="toc-question-9" class="nav-link" data-scroll-target="#question-9">Question 9</a>
+  <ul>
+  <li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part A</a></li>
+  <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part B</a></li>
+  <li><a href="#part-c" id="toc-part-c" class="nav-link" data-scroll-target="#part-c">Part C</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part D</a></li>
+  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part E</a></li>
+  <li><a href="#part-f" id="toc-part-f" class="nav-link" data-scroll-target="#part-f">Part F</a></li>
+  <li><a href="#part-g" id="toc-part-g" class="nav-link" data-scroll-target="#part-g">Part G</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Classwork 13</h1>
+<p class="subtitle lead">Self-test for Midterm Exam II</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Byeong-Hak Choe </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 19, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 19, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="section-1.-multiple-choice" class="level1">
+<h1>Section 1. Multiple Choice</h1>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<p>What is the core mechanism behind bounded willpower?</p>
+<ol type="a">
+<li>Social comparison<br>
+</li>
+<li>Loss aversion<br>
+</li>
+<li>Present bias causing time-inconsistent preferences<br>
+</li>
+<li>Failure to understand operating-cost differences</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>c</strong></p>
+<p><strong>Explanation:</strong><br>
+Bounded willpower refers to the idea that people often <strong>intend</strong> to act in a certain way in the future (e.g., save more, diet, study) but <strong>fail to follow through</strong> when the time comes. This is driven by <strong>present bias</strong>, where individuals place disproportionately high weight on immediate costs and benefits relative to future ones, leading to <strong>time-inconsistent preferences</strong>.</p>
+<ul>
+<li><ol type="a">
+<li>Social comparison relates more to preferences over relative status.<br>
+</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Loss aversion refers to losses hurting more than equivalent gains feel good.<br>
+</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>Misunderstanding operating costs is about bounded rationality, not willpower.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<p>A $250 benefit arrives 20 years in the future. All else equal, which change will increase its present value?</p>
+<ol type="a">
+<li>Increasing the discount rate from 3% to 5%<br>
+</li>
+<li>Shortening the time horizon from 20 years to 10 years<br>
+</li>
+<li>Moving from real to nominal dollars<br>
+</li>
+<li>Converting the benefit into a cost</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>b</strong></p>
+<p><strong>Explanation:</strong><br>
+Present value is given by<br>
+<span class="math display">\[
+PV = \frac{FV}{(1 + r)^t}
+\]</span><br>
+So PV <strong>increases</strong> when either the <strong>discount rate <span class="math inline">\(r\)</span></strong> falls, the <strong>time horizon <span class="math inline">\(t\)</span></strong> becomes shorter, or the <strong>future value</strong> increases.</p>
+<ul>
+<li><ol start="2" type="a">
+<li>Shortening the time from 20 to 10 years <strong>reduces</strong> the amount of discounting and therefore <strong>raises the present value</strong>.<br>
+</li>
+</ol></li>
+<li><ol type="a">
+<li>Increasing the discount rate makes the denominator larger → <strong>PV falls</strong>, not rises.<br>
+</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Switching between real and nominal dollars just changes the units and the matching discount rate; “all else equal” this does <strong>not</strong> systematically raise PV.<br>
+</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>Turning a benefit into a cost makes the present value <strong>negative</strong>, which clearly doesn’t increase PV.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="question-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<p>Which statement is most accurate?</p>
+<ol type="a">
+<li>A policy with positive <span class="math inline">\(PV_{NB}\)</span> must be both efficient and equitable<br>
+</li>
+<li>A policy with negative <span class="math inline">\(PV_{NB}\)</span> can still be equitable<br>
+</li>
+<li>Efficiency always implies equity<br>
+</li>
+<li>Equity is automatically satisfied when the B/C ratio exceeds 1</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>b</strong></p>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>A <strong>negative</strong> net present value of net benefits (<span class="math inline">\(PV_{NB} &lt; 0\)</span>) means the policy is <strong>inefficient</strong> in the sense that total (discounted) costs exceed total (discounted) benefits. However, it might still <strong>redistribute resources toward disadvantaged groups</strong>, so it can be <strong>equitable but inefficient</strong> → (b) is correct.</li>
+</ul>
+<p>The others incorrectly conflate efficiency and equity:</p>
+<ul>
+<li><ol type="a">
+<li>Positive <span class="math inline">\(PV_{NB}\)</span> says the policy is <strong>Kaldor–Hicks efficient</strong> (benefits exceed costs in total), but it might still be <strong>distributionally unfair</strong>.<br>
+</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Efficiency and equity are fundamentally different criteria; an efficient policy can be inequitable.<br>
+</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>A benefit–cost ratio above 1 is just another way of saying benefits exceed costs, not a guarantee of fairness.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<p>In a cost-effective pollution reduction policy with multiple firms:</p>
+<ol type="a">
+<li>All firms must abate the same quantity.<br>
+</li>
+<li>Each firm must face the same average abatement cost.<br>
+</li>
+<li>Total abatement is zero.<br>
+</li>
+<li>The marginal abatement costs are equalized across firms.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>d</strong></p>
+<p><strong>Explanation:</strong><br>
+A policy is <strong>cost-effective</strong> when it achieves a given total abatement target at the <strong>lowest possible total cost</strong>. The key condition for this is:</p>
+<blockquote class="blockquote">
+<p><strong>Marginal abatement costs (MACs) are equalized across firms.</strong></p>
+</blockquote>
+<p>If one firm has a lower MAC than another, we can lower total cost by having the low-cost firm abate more and the high-cost firm abate less until their MACs are equal.</p>
+<ul>
+<li><ol type="a">
+<li>Equal <strong>quantities</strong> of abatement across firms are <em>not</em> required; firms can abate different amounts depending on their cost structures.<br>
+</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>Equal <strong>average</strong> costs are also not necessary—what matters is equality of <strong>marginal</strong> costs.<br>
+</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Zero total abatement is just “no policy,” not cost-effectiveness.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<p>Which of the following most directly describes carbon leakage?</p>
+<ol type="a">
+<li>Emissions reductions that occur due to innovation spillovers.<br>
+</li>
+<li>Emissions being shifted abroad when production relocates to countries with weaker climate policy.<br>
+</li>
+<li>Emissions reductions concentrated in non-traded sectors.<br>
+</li>
+<li>The leakage of methane from oil and gas wells.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>b</strong></p>
+<p><strong>Explanation:</strong><br>
+<strong>Carbon leakage</strong> occurs when stringent climate policy in one country or region raises production costs, causing firms to <strong>relocate emissions-intensive production to countries with weaker regulations</strong>. The result is that domestic emissions fall, but <strong>global emissions fall less or may even rise</strong> because production (and pollution) shifts abroad.</p>
+<ul>
+<li><ol type="a">
+<li>Innovation spillovers are a <em>positive</em> external effect, not leakage.<br>
+</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>Emissions reductions in non-traded sectors say <em>where</em> reductions happen, not that emissions are shifting overseas.<br>
+</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>Methane leakage from wells is an important issue, but it’s not what “carbon leakage” refers to in the policy context.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="section-2.-filling-in-the-blanks" class="level1">
+<h1>Section 2. Filling-in-the-Blanks</h1>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<p>Effective policy design requires integrating four components: Incentives, ________, Institutions, and ________.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>Information; Social Norms</strong></p>
+<p><strong>Explanation:</strong><br>
+A helpful way to think about policy design is that it must align:</p>
+<ul>
+<li><strong>Incentives</strong> – prices, regulations, and other material rewards or penalties<br>
+</li>
+<li><strong>Information</strong> – what people know about costs, benefits, risks, and alternatives<br>
+</li>
+<li><strong>Institutions</strong> – formal rules, laws, and organizations that structure behavior<br>
+</li>
+<li><strong>Social norms</strong> – informal rules about what is considered acceptable, fair, or desirable</li>
+</ul>
+<p>Even if incentives and information are well designed, policies can fail if <strong>institutions are weak</strong> or if <strong>social norms</strong> push people in the opposite direction (e.g., norms that glorify high consumption or stigmatize “green” behavior).</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+<p>The IPCC combines Climate Models (physical simulations) with Socioeconomic Scenarios to form ________________________, which represent different “what if” futures ranging from sustainability to fossil-fueled development.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>Shared Socioeconomic Pathways (SSPs)</strong></p>
+<p><strong>Explanation:</strong><br>
+The IPCC uses <strong>Shared Socioeconomic Pathways (SSPs)</strong> as standardized scenario storylines. They describe different <strong>possible futures for population, technology, policy, and economic development</strong>, ranging from:</p>
+<ul>
+<li><strong>SSP1:</strong> Sustainability<br>
+</li>
+<li><strong>SSP2:</strong> Middle of the Road<br>
+</li>
+<li><strong>SSP3:</strong> Regional Rivalry<br>
+</li>
+<li><strong>SSP4:</strong> Inequality<br>
+</li>
+<li><strong>SSP5:</strong> Fossil-fueled Development</li>
+</ul>
+<p>These SSPs, when combined with climate models and emissions trajectories, generate a set of “what if” scenarios used for climate impact and policy analysis.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="question-8" class="level2">
+<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<p>The Paris Agreement includes a mechanism called the ________________________, occurring every 5 years, which evaluates collective progress to inform the next round of Nationally Determined Contributions (NDCs).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Correct answer:</strong> <strong>Global Stocktake</strong></p>
+<p><strong>Explanation:</strong><br>
+The <strong>Global Stocktake</strong> is a periodic (every 5 years) assessment under the Paris Agreement that:</p>
+<ul>
+<li>Evaluates <strong>collective progress</strong> toward long-term goals (e.g., keeping warming well below 2°C)<br>
+</li>
+<li>Uses this information to <strong>inform and strengthen the next round of NDCs</strong></li>
+</ul>
+<p>It is essentially a <strong>feedback and ratcheting mechanism</strong>—countries see how the world is doing, then are expected to increase their ambition over time.</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="section-4.-analytical-modeling-critique" class="level1">
+<h1>Section 4. Analytical Modeling &amp; Critique</h1>
+<section id="question-9" class="level2">
+<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+<p>Consider a perfectly competitive market for <strong>solar energy</strong> that generates <strong>positive externalities</strong> such as reduced carbon emissions and knowledge spillovers.<br>
+The <strong>private marginal benefit (PMB)</strong> and <strong>marginal cost (MC)</strong> of solar production are:</p>
+<p><span class="math display">\[
+\begin{aligned}
+PMB(Q) &amp;= 110 - 2Q\\
+MC(Q) &amp;= 20 + Q
+\end{aligned}
+\]</span></p>
+<p>and the <strong>external marginal benefit (EMB)</strong> is:</p>
+<p><span class="math display">\[
+EMB(Q) = 60
+\]</span></p>
+<section id="part-a" class="level3">
+<h3 class="anchored" data-anchor-id="part-a">Part A</h3>
+<p>Find the <strong>market equilibrium</strong> quantity <span class="math inline">\(Q_M\)</span> and price <span class="math inline">\(P_M\)</span>.<br>
+Show all steps.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In an unregulated competitive market, firms and consumers ignore the external benefit and equate <strong>private</strong> marginal benefit and marginal cost:</p>
+<p><span class="math display">\[
+PMB(Q) = MC(Q)
+\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[
+110 - 2Q = 20 + Q
+\]</span></p>
+<p>Rearrange:</p>
+<p><span class="math display">\[
+\begin{aligned}
+110 - 20 &amp;= 3Q \\
+90 &amp;= 3Q \\
+Q_M &amp;= 30
+\end{aligned}
+\]</span></p>
+<p>Find the corresponding equilibrium price:</p>
+<ul>
+<li><p>Using <span class="math inline">\(MC(Q)\)</span>:<br>
+<span class="math inline">\(P_M = MC(30) = 20 + 30 = 50\)</span></p></li>
+<li><p>Check with <span class="math inline">\(PMB(Q)\)</span>:<br>
+<span class="math inline">\(PMB(30) = 110 - 2(30) = 110 - 60 = 50\)</span></p></li>
+</ul>
+<p>So the <strong>market equilibrium</strong> is:</p>
+<ul>
+<li><span class="math inline">\(Q_M = 30\)</span><br>
+</li>
+<li><span class="math inline">\(P_M = 50\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
+<p>Compute the <strong>social marginal benefit (SMB)</strong> function.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Social marginal benefit adds the <strong>external marginal benefit</strong> to the <strong>private marginal benefit</strong>:</p>
+<p><span class="math display">\[
+SMB(Q) = PMB(Q) + EMB(Q)
+\]</span></p>
+<p>Given:</p>
+<ul>
+<li><span class="math inline">\(PMB(Q) = 110 - 2Q\)</span></li>
+<li><span class="math inline">\(EMB(Q) = 60\)</span></li>
+</ul>
+<p>Then:</p>
+<p><span class="math display">\[
+\begin{aligned}
+SMB(Q) &amp;= (110 - 2Q) + 60 \\
+&amp;= 170 - 2Q
+\end{aligned}
+\]</span></p>
+<p>So the <strong>social marginal benefit</strong> function is:</p>
+<p><span class="math display">\[
+SMB(Q) = 170 - 2Q
+\]</span></p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-c" class="level3">
+<h3 class="anchored" data-anchor-id="part-c">Part C</h3>
+<p>Find the <strong>socially optimal output</strong> <span class="math inline">\(Q^*\)</span> and price <span class="math inline">\(P^*\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <strong>social planner</strong> chooses <span class="math inline">\(Q^*\)</span> where:</p>
+<p><span class="math display">\[
+SMB(Q) = MC(Q)
+\]</span></p>
+<p>Substitute the functions:</p>
+<p><span class="math display">\[
+170 - 2Q = 20 + Q
+\]</span></p>
+<p>Rearrange:</p>
+<p><span class="math display">\[
+\begin{aligned}
+170 - 20 &amp;= 3Q \\
+150 &amp;= 3Q \\
+Q^* &amp;= 50
+\end{aligned}
+\]</span></p>
+<p>At <span class="math inline">\(Q^*\)</span>, the efficient price (the value of one more unit in terms of cost and social benefit) is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+P^* &amp;= MC(Q^*) \\
+&amp;= 20 + 50 \\
+&amp;= 70
+\end{aligned}
+\]</span></p>
+<p>And you can check:</p>
+<p><span class="math display">\[
+\begin{aligned}
+SMB(50) &amp;= 170 - 2(50) \\
+&amp;= 170 - 100 \\
+&amp;= 70
+\end{aligned}
+\]</span></p>
+<p>So at the optimum:</p>
+<ul>
+<li><span class="math inline">\(Q^* = 50\)</span><br>
+</li>
+<li><span class="math inline">\(P^* = 70\)</span><br>
+</li>
+<li>And <span class="math inline">\(SMB(Q^*) = MC(Q^*) = 70\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
+<ul>
+<li>Graph the <span class="math inline">\(PMB\)</span>, <span class="math inline">\(SMB\)</span>, and <span class="math inline">\(MC\)</span> curves.
+<ul>
+<li>Label both the <strong>market equilibrium</strong> (<span class="math inline">\(Q_M, P_M\)</span>) and the <strong>socially optimal equilibrium</strong> (<span class="math inline">\(Q^*, P^*\)</span>).</li>
+</ul></li>
+<li>Graphically shade and label the <strong>deadweight loss (DWL)</strong> caused by the positive externality on the graph.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="econ-340-cw-13_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="econ-340-cw-13_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Key economic features of the graph:</strong></p>
+<ul>
+<li>The <span class="math inline">\(PMB\)</span> curve is downward sloping: <span class="math inline">\(PMB(Q) = 110 - 2Q\)</span>.</li>
+<li>The <span class="math inline">\(SMB\)</span> curve lies above the <span class="math inline">\(PMB\)</span> curve by a vertical distance of <span class="math inline">\(EMB = 60\)</span>:<br>
+<span class="math inline">\(SMB(Q) = 170 - 2Q\)</span>.</li>
+<li>The <span class="math inline">\(MC\)</span> curve is upward sloping: <span class="math inline">\(MC(Q) = 20 + Q\)</span>.</li>
+</ul>
+<p><strong>Equilibria:</strong></p>
+<ul>
+<li><em>Market equilibrium</em> (ignoring external benefit):<br>
+<span class="math inline">\(Q_M = 30\)</span>, <span class="math inline">\(P_M = 50\)</span> (intersection of <span class="math inline">\(PMB\)</span> and <span class="math inline">\(MC\)</span>).</li>
+<li><em>Social optimum</em>:<br>
+<span class="math inline">\(Q^* = 50\)</span>, <span class="math inline">\(P^* = 70\)</span> (intersection of <span class="math inline">\(SMB\)</span> and <span class="math inline">\(MC\)</span>).</li>
+</ul>
+<p><strong>Positive Externalities:</strong></p>
+<ul>
+<li>The <strong>positive externality</strong> at <span class="math inline">\((Q_M, P_M)\)</span> corresponds to the area <strong>between the <span class="math inline">\(PMB\)</span> and <span class="math inline">\(SMB\)</span> curves from <span class="math inline">\(0\)</span> to <span class="math inline">\(Q_M\)</span></strong>—a rectangle in this case because the vertical gap <span class="math inline">\(EMB = 60\)</span> is constant.</li>
+</ul>
+<p><strong>Deadweight loss (DWL):</strong></p>
+<ul>
+<li>Because the market under-provides solar (<span class="math inline">\(Q_M &lt; Q^*\)</span>), the DWL is the <strong>triangle between <span class="math inline">\(SMB\)</span> and <span class="math inline">\(MC\)</span> from <span class="math inline">\(Q_M\)</span> to <span class="math inline">\(Q^*\)</span></strong>.</li>
+<li>The shaded triangle in the plot shows the lost net benefits from failing to expand production from <span class="math inline">\(Q_M\)</span> to <span class="math inline">\(Q^*\)</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-e" class="level3">
+<h3 class="anchored" data-anchor-id="part-e">Part E</h3>
+<p>Calculate the <strong>optimal per-unit subsidy</strong> that would achieve the socially efficient outcome.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The idea of a <strong>Pigouvian subsidy</strong> for a positive externality is to raise the <strong>private marginal benefit</strong> up to the <strong>social marginal benefit</strong>.</p>
+<p>We want:</p>
+<p><span class="math display">\[
+PMB(Q) + s = SMB(Q)
+\]</span></p>
+<p>Since <span class="math inline">\(SMB(Q) = PMB(Q) + EMB(Q)\)</span>, the required subsidy is simply:</p>
+<p><span class="math display">\[
+s^* = EMB(Q^*) = 60
+\]</span></p>
+<p>So the <strong>optimal per-unit subsidy</strong> is:</p>
+<ul>
+<li><span class="math inline">\(s^* = 60\)</span> per unit of solar energy.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-f" class="level3">
+<h3 class="anchored" data-anchor-id="part-f">Part F</h3>
+<p>Compute the <strong>market price with the subsidy</strong>, i.e., the prices received by producers and paid by consumers.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let:</p>
+<ul>
+<li><span class="math inline">\(P_c\)</span> = price paid by consumers<br>
+</li>
+<li><span class="math inline">\(P_p\)</span> = price received by producers<br>
+</li>
+<li><span class="math inline">\(s\)</span> = per-unit subsidy to producers</li>
+</ul>
+<p>With a subsidy:</p>
+<p><span class="math display">\[
+P_p = P_c + s
+\]</span></p>
+<p>At the efficient quantity <span class="math inline">\(Q^* = 50\)</span>:</p>
+<ul>
+<li>Producers must receive <span class="math inline">\(P_p = MC(Q^*) = 20 + 50 = 70\)</span>.<br>
+</li>
+<li>The optimal subsidy is <span class="math inline">\(s^* = 60\)</span>.</li>
+</ul>
+<p>So:</p>
+<p><span class="math display">\[
+\begin{aligned}
+P_c &amp;= P_p - s^* \\
+&amp;= 70 - 60\\
+&amp;= 10
+\end{aligned}
+\]</span></p>
+<p>Check consistency with <span class="math inline">\(PMB\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+PMB(50) &amp;= 110 - 2(50) \\
+&amp;= 110 - 100 \\
+&amp;= 10 \\
+&amp;= P_c
+\end{aligned}
+\]</span></p>
+<p>So with the subsidy:</p>
+<ul>
+<li>Consumers pay: <span class="math inline">\(P_c = 10\)</span><br>
+</li>
+<li>Producers receive: <span class="math inline">\(P_p = 70\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="econ-340-cw-13_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-g" class="level3">
+<h3 class="anchored" data-anchor-id="part-g">Part G</h3>
+<p>Compute the <strong>subsidy expenditure</strong> and the <strong>change in total welfare</strong> from implementing the policy.</p>
+<ul>
+<li>Subsidy expenditure represents the <strong>total fiscal cost</strong> to the government of providing the per-unit subsidy.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Show answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Subsidy expenditure</strong></li>
+</ol>
+<p>The government pays the subsidy <span class="math inline">\(s^*\)</span> on each unit produced at the efficient quantity <span class="math inline">\(Q^*\)</span>:</p>
+<p><span class="math display">\[
+\text{Subsidy Expenditure} = s^* \times Q^* = 60 \times 50 = 3000
+\]</span></p>
+<p>So the total fiscal cost is:</p>
+<ul>
+<li>Subsidy expenditure = <span class="math inline">\(3{,}000\)</span></li>
+</ul>
+<p><br></p>
+<ol start="2" type="1">
+<li><strong>Change in total welfare</strong></li>
+</ol>
+<p>Total welfare (including external benefits) is maximized at <span class="math inline">\(Q^* = 50\)</span>.<br>
+In an unregulated market setting, the market stops at <span class="math inline">\(Q_M = 30\)</span>, so there is a deadweight loss.</p>
+<p>The DWL is the triangle between <span class="math inline">\(SMB\)</span> and <span class="math inline">\(MC\)</span> from <span class="math inline">\(Q_M\)</span> to <span class="math inline">\(Q^*\)</span>.</p>
+<ul>
+<li><p>Base (quantity difference):<br>
+<span class="math inline">\(Q^* - Q_M = 50 - 30 = 20\)</span></p></li>
+<li><p>Height (difference between <span class="math inline">\(SMB\)</span> and <span class="math inline">\(MC\)</span> at <span class="math inline">\(Q_M\)</span>):<br>
+<span class="math inline">\(SMB(30) = 170 - 2(30) = 170 - 60 = 110\)</span><br>
+<span class="math inline">\(MC(30) = 20 + 30 = 50\)</span><br>
+Difference: <span class="math inline">\(110 - 50 = 60\)</span></p></li>
+</ul>
+<p>So:</p>
+<p><span class="math display">\[
+DWL = \frac{1}{2} \times 20 \times 60 = 600
+\]</span></p>
+<p>This is the net gain in total welfare from moving from <span class="math inline">\(Q_M\)</span> to <span class="math inline">\(Q^*\)</span>.</p>
+<ul>
+<li>Change in total welfare = <span class="math inline">\(+600\)</span></li>
+</ul>
+<p><strong>Summary:</strong></p>
+<ul>
+<li>Subsidy expenditure (government’s fiscal cost): <span class="math inline">\(3{,}000\)</span>
+<ul>
+<li>Subsidy expenditure is transferred to the producers in a lump-sum fashion.</li>
+</ul></li>
+<li>Net gain in total welfare (recovered DWL): <span class="math inline">\(600\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.querySelector('.quarto-btn-toggle');
+  if (!btn || !window.bootstrap) return;
+
+  btn.addEventListener('click', function (e) {
+    ['#quarto-sidebar', '#quarto-sidebar-glass'].forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) bootstrap.Collapse.getOrCreateInstance(el).toggle();
+    });
+  }, { capture: true });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="bcecon/340" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">powered with github, quarto, and rstudio<br>byeong-hak choe, 2025</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<div id="scroll-padding"></div>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/posts.js"></script>
+
+
+
+</body></html>

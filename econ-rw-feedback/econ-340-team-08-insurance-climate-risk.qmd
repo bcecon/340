@@ -1,0 +1,131 @@
+---
+title: "Group 08"
+subtitle: "The Effect of Insurance Premiums on Climate Risk Perceptions"
+author: Byeong-Hak Choe
+institute: SUNY Geneseo
+date: 2025-11-25
+
+code-fold: false
+
+execute:
+  echo: true
+  eval: true
+  message: false
+  warning: false
+  fig-width: 9
+  fig-height: 6
+---
+
+Dear Group 8,
+
+Thank you for your rich and ambitious Research Kick-off Report on insurance premiums and climate risk perception. You’ve identified an important channel through which households *experience* climate risk in financial terms, and you’ve connected this well to **discounting, salience, and market structure**. The project has high potential, especially if you sharpen the **causal narrative** and keep the scope manageable.
+
+---
+
+### Clarifying the Scope: Final Proposal
+
+You are working toward the **presentation** and the **final proposal**. Your main task is to:
+
+- Build a **clear environmental economics narrative** around insurance, climate risk, and household behavior.
+- Use **existing literature, descriptive facts, and published figures** to motivate your research question and policy discussion.
+- Propose **conceptual frameworks and possible policy options**, not full econometric results.
+
+
+---
+
+### Next Steps for Your Final Proposal
+
+Over the next few weeks, I recommend focusing on:
+
+1. **Clarify your core research question and mechanism**
+   - For example:  
+   
+     > “How do increases in climate-related insurance premiums affect households’ perceived climate risk and attitudes toward adaptation and climate policy?”
+     
+   - Be explicit about the **direction of causality** you want to emphasize:
+     - Climate risk → higher expected losses → higher premiums → changes in perception/behavior.
+     - Or, insurance market structure and policy → distorted pricing → misaligned perceptions and adaptation.
+
+2. **Develop a simple conceptual framework (no heavy math required)**
+   - Sketch a **household decision problem**:  
+     - Trade-offs between current housing consumption, moving/adaptation costs, and perceived future climate damages.
+     - Where do **insurance premiums** enter the budget constraint and perceived risk?
+   - Use concepts like **risk pricing, externalities, moral hazard, adverse selection, and intertemporal choice** to structure the story.
+
+3. **Frame insurance as both a price signal and a constraint**
+   - Distinguish between:
+     - Insurance as a **signal of risk** that might update beliefs.
+     - Insurance as a **financial burden** that can trap or “lock in” households in risky areas or push them out.
+   - Ask: under what conditions do households *respond* to the signal versus *ignore* or *resist* it?
+
+4. **Highlight key policy trade-offs**
+   - Should policymakers:
+     - Allow **full risk-based pricing**, even if it raises affordability concerns?
+     - **Subsidize premiums** for equity reasons?
+     - **Invest in adaptation** to reduce risk (and thus premiums)?
+     - Or **discourage rebuilding** in high-risk areas altogether?
+   - Frame these through **efficiency vs. equity**, and **short-run vs. long-run climate resilience**.
+
+5. **Use existing empirical evidence for motivation (optional but helpful)**
+   - Instead of running your own regressions, you can:
+     - Show **one or two published figures or tables** that illustrate patterns in climate risk, premiums, or mortgage outcomes.
+     - Summarize **qualitative findings** (e.g., how households report interpreting premium changes, willingness to pay for risk reduction, etc.).
+   - Treat these as **motivation** and **illustrations**, not as your own empirical contribution.
+
+---
+
+### Suggested References
+
+You do **not** need to cite everything, but drawing on a few of these will strengthen the **motivation**, **context**, and **policy discussion** in your proposal.
+
+
+- [*“How is climate change impacting home insurance markets?”*](https://www.brookings.edu/articles/how-is-climate-change-impacting-home-insurance-markets/) Brookings Institution (2025)  
+- [*“Climate Risk, Insurance Premiums, and the Effects on Mortgage and Credit Outcomes”*](https://www.dallasfed.org/research/papers/2025/wp2505) Dallas Fed Working Paper (2025)
+- [*“Housing, Climate Risk, and Insurance”*](https://bcecon.github.io/docs/keys-nber-2025-housing-climate-risk-insurance.pdf) – NBER (2025)  
+- [*"Property Insurance and Disaster Risk: New Evidence from Mortgage Escrow Data"*](https://bcecon.github.io/docs/keys-mulder-nber-2024-insurance-climate-risk.pdf) – NBER (2024)  
+- [*“Willingness of homeowners to mitigate climate risk through insurance”*](https://bcecon.github.io/docs/botzen-etal-ecological-economics-2009-insurance-climate-risk.pdf) (Ecological Economics, 2009)
+
+In your **presentation slides** and the **final proposal**, consider adding **one or two visual elements** drawn from these sources, such as:
+
+- A chart showing **trends in premiums** in high-risk vs. low-risk regions.
+- A map or figure showing **geographic variation in climate risk** and insurance costs.
+- A visualization or table summarizing **willingness-to-pay for risk mitigation** from the Ecological Economics paper.
+
+These visuals should be clearly labeled and cited, and used to **motivate** your research question.
+
+---
+
+### Questions to Think About as You Refine Your Final Proposal
+
+You do **not** need to answer all of these, but they may help you sharpen your narrative and policy recommendations.
+
+#### a. Insurance Premiums and Climate Risk Perception – Consumer & Citizen Angle
+- When your insurance premium rises due to wildfire or flood risk, do you interpret it as “the market knows something I need to know”? Why or why not?
+- From a citizen perspective, should policymakers allow insurance prices to fully reflect climate risks, or should they cap or subsidize premiums to protect affordability?  
+  - How might each choice affect **individual risk perception**, **location choices**, and **political support** for climate policy?
+
+#### b. Housing Choice, Lock-In, and System Constraints
+- Rising premiums may signal growing climate risk, but many households can’t move because of mortgages, jobs, or family ties.  
+  - Is climate risk perception meaningful if individuals have **no viable alternatives**?
+- How do **lock-in effects** (being “stuck” in place) change the welfare analysis of risk-based pricing?
+- If several neighbors relocate or invest in adaptation after premium hikes, how might that shape your own perception of risk? Are **social spillovers** sometimes stronger than price signals?
+
+#### c. Behavioral Economics & Misperception of Climate Risk
+- Why might some households **ignore or downplay** rising premiums? Consider:
+  - **Present bias** (focusing on current costs and ignoring long-run risk),
+  - **Availability heuristic** (“nothing bad has happened recently”),
+  - **Limited attention** (complex contracts, automatic renewals).
+- How could insurers or governments **communicate climate risk** in ways that counter these biases without causing panic or resignation?
+
+#### d. Systemic Risks and Insurance Market Failure
+- What happens when insurers **underprice climate risk** (e.g., due to regulation or political pressure)?  
+  - How does that affect rebuilding in high-risk areas and the timing of adaptation?
+- What happens when insurers **overprice risk** or withdraw coverage entirely?  
+  - Think about **affordability crises, local economic decline, and climate-driven migration**.
+- In cases of severe market failure, who should step in when private insurance markets collapse—state governments, the federal government, or some form of **public insurer of last resort**?  
+  - How might each option affect **risk perception, incentives to adapt, and equity**?
+
+---
+
+Best,  
+Byeong-Hak

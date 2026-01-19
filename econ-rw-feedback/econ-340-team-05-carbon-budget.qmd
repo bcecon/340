@@ -1,0 +1,94 @@
+---
+title: "Group 05"
+subtitle: "Personal Budgeting of Carbon Emissions and Its Impact"
+author: Byeong-Hak Choe
+institute: SUNY Geneseo
+date: 2025-11-25
+
+code-fold: false
+
+execute:
+  echo: true
+  eval: true
+  message: false
+  warning: false
+  fig-width: 9
+  fig-height: 6
+---
+
+Dear Group 5,
+
+Thank you for your work on personal carbon budgets and behavior. You’ve correctly focused on **mental accounting, salience, and externalities**. The potential for success is high if you clarify your main outcome of interest and link your conceptual story to a few **concrete examples and numbers**.
+
+For the presentation and the final proposal, your main task is to develop a **clear conceptual and policy framework**, supported by **selective numbers or visuals from existing sources**.
+
+---
+
+### Next Steps 
+
+- **Clarify your main outcome of interest.**  
+  Decide whether you are primarily focusing on:
+  - changes in specific behaviors (e.g., transport, energy use, diet), or  
+  - overall **carbon literacy, awareness, and perceived responsibility**.
+
+- **Engage with key literature on personal carbon budgets.**  
+  In your proposal and presentation, I recommend citing:
+  - [*“Personal carbon allowances revisited”*](https://bcecon.github.io/docs/nerini-etal-nature-sustainability-2021-personal-carbon-allowances-revisited.pdf) (Nature Sustainability, 2021)  
+  - [*“Personal Carbon Budgets: A PESTLE Review”*](https://doi.org/10.3390/su14159238) (Sustainability, 2022)  
+  - [*“Encouraging people to set lower personal carbon budgets: anchoring is more effective than social reference groups”*]( https://doi.org/10.3389/fpsyg.2025.1648500) (Frontiers in Psychology, 2025)
+  - [*US EPA’s “Carbon Footprint Calculator”*](https://www.epa.gov/ghgemissions/carbon-footprint-calculator) as an example of a practical tool
+
+  Use these to motivate **why** personal carbon budgeting might work, what challenges arise, and how it fits within broader climate policy.
+
+- **Use real-world tools and examples.**  
+  Identify one or two **real-world personal carbon budgeting tools or calculators** (e.g., the EPA calculator) and briefly summarize:
+  - what they measure, and  
+  - how they present information and feedback to users.
+
+- **Develop a simple behavioral framework.**  
+  Build a **mental accounting–based story** of how a personal carbon “budget” could:
+  - change **marginal decisions** for high-impact vs. low-impact activities, and  
+  - complement (or conflict with) **price-based incentives** like energy or fuel taxes.
+
+- **Incorporate simple numbers or visuals (no original data analysis needed).**  
+  - Draw on **secondary data or parameter values** from your references (e.g., typical household emissions by category).  
+  - Add at least **one visualization and/or descriptive/statistical result** (e.g., a pie chart of household emissions sources, or a table comparing typical budgets vs. current average emissions) to your **presentation slides** to motivate your research.  
+
+- **Discuss policy implications.**  
+  Add a short section explaining how **personal budgeting tools** might:
+  - complement existing climate strategies (carbon taxes, regulations, subsidies), and  
+  - raise issues of **fairness, feasibility, and political acceptability**.
+
+---
+
+### Questions to Think About as You Refine Your Proposal
+
+You do **not** need to answer all of these directly in the proposal, but they can help you sharpen your narrative, economic reasoning, and policy recommendations.
+
+**1️⃣ Behavioral Mechanisms**
+
+- Do you think personal carbon budgets would change behavior more effectively than **price signals alone** (e.g., energy or fuel taxes)? Why or why not?
+- How does **mental accounting** differ from standard price-based incentives in the way it shapes decisions and attention?
+- Would **framing** (e.g., annual vs. monthly carbon budgets) or **anchoring** (e.g., suggested “low” target) matter for how people respond?
+
+**2️⃣ Equity & Fairness**
+
+- Would a **uniform per-capita carbon budget** be fair, given differences in income, climate, infrastructure (car dependence, public transit availability), and historical responsibility?
+- How might you think about fairness if two households have similar budgets but very different **constraints** (e.g., rural vs. urban, renters vs. homeowners)?
+- Should personal carbon budgets be adjusted for **ability to pay** or **basic needs**, or would that undermine the idea of equal responsibility?
+
+**3️⃣ Systems & Policy Connection**
+
+- Under what conditions could personal carbon budgeting **actually influence policy or markets**, rather than just making individuals feel guilty or virtuous?
+- What kinds of **aggregate data or feedback loops** (e.g., public reporting, neighborhood or national averages, voluntary commitments) would be needed for personal budgets to matter at a system level?
+- Could governments or firms realistically **integrate personal carbon budgets** into existing policies (e.g., loyalty programs, utility bills, transport passes)?
+
+**4️⃣ Design of Personal Carbon Budgeting Schemes**
+
+- Should personal budgets focus on **all emissions** or just a subset (e.g., travel, energy use), and why?
+- What kinds of **information displays** (traffic-light labels, progress bars, comparisons to peers) are most likely to support **sustained behavior change**?
+
+---
+
+Best,  
+Byeong-Hak

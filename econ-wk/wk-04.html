@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Byeong-Hak Choe">
+<meta name="dcterms.date" content="2025-09-15">
+
+<title>Week 4 | Byeong-Hak Choe</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../assets/css/font.css">
+<link rel="stylesheet" href="styles-wk.css">
+<meta property="og:title" content="Week 4 | Byeong-Hak Choe">
+<meta property="og:description" content="Externalities; Property Rights and the Coase Theorem">
+<meta property="og:image" content="/assets/img/posts.png">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../img/geneseo-logo-squared.png" alt="" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">💡 What I Do</span></a>
+  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text"> </span></li>
+</ul>
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../econ-wk/wk-01.html">🗓️ Weeks</a></li><li class="breadcrumb-item"><a href="../econ-wk/wk-04.html">Week 04</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🏠 Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📓 Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://mylearning.suny.edu/d2l/home/2152120" class="sidebar-item-text sidebar-link" target="&quot;_blank&quot;">
+ <span class="menu-text">🅱 Brightspace</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-lec.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🚀 Lecture</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-cw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📝 Classwork</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-hw.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📚 Homework</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../listing-econ-340-rw-feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">💡 Research Feedback</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">✍️️ Project</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-team-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">📄 Guideline</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-rw/econ-340-project-kickoff.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">🧾 Research Kick-off</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">🗓️ Weeks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 01</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 02</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 03</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-04.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 04</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 05</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 06</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 07</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 08</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 09</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../econ-wk/wk-15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Weeks 15-16</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title"><img src="../img/logo-geneseo.jpg" style="height:48px; display:inline-block; vertical-align:middle; margin-right:0px;"> <span style="display:inline-block; vertical-align:middle; font-family:Arial; font-weight:bold; line-height:1.05;"> Environmental<br>Economics </span><br>
+<br>On this page</h2>
+   
+  <ul>
+  <li><a href="#lecture-slides" id="toc-lecture-slides" class="nav-link active" data-scroll-target="#lecture-slides">🏫 Lecture Slides</a></li>
+  <li><a href="#classwork" id="toc-classwork" class="nav-link" data-scroll-target="#classwork">✍️ Classwork</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">📝 Homework</a></li>
+  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">📚 Recommended Reading</a>
+  <ul>
+  <li><a href="#property-rights-the-coase-theorem-and-the-environment" id="toc-property-rights-the-coase-theorem-and-the-environment" class="nav-link" data-scroll-target="#property-rights-the-coase-theorem-and-the-environment">Property Rights, the Coase Theorem, and the Environment</a>
+  <ul>
+  <li><a href="#an-illustration-of-the-coase-theorem" id="toc-an-illustration-of-the-coase-theorem" class="nav-link" data-scroll-target="#an-illustration-of-the-coase-theorem">An Illustration of the Coase Theorem</a></li>
+  <li><a href="#a-practical-application---nyc-watershed-land-acquisition-program" id="toc-a-practical-application---nyc-watershed-land-acquisition-program" class="nav-link" data-scroll-target="#a-practical-application---nyc-watershed-land-acquisition-program">A Practical Application - NYC Watershed Land Acquisition Program</a></li>
+  <li><a href="#limitations-of-the-coase-theorem" id="toc-limitations-of-the-coase-theorem" class="nav-link" data-scroll-target="#limitations-of-the-coase-theorem">Limitations of the Coase Theorem</a></li>
+  <li><a href="#issues-of-equity-and-distribution" id="toc-issues-of-equity-and-distribution" class="nav-link" data-scroll-target="#issues-of-equity-and-distribution">Issues of Equity and Distribution</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">💬 Discussion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 4</h1>
+<p class="subtitle lead">Externalities; Property Rights and the Coase Theorem</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Byeong-Hak Choe </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 15, 2025</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">September 22, 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>In Week 4, we will conclude our discussion of environmental externality theory and then explore how assigning property rights to externalities can serve as an alternative to Pigovian taxation.</p>
+<section id="lecture-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lecture-slides">🏫 Lecture Slides</h2>
+<ul>
+<li><p><strong>Lecture 4 - Externalities</strong><br>
+<a href="../econ-lec/econ-340-lec-04-2025-0905.html" target="_blank">View Slides</a></p></li>
+<li><p><strong>Lecture 5 - Property Rights, the Coase Theorem, and the Environment</strong><br>
+<a href="../econ-lec/econ-340-lec-05-2025-0915.html" target="_blank">View Slides</a></p></li>
+</ul>
+<p>🎥 Looking for lecture recordings? You can only find those on Brightspace.</p>
+</section>
+<section id="classwork" class="level2">
+<h2 class="anchored" data-anchor-id="classwork">✍️ Classwork</h2>
+<ul>
+<li><strong>Classwork 2: Externalities</strong><br>
+<a href="../econ-cw/econ-340-cw-02.html" target="_blank">📄 View Classwork</a></li>
+</ul>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">📝 Homework</h2>
+<p>🏡 <a href="../econ-hw/econ-340-hw-01.html" target="_blank">Homework 1</a> has been posted. 🏡</p>
+</section>
+<section id="recommended-reading" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-reading">📚 Recommended Reading</h2>
+<section id="property-rights-the-coase-theorem-and-the-environment" class="level3">
+<h3 class="anchored" data-anchor-id="property-rights-the-coase-theorem-and-the-environment">Property Rights, the Coase Theorem, and the Environment</h3>
+<p>Pigovian taxes make intuitive sense by requiring those who pollute to cover their social and environmental costs. This approach assumes that communities deserve compensation for pollution harm, and it establishes that while society possesses rights to unpolluted air, polluters cannot freely discharge emissions without limit. Yet the question of how rights should be assigned is not always straightforward. Consider a case in which one farmer drains a wetland to create cropland, causing flooding problems for a neighboring farmer who loses the wetland’s natural capacity to absorb water. This raises the issue of whether the upstream farmer should compensate the downstream neighbor or whether the right to modify one’s land extends without restriction, regardless of the harms imposed on others.</p>
+<p>This example demonstrates that externalities are not just about costs and benefits but also about the scope of property rights. Do landowners automatically possess the right to drain wetlands, or is that right constrained by the interests of neighbors and the broader community? To see how rights matter, imagine two possible allocations. If Alpha, the upstream farmer, has the right to drain, he expects to earn $5,000 from crop production. Beta, his downstream neighbor, anticipates $8,000 in flood damages. Both parties know these figures. Even though Alpha holds the legal right, Beta may be willing to pay him not to exercise it. She would pay up to $8,000 to avoid damage, while Alpha would accept anything above $5,000. A bargaining range of $5,000 to $8,000 opens. Suppose they agree on $6,000. Alpha gains $1,000 more than if he had drained the wetland, and Beta is $2,000 better off compared with her expected losses. She effectively buys the right to decide how the wetland is used without purchasing Alpha’s land. If, alternatively, the law grants Beta the right to be free from drainage, then Alpha must secure her consent. Given the assumed values, no deal would occur: Alpha cannot offer enough to meet Beta’s minimum of $8,000. The wetland remains intact either way, though the distribution of gains differs. If conditions change and Alpha could earn $12,000 by planting a specialty crop, then he would be willing to pay Beta as much as $12,000 for permission. If they settle at $10,000, Alpha nets $2,000 and Beta also gains $2,000 relative to her damages. The outcome reflects efficiency—land is drained when benefits exceed costs—though the final price depends on bargaining skills and leverage.</p>
+<section id="an-illustration-of-the-coase-theorem" class="level4">
+<h4 class="anchored" data-anchor-id="an-illustration-of-the-coase-theorem">An Illustration of the Coase Theorem</h4>
+<p>These negotiations illustrate the Coase theorem, developed by Nobel laureate Ronald Coase in 1960. The theorem holds that if property rights are clearly defined and transaction costs are low, then private bargaining leads to efficient resource use even when externalities exist. Transaction costs include the time, effort, and money required to obtain information, negotiate, and enforce agreements. In the Alpha and Beta case, transaction costs are low: they need only settle on a compensation figure, though formal contracts might involve legal expenses. Their negotiations show how external costs are balanced against economic gains. An $8,000 external cost is not worth incurring for $5,000 in private benefit, but it is worth incurring for $12,000. Regardless of who holds the initial right, efficiency emerges through negotiation.</p>
+<p>The same logic applies to industrial pollution. Suppose a factory emits 80 tons of effluent into a river, damaging downstream communities. Eliminating emissions entirely would force the factory to shut down, destroying valuable production. The factory realizes marginal benefits from polluting, while the community bears marginal costs of treatment. At 80 tons, marginal costs are high and marginal benefits are low—pollution is excessive. If emissions are limited to 50 tons, marginal benefits and marginal costs equalize. Reducing further to 20 tons imposes high costs on the factory for little additional community benefit. Thus, the efficient pollution level is 50 tons, where the additional benefit to the factory exactly balances the additional harm to the community.</p>
+<p>If the community holds the right to restrict emissions, the factory would be willing to pay for the right to pollute. The first ton is valuable to the factory—worth $400—while the damage to the community is small, creating room for trade. Negotiations continue as long as factory benefits exceed community damages. By the 40th ton, the benefit is $200, the cost $120. Negotiation remains possible but narrower. At the 50th ton, both equal $150. Beyond that, no trade occurs. At 50 tons, community damages total $3,750. If rights sell for $150 per ton, the community collects $7,500, pays for its damages, and comes out $3,750 ahead. The factory enjoys $13,750 in production benefits, pays $7,500 for rights, and nets $6,250. Combined welfare is $10,000. If the factory initially holds unlimited pollution rights, it emits 80 tons, gaining $16,000 while the community suffers $9,600 in damages—a net social benefit of $6,400. But since late tons bring minimal benefit to the factory and high costs to the community, negotiation leads back to 50 tons. The factory ends up with $18,250 in total benefits after payments, more than its initial $16,000. The community suffers $8,250 in losses, better than the $9,600 it faced before. Again, net social benefit is $10,000. Efficiency is preserved, but distribution differs. Rights allocation shifts thousands of dollars between parties without changing efficiency, highlighting the tension between efficiency and equity.</p>
+</section>
+<section id="a-practical-application---nyc-watershed-land-acquisition-program" class="level4">
+<h4 class="anchored" data-anchor-id="a-practical-application---nyc-watershed-land-acquisition-program">A Practical Application - NYC Watershed Land Acquisition Program</h4>
+<p>A real-world example comes from New York City’s Watershed Land Acquisition Program. To supply clean water to 8.4 million residents, the city faced a choice: build costly filtration plants or preserve watershed lands that naturally filter water. The city opted for preservation, committing to purchase 355,050 acres from willing sellers at fair market prices, including paying property taxes on acquired land. Importantly, eminent domain was not used. By buying land or conservation easements, the city ensured long-term water quality more cheaply than through filtration plants. This market-based solution mirrors the Coasean logic: voluntary transactions between property owners and the city secured an efficient environmental outcome.</p>
+<p>The program also illustrates how property rights and regulation intersect. Governments may take land for public use through eminent domain, but the U.S. Constitution requires just compensation. The Fifth Amendment states that private property shall not be taken for public use without fair payment. Complete deprivation of property rights requires full compensation, as when land is condemned for highways. More complex are “regulatory takings,” where environmental regulations reduce property value without eliminating all use. The landmark Lucas v. South Carolina Coastal Council case (1992) clarified that only total takings—where all economically viable use is removed—require compensation. Partial takings, which are common in environmental regulation, do not. This ruling preserved the effectiveness of environmental laws by avoiding the burden of compensating every landowner for every regulatory restriction, though debates about fairness continue.</p>
+</section>
+<section id="limitations-of-the-coase-theorem" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-of-the-coase-theorem">Limitations of the Coase Theorem</h4>
+<p>While the Coase theorem shows how efficiency can be reached through bargaining, it relies on assumptions that rarely hold in complex environmental contexts. Free market environmentalism, which seeks to bring environmental issues into the marketplace through property rights, argues that government intervention is unnecessary if rights are clearly assigned. In practice, however, transaction costs undermine this vision. When many parties are affected, as in a case of 50 downstream communities impacted by a factory’s effluent, coordination is nearly impossible. If factories hold pollution rights, communities must organize compensation offers, but free-rider problems arise as each waits for others to pay. If communities hold pollution-free rights, holdout problems emerge, as a single community can veto agreements by demanding excessive compensation. With multiple polluters, complexity multiplies. These realities mean that efficient bargains are often unattainable, and government intervention through regulation or Pigovian taxes becomes essential. Setting water quality standards or taxing effluents are ways to ensure efficiency when private negotiations fail.</p>
+</section>
+<section id="issues-of-equity-and-distribution" class="level4">
+<h4 class="anchored" data-anchor-id="issues-of-equity-and-distribution">Issues of Equity and Distribution</h4>
+<p>Beyond transaction costs, equity concerns limit the Coase theorem’s appeal. Poor communities may lack the resources to pay off polluters, even when health damages are severe. Conversely, if they hold rights, they may accept hazardous facilities for compensation out of economic desperation, effectively trading health for money. Wealthy communities can afford to purchase open space for preservation, while poor communities cannot. Zoning laws, in principle, can equalize protection: by setting uniform restrictions on land use or pollution levels, they ensure that environmental quality is preserved across communities regardless of wealth. However, zoning laws themselves are limited: poor communities may face weaker enforcement, lack the political influence to pass protective ordinances, or feel pressure to prioritize short-term economic development over long-term environmental health. In contrast, relying on markets alone tends to amplify inequality, because the ability to bargain or buy protection depends on income and resources.</p>
+<p>Moreover, the theorem struggles with environmental harms to nonhuman species and ecosystems. Pesticides that kill bees but not humans, or projects that destroy habitats, impose costs with no clear human claimant. Organizations like the Nature Conservancy attempt to fill this gap by purchasing land for conservation, but their reach is small relative to the scale of ecological loss. Future generations face similar exclusion, as property rights generally apply only to current people. Climate change, deforestation, and species extinction pose harms that current markets cannot represent.</p>
+<p>Beyond transaction costs, equity concerns limit the Coase theorem’s appeal. Poor communities may lack resources to pay off polluters, even when health damages are severe. Conversely, if they hold rights, they may accept hazardous facilities for compensation out of economic desperation, effectively trading health for money. Wealthy communities can buy open space for preservation, while poor ones cannot. Zoning laws can equalize protection, but markets alone amplify inequality. Moreover, the theorem struggles with environmental harms to nonhuman species and ecosystems. Pesticides that kill bees but not humans, or projects that destroy habitats, impose costs with no clear human claimant. Organizations like the Nature Conservancy attempt to fill this gap by purchasing land for conservation, but their reach is small relative to the scale of ecological loss. Future generations face similar exclusion, as property rights generally apply only to current people. Climate change, deforestation, and species extinction pose harms that current markets cannot represent.</p>
+<p>The concept of environmental justice highlights these distributional concerns. According to the U.S. Environmental Protection Agency, environmental justice means fair treatment and meaningful participation for all people regardless of race, color, origin, or income. In practice, low-income and minority communities often bear disproportionate burdens because they lack political power. The Flint water crisis is a striking example. In 2014, officials switched Flint’s water source to save money, leading to lead contamination in a city that is 84 percent Black and largely poor. Between 6,000 and 12,000 children were exposed, and government responses were slow. Scholars called this one of the most egregious cases of environmental racism. Criminal charges were later filed against state officials, including the governor, for failing to protect residents. (See also <a href="https://www.geneseo.edu/history/love_canal_history">Love Canal: A Brief History</a>)</p>
+<p>In summary, economic activities frequently impose external effects on those not involved, such as automobile pollution. When markets fail to account for these costs, society experiences inefficiency and overproduction of harmful goods. Pigovian taxes can internalize external costs, while subsidies can encourage activities with positive externalities such as open land preservation or solar energy adoption. Assigning property rights may also work under certain conditions, but when large numbers of people are affected, damages are difficult to value, or equity concerns dominate, government intervention is usually necessary. Efficiency and equity must both be considered in crafting environmental policy.</p>
+</section>
+<section id="references" class="level4">
+<h4 class="anchored" data-anchor-id="references">References</h4>
+<ul>
+<li><p>Harris J. and Roach B., <em>Chapter 3. Theory of Environmental Externality</em>, <strong>Environmental and Natural Resource Economics: A Contemporary Approach</strong> (5th Edition)</p></li>
+<li><p>Kleiman J., <a href="https://www.geneseo.edu/history/love_canal_history">Love Canal: A Brief History</a>. SUNY Geneseo.</p></li>
+</ul>
+<p>⚠️ Note: These contents from the above book chapter are shared under fair use for educational purposes to support your learning.</p>
+</section>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">💬 Discussion</h2>
+<p><font size="5">Welcome to our Week 4 Discussion Board! 👋 </font></p>
+<p>This space is designed for you to engage with your classmates about the material covered in Week 4.</p>
+<p>Whether you are looking to delve deeper into the content, share insights, or have questions about the content, this is the perfect place for you.</p>
+<p>If you have any specific questions for Byeong-Hak (<strong><span class="citation" data-cites="bcecon">@bcecon</span></strong>) or peer classmate (<span class="citation" data-cites="GitHub-Username">@GitHub-Username</span>) regarding the Week 4 materials or need clarification on any points, don’t hesitate to ask here.</p>
+<p>Let’s collaborate and learn from each other!</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.querySelector('.quarto-btn-toggle');
+  if (!btn || !window.bootstrap) return;
+
+  btn.addEventListener('click', function (e) {
+    ['#quarto-sidebar', '#quarto-sidebar-glass'].forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) bootstrap.Collapse.getOrCreateInstance(el).toggle();
+    });
+  }, { capture: true });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="bcecon/340" data-repo-id="" data-category="General" data-category-id="" data-mapping="title" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">powered with github, quarto, and rstudio<br>byeong-hak choe, 2025</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<div id="scroll-padding"></div>
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/posts.js"></script>
+
+
+
+</body></html>

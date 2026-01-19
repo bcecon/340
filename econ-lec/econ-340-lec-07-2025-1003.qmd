@@ -1,0 +1,543 @@
+---
+title: Lecture 7
+subtitle: Public Goods
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-10-03
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+
+theme_set(theme_fivethirtyeight() +
+            theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+
+```
+
+
+# Public Goods {background-color="#1c4982"}
+
+
+## Rivalry & Excludability
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/common-public-goods.png" alt="Goods classification by rivalry and excludability" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+
+<div style="display:block; margin:50px;"></div>
+
+
+**Rival?** Does one person’s use reduce what remains available for others?
+
+**Excludable?** Can access be restricted to those who pay—or can anyone consume the good even without paying?
+
+
+<!-- ## What is a public good? -->
+
+<!-- - **Why it matters**:  -->
+<!--   - With nonexcludability, pricing access is hard   -->
+<!--   → voluntary contributions invite **free riding**   -->
+<!--   → markets **underprovide** relative to the social optimum. -->
+
+<!-- :::callout-notes -->
+<!-- - Remind: rivalry is about marginal cost of an additional user; if near zero, nonrival. -->
+<!-- ::: -->
+
+
+
+## Where Do Public Goods Show Up in Energy & Climate?
+
+- **Basic R&D** in energy efficiency, storage, fusion, green hydrogen (knowledge spillovers).  
+- **Awareness campaigns** on climate & energy saving.  
+- **Protective infrastructure** (often *local* public goods):
+  - Sea walls & surge barriers (coastal protection)
+  - Riverbank & floodplain defenses
+  - Urban heat mitigation (cool roofs, urban canopy)
+- **Global mitigation** (e.g., CO₂ reduction benefits) vs. **local adaptation** (place-specific benefits).
+
+
+<!-- ## Local vs. Global Public Goods -->
+
+<!-- - **Global**: climate mitigation, basic scientific knowledge.   -->
+<!-- - **Local**: flood defenses, wildfire buffers, urban cooling—all benefit specific regions.   -->
+<!-- - Financing often blends **national support** + **local cost-sharing** to reflect incidence. -->
+
+
+
+## Market Failures - Why Markets Underprovide Public Goods
+
+- In competitive markets, **demand = willingness to pay (WTP)** for private goods.  
+- For public goods, **individual WTP understates marginal benefit (MB)** because people can consume **even if they pay less (or nothing)**.  
+- <u>*Result*</u>: **Free riding** → $\text{(Total Voluntary Funding)} \,<\,\text{(Cost)}$ → **Underprovision**.
+
+::: callout-note
+- Market failure here is **on the demand side**, unlike overuse of common-pool resources which is **on the production side**.
+
+:::
+
+
+<!-- ## Aggregating Benefits: Vertical Summation -->
+
+<!-- - For public goods, **social marginal benefit (SMB)** is the **vertical sum** of individual MB curves: -->
+
+<!-- $$ -->
+<!-- \text{SMB}(Q) \;=\; \sum_{i=1}^n \text{MB}_i(Q) -->
+<!-- $$ -->
+
+<!-- **Samuelson condition (optimum $Q^{*}$)**: -->
+<!-- $$ -->
+<!-- \boxed{\sum_i \text{MB}_i(Q^{*}) \;=\; \text{MC}(Q^{*})} -->
+<!-- $$ -->
+
+<!-- - Contrast: Private-good market demand is a **horizontal** sum of individual demands. -->
+
+
+
+## Aggregating Benefits: Vertical Summation
+
+:::: {.columns}
+::: {.column width="47.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig4-4.png" alt="" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+:::
+::: {.column width="52.5%"}
+
+- Both value forest preservation (acres $Q$).  
+- At $Q=10$, Doug’s $MB$ = \$5; Sasha’s $MB$ = \$2.
+- For public goods, **social marginal benefit (SMB)** is the **vertical sum** of individual MB curves
+  - **SMB = \$7**.  
+  
+- Suppose **SMC = \$7 per acre** (constant).  
+- Then $Q^{*} = 10$ where **SMB = SMC**.
+
+:::
+::::
+
+<!-- :::callout-note -->
+<!-- - Private-good market demand is a **horizontal** sum of individual demands. -->
+<!-- ::: -->
+
+
+## Funding the Optimum (Who Pays?)
+
+
+:::: {.columns}
+::: {.column width="47.5%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/hr-fig4-4.png" alt="" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+:::
+::: {.column width="52.5%"}
+
+- **Total Cost** = \$70. Options:
+  - **Uniform tax**: Doug \$35, Sasha \$35 (simple, but ignores benefit differences).  
+  - **Benefit-based shares** (ideal but hard to measure): Doug pays more since his MB is higher.  
+  - **Ability-to-pay**: progressive finance to address equity concerns.  
+
+- Tensions:
+  - **Efficiency**: hit $Q^{*}$.  
+  - **Fairness**: how to split the bill?
+
+
+:::
+::::
+
+
+
+
+<!-- ## Lindahl pricing (idealized) -->
+
+<!-- - Each person faces a **personalized price** equal to their MB at $Q^{*}$.   -->
+<!-- - Total of personalized prices equals MC: -->
+<!--   $$ -->
+<!--   \sum_i p_i = \text{MC}, \quad p_i = \text{MB}_i(Q^{*}) -->
+<!--   $$ -->
+<!-- - If everyone truthfully reports MB, the outcome is efficient and fair by construction. -->
+
+<!-- **Problem**: People have incentives to **understate** MB → preference revelation failure. -->
+
+
+<!-- ## Mechanisms & Policy Tools -->
+
+<!-- - **Direct public provision** — government supplies the good, financed through general taxation   -->
+<!--   *Examples: national defense, basic research, public health campaigns*   -->
+
+<!-- - **Matching grants & subsidies** — amplify voluntary contributions by adding public funds   -->
+<!--   *Encourages private giving, lowers cost of participation*   -->
+
+<!-- - **Earmarked taxes & levies** — dedicated funding streams tied to the good   -->
+<!--   *Examples: resilience bonds, carbon levies, conservation assessments*   -->
+
+<!-- - **Patents & prizes** — create incentives for innovation by making outcomes partly excludable   -->
+<!--   *Encourages R&D while still generating spillovers*   -->
+
+<!-- - **Information & social norms** — campaigns and education to shift behavior and increase support   -->
+<!--   *Examples: climate awareness, energy-saving initiatives*   -->
+
+
+
+## Policy Tools - Direct Public Provision
+
+- Government directly **provides the public good**, funded through **general taxation**.  
+- Avoids reliance on voluntary contributions → ensures adequate and stable supply.  
+- Citizens share costs through taxes, but **everyone benefits** once the good is provided.  
+
+- *Examples:*  
+  - National defense  
+  - Basic scientific research  
+  - Public health campaigns (e.g., vaccination drives)  
+
+## Policy Tools - Matching grants & subsidies
+
+- Amplify voluntary contributions by adding public funds  
+  *Encourages private giving, lowers cost of participation*  
+- *Examples:*  
+  - U.S. federal **charitable gift matching** programs (e.g., matching donations to conservation NGOs)  
+  - **Public broadcasting** pledge drives with matching challenges  
+  - **State and federal subsidies** for rooftop solar panels and energy-efficient appliances  
+  - Local governments matching **community fundraising** for parks, libraries, or schools  
+  - International funds (e.g., **Green Climate Fund**) co-financing climate adaptation projects with national contributions  
+
+
+## Policy Tools - Earmarked Taxes & Levies
+
+- **Dedicated funding streams** linked directly to a specific public good.  
+- Revenues cannot be spent elsewhere → builds **trust** that taxes support the intended purpose.  
+- Helps align **costs with beneficiaries** (those who pay are often those who benefit most).  
+
+- *Examples:*  
+  - Resilience bonds to finance disaster protection infrastructure  
+  - Carbon levies to support climate mitigation and clean energy  
+  - Local conservation assessments for parks, wetlands, or open space protection
+
+## Policy Tools - Patents & Prizes
+
+- Provide **incentives for innovation** by making knowledge partly excludable.  
+- **Patents**: grant temporary monopoly rights to inventors → they can earn profits, encouraging investment in R&D.  
+- **Prizes**: reward specific breakthroughs without ongoing monopoly, while allowing broader diffusion.  
+- Both approaches aim to stimulate innovation while still creating **knowledge spillovers** that benefit society.  
+- *Examples:*  
+  - Pharmaceutical patents for new drugs  
+  - XPRIZE competitions (e.g., carbon removal, space technology)  
+  - Government innovation prizes for energy efficiency or medical devices  
+
+
+## Policy Tools - Information & Social Norms
+
+- Use **campaigns, education, and messaging** to influence behavior and public attitudes.  
+- Can shift **social norms** so that contributing to or supporting a public good becomes the default.  
+- Works best when combined with other policy tools (taxes, subsidies, regulation).  
+
+- *Examples* 
+  - Climate awareness campaigns (e.g., “Act on Climate”)  
+  - Energy-saving initiatives (“Turn off the lights,” Energy Star labeling)  
+  - Public health messages (seatbelt use, anti-smoking, vaccination reminders)  
+  - Recycling and waste reduction campaigns  
+  
+  
+
+# Money Growing on Trees: Payments for Environmental Services in Community Forestry {background-color="#1c4982"}
+
+## Climate Change and Forests
+
+- Climate change arises from **net greenhouse gas emissions**
+- Abatement (mitigation) can come from  
+  - ↓ **Reducing sources** — burning fewer fossil fuels  
+  - ↑ **Increasing sinks** — forests that absorb CO₂  
+- Forests act as **natural carbon storage**
+- “Avoiding deforestation” = *negative emissions relative to baseline*
+
+
+
+## Avoiding Deforestation: Economics of Abatement
+
+- **Social benefit**: avoided climate damages (global public good)  
+- **Social cost**: opportunity cost of land or resources  
+  - Lost agricultural income  
+  - Lost timber or charcoal value  
+- Many tropical regions offer **low-cost abatement** opportunities  
+  → Why global climate finance often targets developing countries
+
+
+
+## REDD+ and PES
+
+- Avoiding deforestation creates **positive externalities**
+- **Payments for Ecosystem Services (PES)**:
+  - Pay local households for the environmental services they provide  
+  - Internalize the externality through incentive-compatible contracts  
+- Example: **REDD+**
+  - *Reducing Emissions from Deforestation and Forest Degradation*
+  - $+$ Sustainable forest management for carbon storage
+
+
+## Who Pays for PES Contracts?
+
+- Polluters (firms or countries) are often required by regulation to **limit their total emissions**.  
+- Instead of cutting emissions directly, they can **buy offsets**, such as:  
+  - “Protect 1 hectare of rainforest instead of emitting 100 tons of CO₂.”
+- These offsets are integrated into **<span style="color:#e63946; font-weight:700;" data-tippy-content="A market-based system where the government sets a cap on total emissions and issues tradable permits (allowances). Firms that cut emissions cheaply can sell permits, and others buy them — ensuring the target is met at the lowest overall cost.">cap-and-trade</span>** markets.
+  - Companies can choose between **permits** and **offsets** to meet emission limits.  
+- International PES schemes therefore act as **global offsets**, transferring resources from **high-emission (often rich)** countries to **low-income** forest communities that conserve carbon sinks.
+
+
+## Why Is PES Hard?
+
+### Verifiability & Additionality
+
+- **Verifiability** → Can we confirm the forest was truly protected?  
+  - Avoids *fraud* and *double counting*
+- **Additionality** → Would it have been protected *anyway*?  
+  - Avoids *non-additional* payments
+- Non-verifiable or non-additional contracts  
+  → Waste resources and fail to reduce total emissions
+
+
+
+## PES Role-Playing Game 🎲
+
+You are a **household** in rural *Ephoria*, a low-income tropical country.
+
+<center>
+<a href="https://bcecon.github.io/econ-340-cw-06.html" target="_blank">
+<strong>🎮 View the Game</strong>
+</a>
+</center>
+
+
+- Forest resources = **subsistence + cash**
+- Government introduces a **PES contract**:
+  - Pay \$50 if you agree not to harvest wood this year  
+  - Each round = new policy design
+
+
+:::: {.columns}
+::: {.column width="45%"}
+
+- **Option A: Deforest**  
+  - Harvest wood for cooking or sale  
+
+<!-- - Value = playing card × \$10   -->
+<!--   (face cards & jokers = \$0) -->
+
+:::
+::: {.column width="10%" align="center"}
+**vs.**
+:::
+::: {.column width="45%"}
+
+- **Option B: Conserve**  
+  - Accept PES payment  
+  - Commit *not* to harvest
+
+:::
+::::
+
+
+
+## Contract Periods (Treatments)
+
+| Period | Policy Context            | Key Feature                         |
+|:------:|:---------------------------|:------------------------------------|
+| **0**  | Baseline                   | No PES (individual harvest only)    |
+| **1**  | PES                        | Legal PES contracts only            |
+| **2**  | PES + Illegal Harvest      | Can cheat; subject to random audit  |
+| **3**  | Community PES              | Group decision and shared payment   |
+| **4**  | Community + Illegal Harvest| Group and individual enforcement    |
+
+
+
+## CP1 – *Baseline vs. PES*
+
+- How did you decide between harvesting and PES?  
+- Did your **card value** affect your choice?
+
+- 🧭 **Concepts**
+  - Opportunity cost (abatement cost)
+  - Additionality (True *additional* conservation only occurs when the payment **changes** behavior)
+  - Heterogeneity in cost → cost-effective targeting
+
+
+
+## CP2 – *Illegal Harvest Option*
+
+- You could sign PES but still harvest (“cheat”)
+- Small chance of being **audited**  
+- If caught → lose payment + fine
+
+- 🧠 **Key Idea:** Rational Theory of Crime (Becker 1968)
+  - Expected benefit of cheating =  
+  *(gain if not caught)* − *(probability × penalty)*
+
+- 💭 What share of the class cheated? Why?
+
+
+
+## CP3 – *Community Contract*
+
+- Now, each **community decides together** whether to join PES  
+- If accepted, PES payment must be **shared** among members  
+- Split rules vary: equal, proportional, needs-based, etc.
+
+- 🤝 **Concepts**
+  - Community governance (Ostrom)  
+  - Fairness & equity norms  
+  - Coordination vs. free-riding
+
+
+
+## CP4 – *Community Contract + Illegal Harvest*
+
+- Communities can **join PES** *and* decide whether to **police**
+  - If policing → cost \$5 per household, no cheating possible  
+  - If not → some may harvest illegally  
+  - Audit probability increases with # illegal harvesters
+
+- ⚖️ **Concepts**
+  - Self-governance  
+  - Collective enforcement  
+  - Trust & social capital  
+  - Deterrence by monitoring
+  
+
+## 🌳 The Promise of Forest-Based PES
+- **Aligns incentives**: Encourages conservation by paying for the ecosystem services forests provide (carbon storage, biodiversity, water regulation).  
+- **Cost-effective mitigation**: Taps into *low-cost abatement opportunities* in developing regions — “climate finance with co-benefits.”  
+- **Income diversification**: Provides a stable cash flow to rural households that might otherwise rely on unsustainable logging or agriculture.  
+- **Global–local partnership**: Transfers resources from high-emission (often rich) countries to low-income communities maintaining forests.  
+- **Flexibility**: Can be scaled or customized — individual, community, or landscape-level programs.
+
+## ⚠️ Potential Pitfalls and Challenges
+
+- **Additionality problem**  
+  <!-- → Are we paying people for actions they would have done anyway?   -->
+  → CP1 in our game shows how payments can reward *non-additional* conservation.
+  
+- **Verification and enforcement**  
+  <!-- → How can we monitor whether deforestation really stopped?   -->
+  → Illegal harvesting in CP2 and CP4 highlights the *verifiability challenge.*
+
+- **Leakage**  
+  → Conservation in one area can shift deforestation to another.  
+  → Not captured in our classroom game, but critical in real programs.
+
+- **Equity and fairness**  
+  → Who gets paid — landowners or landless users?  
+  → How are community payments shared (as in CP3–CP4)?  
+  → Risk of elite capture or exclusion of marginalized groups.
+
+- **Dependence on external funding**  
+  → Long-term sustainability uncertain once donor support ends.
+
+
+## ⚖️ Equity, Empowerment, and Governance
+
+- PES can **empower communities** by recognizing their role in environmental stewardship — especially under community-based contracts (like CP3–CP4).  
+- However, unequal land rights and bargaining power can **reinforce inequalities** — wealthier households or leaders may capture the majority of benefits.  
+- Trust and local governance capacity determine whether PES fosters cooperation or conflict.  
+- The design of **payment division rules** (equal vs. proportional vs. needs-based) has real implications for fairness and motivation.
+
+
+
+## 🧠 Discussion
+
+- In our experiment, who gained most from PES — low-card or high-card players?  
+- Did community-level decision-making improve or reduce fairness?  
+- If you were a policymaker in *Ephoria*, how would you redesign PES to:  
+  - Improve **additionality**,  
+  - Strengthen **compliance**, and  
+  - Ensure **equitable benefit sharing**?
+
+- 💬 **Key takeaway:**  
+  - > PES succeeds not just when payments exist — but when they are *credible, additional, verifiable,* and *fair.*
+  
+  
+<!-- Load Tippy.js -->
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<!-- Custom tooltip style -->
+<style>
+.tippy-box[data-theme~='light-border'] {
+  font-size: 2rem;        /* increase overall text size */
+  line-height: 1.5;         /* better spacing */
+  color: #1c1c1c;
+  background-color: #fefefe;
+  border: 1px solid #cccccc;
+  padding: 10px;
+}
+.tippy-arrow {
+  color: #fefefe;
+}
+</style>
+
+<!-- Initialize tooltip -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  tippy('[data-tippy-content]', {
+    allowHTML: true,
+    theme: 'light-border',
+    maxWidth: 600,
+    placement: 'top',
+    animation: 'scale',
+    delay: [100, 100],
+  });
+});
+</script>

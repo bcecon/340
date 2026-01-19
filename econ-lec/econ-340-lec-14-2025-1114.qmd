@@ -1,0 +1,880 @@
+---
+title: Lecture 14
+subtitle: "International Climate Agreements: Institutions, Incentives, and Strategic Cooperation"
+
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-11-14
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+library(formattable)
+
+theme_set(theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+
+
+```
+
+
+# 🌐 **From UNFCCC to Paris: The Global Climate Framework** {background-color="#1c4982"}
+
+## Why Do We Need International Climate Agreements?
+
+- Climate change is a market failure on a **global** scale.
+
+- Because the benefits of climate action are **shared globally**, but the costs are **borne locally**, cooperation is essential.
+
+- International climate agreements aim to:
+  - Coordinate actions  
+  - Set shared goals  
+  - Build transparency and trust  
+  - Limit free-riding  
+
+## Key Actors in Global Climate Governance
+
+- [**UNFCCC (1992)**](https://unfccc.int)  
+  - The United Nations Framework Convention on Climate Change.  
+  - It provides the overall framework for coordinating global climate action.
+
+- [**COP — Conference of the Parties**](https://unfccc.int/process/bodies/supreme-bodies/conference-of-the-parties-cop)  
+  - The annual meeting of all UNFCCC member countries.  
+  - The main global forum where international climate decisions are made.
+  
+- At the COP, countries:
+  - Negotiate climate agreements  
+  - Review progress; Update rules and commitments  
+  - Oversee implementation of **the Paris Agreement (2015)**
+
+
+
+## From UNFCCC to Paris: A Brief Timeline
+
+<div style="display:block; margin:-20px;"></div>
+**<span class="fragment">1992 — UNFCCC Established</span>**  
+<span class="fragment">Countries agree climate change is a global problem requiring coordinated action.</span>
+
+<div style="display:block; margin:-20px;"></div>
+**<span class="fragment">1997 — Kyoto Protocol (COP3)</span>**  
+<span class="fragment">Binding emission targets for developed countries only.</span>  
+<span class="fragment">Limited participation; U.S. never ratified; major emitters had no obligations.</span>
+
+<div style="display:block; margin:-20px;"></div>
+**<span class="fragment">2009–2014 — Negotiation Failures & Rising Urgency</span>**  
+<span class="fragment">2009 - Copenhagen (COP15) fails to deliver binding global targets.</span>  
+<span class="fragment">Scientific evidence strengthens; pressure for a new model increases.</span>
+
+<div style="display:block; margin:-20px;"></div>
+**<span class="fragment">2015 — Paris Agreement (COP21)</span>**  
+<span class="fragment">Nearly all countries (195 countries) adopt a universal climate framework.</span>
+
+<div style="display:block; margin:-20px;"></div>
+**<span class="fragment">Today under the Paris Agreement</span>**  
+<span class="fragment">Focus on raising ambition, transparency, and implementation of **Nationally Determined Contributions (NDCs)**</span>
+
+
+## How the Paris Agreement Differs from Kyoto
+
+:::: {.columns}
+
+::: {.column width="40%"}
+::: {.fragment}
+### Kyoto Protocol
+<div style="display:block; margin:-10px;"></div>
+
+- Binding targets for **developed countries** only  
+- Targets were assigned to countries  
+- Weak enforcement → limited impact  
+:::
+:::
+
+
+::: {.column width="60%"}
+:::{.fragment}
+### Paris Agreement
+<div style="display:block; margin:-10px;"></div>
+
+- Universal participation: all countries submit plans  
+- Uses [**Nationally Determined Contributions (NDCs)**](https://unfccc.int/process-and-meetings/the-paris-agreement/nationally-determined-contributions-ndcs):  
+  - Each country sets their own targets  
+  - Targets must strengthen over time  
+
+- Ambition is high, but actions are voluntary  
+
+:::
+:::
+::::
+
+<!-- <div style="display:block; margin:-20px;"></div> -->
+
+:::{.fragment}
+### Transparency & Accountability in the Paris Agreement
+<div style="display:block; margin:-10px;"></div>
+
+- Every 5 years, **Global Stocktake** evaluates collective progress and informs the next round of **NDCs**. 
+- Transparency system tracks actions but has **no formal penalties**.
+:::
+
+<!-- :::{.fragment} -->
+<!-- Paris shifts from a binding, top-down model to a voluntary, bottom-up system built on transparency and peer pressure.   -->
+<!-- ::: -->
+
+
+
+# 🌐 **Global Climate Policy in a Fragmented World** {background-color="#1c4982"}
+
+
+## The Free-Rider Problem
+
+Climate mitigation is a **global public good**:
+
+- Benefits are **shared globally**, regardless of who pays  
+- Costs of abatement are **borne locally**  
+- Benefits are **non-rival** (one country’s gain doesn’t reduce another’s)  
+- Benefits are **non-excludable** (no country can be excluded)
+
+<div style="display:block; margin:-40px;"></div>
+<span class="fragment">**Implications**</span>
+
+- Countries consider only their **private MB**, not the **social MB**  
+- They reduce emissions until **MC = private MB**  
+- Efficient global mitigation requires **MC = social MB**  
+- Since **private MB < social MB**:
+  - **Mitigation is under-provided**; **Global emissions remain too high**  
+
+
+## Why Cooperation Is So Hard
+
+<div style="display:block; margin:-15px;"></div>
+
+Climate change is one of the **hardest collective action problems in human history**.
+
+- **Global public goods → strong free-rider incentives**  
+- **Benefits of mitigation occur over long time horizons**  
+- **Uncertainty about future damages and benefits**  
+  - Climate impacts vary by region and involve probabilistic risks.  
+  - Governments may discount or underweight uncertain future gains.  
+- **Asymmetric climate risks, capacities, and responsibilities**  
+  - Countries differ in vulnerability, development stage, historical emissions, and fiscal capacity.  
+  - These differences make it hard to agree on “fair” effort-sharing.  
+- **No supra-national authority to enforce compliance**  
+
+
+## Key Features of Climate Agreements
+<div style="display:block; margin:-15px;"></div>
+
+Effective **international agreements** require the right *incentive* structure.
+
+<div style="display:block; margin:25px;"></div>
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.fragment}
+### Incentive-Compatible
+
+<div style="display:block; margin:-25px;"></div>
+
+Each country has a **self-interested reason** to:  
+
+- **Join** the agreement  
+- **Comply** with the agreement’s rules once they join  
+- Avoid strategic behavior such as **delaying action** or **shifting emissions abroad**
+
+
+<!-- - no nation can be forced to sign, and   -->
+<!-- - any signatory can withdraw later.   -->
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment}
+### Self-Enforcing
+
+<div style="display:block; margin:-25px;"></div>
+
+When incentives are aligned, the agreement becomes **self-enforcing**:
+
+- Countries voluntarily **join, stay, and comply** without external enforcement  
+- The coalition remains stable **over time**  
+- **Reward and penalty mechanisms** discourage withdrawal  
+
+:::
+:::
+::::
+
+
+## 🌍 Why Global Climate Policy Is So Challenging
+
+- Climate change is a **global market failure**, but climate policy is designed **domestically**.  
+- This disconnect generates major **policy spillovers** — the effects of a policy made in one country that spread to others — through international trade.
+- Two fundamental tensions:
+  - **Competitiveness concerns**  
+  - **Free-riding concerns**
+- When climate policies vary across countries, these tensions intensify → need for:
+  1. **Carbon Border Adjustment Mechanisms (CBAMs)**
+  2. **Climate Clubs**
+  3. **Coordination of subsidies**
+
+
+
+## 🌐 Policy Variation Across Countries
+
+<div style="font-size:1.7rem; max-width:900px; margin:0.5rem auto;">
+
+|                      | **High Ambition** | **Low Ambition** |
+|----------------------|-------------------|------------------|
+| **Cost-Imposing**    | EU, Canada         | Japan (low coverage)        |
+| **Cost-Reducing**    | U.S. (post-IRA (Inflation Reduction Act))         | Many developing countries        |
+
+</div>
+<div style="display:block; margin:-25px;"></div>
+
+Countries differ along **two key dimensions**:
+
+1. **Ambition**
+   - High vs. Low mitigation effort  
+2. **Policy approach**
+   - **Cost-imposing** (carbon taxes, cap-and-trade)  
+   - **Cost-reducing** (subsidies, tax credits, industrial policy)
+
+<div style="display:block; margin:-10px;"></div>
+- Countries experience **spillovers** from both ambition gaps and policy-design gaps.
+
+
+
+## ⚙️ **Why Spillovers Occur**
+
+- International trade exposes differences in **ambition levels**, **carbon prices**, and **subsidy policies** across countries.
+- When one country raises **carbon prices**:
+  - Domestic production costs rise  
+  - Imported goods become relatively cheaper  
+  → **Competitiveness losses**
+- When **climate ambition** differs:  
+  → **Free-riding** becomes attractive  
+- When **subsidies for clean technology** differ across countries:  
+  → Firms move toward **more generous support**, causing:
+    - **Investment shifting**: production relocates to high-subsidy regions.
+    - **Subsidy races**: countries escalate subsidies to compete for green industries.
+
+
+
+## 🎁 **Subsidies as an Alternative to Carbon Pricing**
+<div style="display:block; margin:-25px;"></div>
+
+Some countries choose **subsidies** instead of explicit carbon prices:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Clean electricity tax credits  
+- EV and battery subsidies  
+:::
+::: {.column width="50%"}
+- Hydrogen & CCUS incentives  
+- Industrial policy for green manufacturing
+:::
+
+::::
+
+<div style="display:block; margin:-50px;"></div>
+:::{.fragment}
+<!-- #### U.S. Inflation Reduction Act (2022)   -->
+<!-- <div style="display:block; margin:-15px;"></div> -->
+<!-- - $>$\$350 billion in subsidies   -->
+<!-- - Expected emissions reduction: **32–42% below 2005 levels** by 2030 -->
+
+#### 🇺🇸 U.S. Inflation Reduction Act (2022)  
+<div style="display:block; margin:-15px;"></div>
+
+<!-- - **Federal support:** >\$350B (official, **uncapped**), but likely **\$800B–\$1T** as credits scale with adoption of clean-energy investment by 2032.   -->
+- **Federal support:** >\$350B (official estimate), but because the credits are **uncapped**, total costs could reach **\$800B–\$1T by 2032**
+- **Emissions impact:** Expected to cut U.S. emissions **32–42% below 2005 levels** by 2030.  
+- **Investment boost:** Already triggered **\$240B+** in private clean-energy investment by 2024.  
+- **Equity measures:** Includes programs for **low-income communities** and **methane reduction** in oil and gas.
+
+:::
+
+
+## ⚖️ Subsidies: Problems vs. Potential Benefits
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### ⚠️ Problems with Subsidies
+- Very **expensive** fiscally  
+- Can be **regressive**  
+  - (High-income households capture more tax credits)  
+- Can create **international tensions**, especially when they include:  
+  - Domestic content requirements  
+  - Targeted manufacturing subsidies  
+- Risk of **subsidy races**
+:::
+
+::: {.column width="50%"}
+### 🌞 When Subsidy Races *Are* Beneficial
+- Not all subsidy races are wasteful  
+- Clean-energy innovation has **positive externalities**  
+- Faster deployment can **reduce global technology costs**  
+- Example:  
+  - **China’s solar subsidies** helped drive down worldwide solar PV prices  
+:::
+
+::::
+
+
+## 🏭 **Carbon Pricing: Competitiveness Problems**
+
+- Carbon pricing raises costs for fossil fuels, electricity, and energy-intensive inputs.
+
+- The most affected sectors are **EITE** (energy-intensive, trade-exposed) industries: **Steel**, **Aluminum**, **Glass**, **Cement**, **Chemicals**, **Fertilizer** 
+
+- **Why These Sectors Are Vulnerable**
+  - **Import competition** from countries with weaker climate policy  
+  - Risk of **offshoring** (firms relocate to lower-cost jurisdictions)  
+  - **Carbon leakage** — emissions move abroad instead of falling globally
+
+
+
+
+## 🔄 **Carbon Leakage: What the Evidence Shows**
+
+- Leakage is **theoretically plausible** but empirically **mixed**.
+- Most emissions come from **non-traded sectors**, so leakage is limited overall.
+- BUT leakage risks are **concentrated** in EITE sectors.
+- Policymakers fear:
+  - Job losses  
+  - Domestic industry decline  
+  - Perception of “unilateral sacrifice”
+
+
+## 🚧 **Carbon Border Adjustment Mechanisms**
+
+<div style="display:block; margin:-30px;"></div>
+
+:::{.fragment}
+
+A **tariff on imports** designed to equalize carbon costs between domestic and foreign producers. It is calculated based on:
+
+<div style="display:block; margin:-10px;"></div>
+
+1. The **carbon content** of the imported good  
+2. The **gap** between domestic and foreign carbon prices  
+<div style="display:block; margin:-20px;"></div>
+
+- If the EU carbon price is **\$110/ton** and China’s price is **\$10/ton**, then:
+<div style="display:block; margin:-20px;"></div>
+$$
+\text{Tariff} = (\$110 − \$10) × \text{carbon content} = \$100 \text{ per ton CO₂}
+$$
+
+:::
+
+<div style="display:block; margin:-30px;"></div>
+:::{.fragment}
+### Outcome of CBAM
+<div style="display:block; margin:-20px;"></div>
+
+- Imported and domestic goods face **the same effective carbon cost**  
+- Reduces **competitiveness concerns** and **carbon leakage**
+:::
+
+:::{.fragment}
+### 🇪🇺 EU CBAM (2023– )
+<div style="display:block; margin:-20px;"></div>
+
+- Covers **EITE** sectors and **electricity**.   
+- Gradual phase-in while **free ETS allowances are phased out**  
+- Designed for **WTO compatibility**
+:::
+
+
+
+## 🧮 Measurement Challenges with CBAMs
+
+A CBAM must estimate the **carbon content of imports**, which is technically difficult.
+<div style="display:block; margin:-10px;"></div>
+
+- **Sector-average benchmarks**  
+  - Simple to use, but may **overcharge clean plants** and **undercharge dirty ones**.
+- **Big plant-level variation**  
+  - Emissions differ widely across facilities depending on technology, fuel, and electricity mix.
+- **Uneven or unreliable reporting**  
+- **Risk of “reshuffling”**  
+  - Clean products sent to CBAM markets; dirtier products sold elsewhere  
+  → Changes trade patterns but **not global emissions**.
+
+
+
+
+## 🧪 What Recent Research Finds about CBAMs
+
+Using **plant-level data** on steel and aluminum (the first EU/UK CBAM sectors):
+
+- **Competitiveness improves**  
+  - Domestic producers no longer face a disadvantage vs. low-regulation countries.
+- **Leakage declines**  
+  - Importers effectively face the same carbon price.
+- **Positive regulatory spillovers**  
+  - Foreign firms gain incentives to clean up or price carbon.
+- **Limited harm to low-income countries**  
+  - They export little in these sectors; cleaner producers gain share; revenue impacts are small.
+
+**Takeaway:** CBAMs can **boost competitiveness**, **reduce leakage**, and **encourage regulation** without major equity harms.
+
+
+
+## 📉 Why CBAMs Have Limited Global Impact
+
+CBAMs are only a **partial** climate tool.
+
+- Apply to a **small set of EITE sectors** only.  
+- Do **not** address most domestic emissions sources.  
+- Some reshuffling remains.  
+- Countries not exporting to the EU have **weak incentives** to change policies.
+
+:::{.fragment}
+Overall
+
+- CBAMs strengthen **competitiveness**, reduce **leakage**, and raise **foreign ambition**
+- But global emissions fall **only modestly** unless more sectors and countries participate.
+
+:::
+
+<!-- **In short:** CBAMs are important, but **not a standalone global decarbonization strategy**. -->
+
+
+
+<!-- ## 🧮 **Measurement Problems with CBAMs** -->
+
+<!-- CBAMs require measuring the **carbon content** of imports. -->
+
+<!-- Main challenges:   -->
+
+<!-- - Plant-level variation is large   -->
+<!-- - Emissions reporting may be unreliable   -->
+<!-- - **Risk of reshuffling**: -->
+<!--   - Clean products sent to CBAM markets   -->
+<!--   - Dirty products sold elsewhere   -->
+<!--   → No global emissions reduction -->
+<!-- - Sector-average data is simpler but less accurate -->
+
+
+
+<!-- ## 📉 **Why CBAMs Might Have Limited Global Impact** -->
+
+<!-- CBAMs often: -->
+
+<!-- - Reduce **imported emissions**   -->
+<!-- - Increase **domestic emissions**   -->
+<!-- - But global emissions may not fall much   -->
+<!-- → Mostly **trade reshuffling**, not deep decarbonization. -->
+
+
+
+<!-- ## 🧪 **What Recent Research Shows About CBAM Performance** -->
+
+<!-- A new quantitative study using **plant-level data** for steel and aluminum—the most traded and emissions-intensive sectors in the EU/UK CBAM—finds that: -->
+
+<!-- - **Competitiveness improves**   -->
+<!--   - Domestic producers no longer face a disadvantage relative to foreign firms that operate under weaker or no carbon pricing. -->
+<!-- - **Leakage falls**   -->
+<!--   - When importers pay the same effective carbon price, production is less likely to shift to unregulated regions. -->
+<!-- - **Global climate ambition increases**   -->
+<!--   - Foreign producers—especially those exporting to the EU—have incentives to adopt cleaner technologies or carbon pricing to remain competitive. -->
+<!-- - **Equity concerns are smaller than expected**   -->
+<!--   - Contrary to policy fears, **low-income countries are not disproportionately harmed** in early-stage CBAM sectors because: -->
+<!--     - They export relatively little steel/aluminum to the EU   -->
+<!--     - Clean producers gain market share   -->
+<!--     - Revenue impacts are modest relative to total exports -->
+
+
+## 🌍 Climate Clubs: A Simple Idea with Big Potential
+
+- **Goal:** Reduce global free-riding by rewarding members and penalizing non-members.  
+- **Concept (Nordhaus, 2015):**
+  - A coalition of **high-ambition countries** forms a club.
+  - Members agree to **strong climate policies** (e.g., carbon pricing, standards).
+  - Non-members face a **uniform external tariff** on all exports to the club.
+
+## 🌍 Climate Clubs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {.fragment}
+### How Climate Clubs Differ from CBAMs
+- **CBAM** → Sector-specific, focused on competitiveness & leakage.  
+- **Climate Club** → Economy-wide, focused on raising global ambition.  
+
+:::
+:::
+
+
+::: {.column width="50%"}
+::: {.fragment}
+### Why No “Real” Climate Club Exists Yet
+- Countries use **different policy tools** (carbon pricing vs. subsidies).  
+- Broad tariffs risk **WTO disputes** and **trade conflict**.  
+- Political difficulty defining a single metric of “high ambition.”  
+
+:::
+:::
+::::
+
+<div style="display:block; margin:-5px;"></div>
+<span class="fragment">👉 **Today: only “soft clubs” exist (G7 Climate Club). No binding, enforcement-based club has formed.**</span>
+
+
+<!-- ## 🤝 **Climate Clubs** -->
+
+<!-- Climate Clubs (Nordhaus 2015): -->
+<!-- - Group of **high-ambition countries**   -->
+<!-- - Impose **broad tariffs** on non-members   -->
+<!-- - Goal: end free-riding   -->
+<!-- - Much simpler than CBAMs because: -->
+<!--   - No product-level carbon measurement   -->
+<!--   - Only measure **climate ambition** -->
+
+
+<!-- ## 🔗 Climate Clubs vs. CBAMs -->
+
+<!-- | Feature | CBAM | Climate Club | -->
+<!-- |--||--| -->
+<!-- | Target | Product-specific | Country-wide | -->
+<!-- | Goal | Competitiveness, leakage | Raise global ambition | -->
+<!-- | Measurement | Carbon content | Climate commitment level | -->
+<!-- | Tariffs | Sectoral | Broad, uniform | -->
+<!-- | Complexity | High | Lower | -->
+
+<!-- Climate Clubs create **stronger incentives** for low-ambition countries to increase effort. -->
+
+
+
+<!-- ## ⚖️ **Challenges for Climate Clubs** -->
+
+<!-- - Defining “ambition” is politically difficult   -->
+<!-- - Different policy mixes (pricing vs. subsidies) complicate measurement   -->
+<!-- - Tariffs may trigger: -->
+<!--   - WTO disputes   -->
+<!--   - Retaliation   -->
+<!--   - Geopolitical tensions   -->
+<!-- - Risk of **green protectionism** -->
+
+
+
+## 🌏 **Equity & Development Considerations**
+
+- **Low-Income Countries** account for **only ~4%** of global emissions
+- **Low- and Middle-Income Countries** for **~25%**—yet they are the most vulnerable to climate damages.
+- Many rely on **energy-intensive exports** and have limited capacity to meet complex reporting requirements.
+- To ensure fairness:
+  - CBAM or climate-club tariffs should **exempt** the poorest countries or include transition periods.  
+  - Rich countries must provide **financial assistance**, **technology transfer**, and **capacity-building** for emissions reporting.  
+  - Global policy design should avoid **shifting costs onto countries least responsible for the problem**.
+
+
+## 🔮 **Broader Implications for Trade & Climate**
+
+- About **25% of global CO₂ emissions** are embodied in traded goods, meaning trade policy directly shapes global mitigation.
+- WTO rules often **favor high-carbon production**, because:
+  - Carbon tariffs are difficult under WTO rules because they can appear discriminatory or protectionist.
+  - Fossil-fuel subsidies remain largely unconstrained.  
+- Better-coordinated border measures could:
+  - Reduce **implicit fossil-fuel subsidies** embedded in international trade.
+  - Strengthen incentives for **cleaner production** in exporting countries.
+  - Limit trade disputes by creating **common reporting and verification standards**.
+
+
+## 🧭 **The Future Depends on Four Actors**
+
+**Global decarbonization** will hinge on the policy choices of four major emitters:
+
+- **United States** — subsidies-driven clean-tech expansion (IRA).  
+- **European Union** — carbon pricing + CBAM architecture.  
+- **China** — dominant in clean-tech manufacturing; key coal and industrial emissions.  
+- **India** — fast-growing economy; crucial for long-term global emissions trends.
+
+:::{.fragment}
+Their interaction on **carbon pricing**, **subsidy policy**, **border adjustments**, and **climate-club cooperation** will shape whether the world moves toward<span class="fragment"> **coordinated climate action** or **fragmented policy competition**.</span>
+
+:::
+
+<!-- ## 🌏 **Equity & Development Considerations** -->
+
+<!-- - Low-income countries produce **4%** of global emissions   -->
+<!-- - LMICs produce **~25%** -->
+<!-- - These countries: -->
+<!--   - Should be exempt from CBAM/club tariffs   -->
+<!--   - Need financial & technological support   -->
+<!--   - Will face the largest climate damages   -->
+<!-- - Global climate policy must avoid **punishing the poorest**. -->
+
+
+
+<!-- ## 🔮 **Broader Implications for Trade & Climate** -->
+
+<!-- - Roughly **25% of global emissions** are embodied in trade.   -->
+<!-- - Trade rules currently **favor high-carbon production** by: -->
+<!--   - Making carbon tariffs hard   -->
+<!--   - Allowing fossil-fuel subsidies indirectly   -->
+<!-- - Coordinated border measures could: -->
+<!--   - Reduce implicit fossil-fuel subsidies   -->
+<!--   - Create stronger climate incentives   -->
+<!--   - Avoid trade conflict -->
+
+
+
+<!-- ## 🧭 **The Future Depends on Four Actors** -->
+
+<!-- The global mitigation trajectory will be dominated by: -->
+
+<!-- - **United States** -->
+<!-- - **European Union** -->
+<!-- - **China** -->
+<!-- - **India** -->
+
+<!-- Their alignment (or conflict) over: -->
+<!-- - Carbon pricing   -->
+<!-- - Subsidies   -->
+<!-- - Border measures   -->
+<!-- - Climate clubs   -->
+
+<!-- …will determine how quickly the world decarbonizes. -->
+
+
+
+
+
+# 🌍♟️ **Game Theory of Global Climate Cooperation** {background-color="#1c4982"}
+
+
+
+## Collective Action and Game Theory
+
+- Climate mitigation is a classic case of **strategic interdependence**:
+  - The **benefits** of reduced emissions are **global** and shared by all.
+  - The **costs** of abatement are **local** and borne individually.  
+  <div style="display:block; margin:5px;"></div>
+  <span class="fragment">→ Each country’s payoff depends on what **other countries** decide to do.</span>
+- Because countries affect one another’s outcomes, **incentive design** becomes central to climate cooperation:
+  - Agreements must be **incentive-compatible** (acting responsibly is each country's best response).
+  - Agreements must be **self-enforcing** (no country wants to cheat or exit).
+- This is exactly what **game theory** studies: <span class="fragment">how each player’s payoff depends on **their own actions** *and* the actions of **others**.</span>
+  
+<!-- - Climate mitigation is a classic example of **strategic interdependence**, meaning that each country’s payoff depends on what **other countries** choose to do: -->
+<!--   - Benefits of reduced emissions are **global** -->
+<!--   - Costs of abatement are **local** -->
+
+<!-- - Because of this interdependence, **game theory** helps explain why incentives matter so much. -->
+
+<!-- - **Game theory** analyzes situations where a player’s payoff depends on both their own actions and the actions of others.   -->
+
+
+<!-- - An agreement is **incentive-compatible** when **acting responsibly is each country's best response**, given what others are doing. -->
+
+<!-- - A **self-enforcing** agreement is one where **no country wants to leave or cheat**, because doing so would make it worse off. -->
+
+
+
+
+
+
+## A Climate Game: Cooperation vs. Defection
+
+|               |               | **Country B**      |               |
+|---------------|---------------|--------------------|---------------|
+|               |               | **Cooperate**      | **Defect**    |
+| **Country A** | **Cooperate** |     (3, 3)         |    (1, 4)     |
+|               | **Defect**    |     (4, 1)         |    (2, 2)     |
+|               |               |                    |               |
+
+
+- **Players**
+  - Two countries: **Country A** and **Country B**.
+
+- **Strategies**
+  - **Cooperate** → adopt strong climate policy / abate emissions  
+  - **Defect** → keep weak or no climate policy / avoid abatement costs  
+
+- **Payoffs**
+  - Higher values = better economic outcome 
+  - Format: **(A’s payoff, B’s payoff)**
+
+
+
+## Nash Equilibrium in the Climate Game
+
+
+|               |               | **Country B**      |               |
+|---------------|---------------|--------------------|---------------|
+|               |               | **Cooperate**      | **Defect**    |
+| **Country A** | **Cooperate** |     (3, 3)         |    (1, 4)     |
+|               | **Defect**    |     (4, 1)         |    (2, 2)     |
+|               |               |                    |               |
+
+
+- In a **Nash Equilibrium (NE)**, each player’s chosen strategy is the best response to the other player’s strategy.
+  - A **NE** occurs when no player can improve their payoff by changing strategy unilaterally.
+
+- What is the NE in this game?
+  - That is, to find what strategy each player plays in the NE.
+
+
+
+## Nash Equilibrium in the Climate Game
+
+|               |               | **Country B**      |               |
+|---------------|---------------|--------------------|---------------|
+|               |               | **Cooperate**      | **Defect**    |
+| **Country A** | **Cooperate** |     (3, 3)         |    (1, 4)     |
+|               | **Defect**    |     (4, 1)         |    (2, 2)     |
+|               |               |                    |               |
+
+
+- If B cooperates → A prefers **Defect** ($4 > 3$)  
+- If B defects → A prefers **Defect** ($2 > 1$)  
+- If A cooperates → B prefers **Defect** ($4 > 3$)  
+- If A defects → B prefers **Defect** ($2 > 1$)
+
+<div style="display:block; margin:-30px;"></div>
+<span class="fragment">👉 **NE = (Defect, Defect)** — even though both prefer $(3,3)$.</span>  
+
+- This is the classic **Prisoner’s Dilemma**.  
+<span class="fragment">Free-riding incentives push both countries toward **mutual defection**.</span>  
+
+
+## The Climate Game with CBAMs
+
+
+|               |               | **Country B**      |               |
+|---------------|---------------|--------------------|---------------|
+|               |               | **Cooperate**      | **Defect**    |
+| **Country A** | **Cooperate** |     (3, 3)         |    (2, 1)     |
+|               | **Defect**    |     (1, 2)         |    (1, 1)     |
+|               |               |                    |               |
+
+
+- **What the strategies mean under CBAM:**  
+  - **Cooperate** → adopt a strong domestic climate policy (abate emissions).  
+  - **Defect** → keep a weak policy (under-price carbon) and face CBAM tariffs on exports.  
+    - The tariff removes the **competitiveness advantage** of weak policy.
+
+<div style="display:block; margin:-50px;"></div>
+<span class="fragment">👉 CBAMs **internalize the competitiveness problem**, eliminating the gain from under-pricing and making **Cooperate → a dominant strategy**.</span>
+
+
+
+<!-- - **What the strategies mean under CBAM:**   -->
+<!--   - **Cooperate** → adopt strong climate policy (abate)  -->
+<!--   - **Defect** → keep weak policy (under-price carbon; pay tariff)   -->
+<!--     - The strategic advantage of under-pricing disappears due to the tariff. -->
+
+  <!-- - If B abates (Cooperate) → A prefers **Abate** (3 > 1) -->
+  <!-- - If B under-prices (Defect) → A prefers **Abate** (2 > 1) -->
+
+<!-- <div style="display:block; margin:-40px;"></div> -->
+<!-- <span class="fragment">👉 CBAMs **internalize the competitiveness problem**, removing the free-rider reward and making **Cooperate → better response**.</span> -->
+
+
+
+
+## The Climate Game with Climate Clubs
+
+
+|               |               | **Country B**      |               |
+|---------------|---------------|--------------------|---------------|
+|               |               | **Cooperate**      | **Defect**    |
+| **Country A** | **Cooperate** |     (4, 4)         |    (2, 1)     |
+|               | **Defect**    |     (1, 2)         |    (1, 1)     |
+|               |               |                    |               |
+
+- **What the strategies mean under Climate Clubs:**  
+  - **Cooperate** → join the club (adopt high-ambition policy; gain **tariff-free access**, **shared standards**, and **technology cooperation**).  
+  - **Defect** → stay out (keep weaker policy; face club-wide external tariffs).  
+    - Staying out results in **tariff penalties** and loss of club benefits.
+
+<div style="display:block; margin:-45px;"></div>
+<span class="fragment">👉 Climate Clubs **flip the incentives**: joining the club yields the highest payoff, making high-ambition climate policy a **dominant strategy**.</span>
+
+<!-- - **What the strategies mean under Climate Clubs:**   -->
+<!--   - **Cooperate** → join the club (adopt high-ambition climate policy; enjoy **tariff-free trade**, **technology sharing**, and **reduced competitiveness pressure**)   -->
+<!--   - **Defect** → stay out (keep weaker policy; pay tariffs)   -->
+<!--     - Staying out triggers **club-wide tariffs** that punish defectors. -->
+
+  <!-- - If B cooperates → A prefers **Cooperate** (4 > 1)   -->
+  <!-- - If B defects → A prefers **Cooperate** (2 > 1) -->
+
+<!-- <div style="display:block; margin:-40px;"></div> -->
+<!-- <span class="fragment">👉 Climate Clubs **flip incentives**, making high-ambition policy a **dominant strategy**.</span> -->
+
+
+<!-- - Climate Clubs (Nordhaus) impose **uniform tariffs** on non-members. -->
+<!-- <!-- - Let the climate club impose a tariff penalty $T$ on defectors. --> -->
+<!-- - **Joining the club (Cooperate)** yields the highest payoff.   -->
+<!-- - **Staying out (Defect) ** triggers tariff penalties → reduces payoff.   -->
+<!-- - Without club: Defecting unilateral payoff > cooperating -->
+<!-- - With club: $4 > 2$ and $4 > 1$ → both prefer **Join** -->
+<!-- - Climate Clubs **punish free-riding**, turning cooperation into each country's **dominant strategy**. -->
+<!-- - Under CBAM, *defecting* triggers **border fees** that eliminate the competitiveness advantage of weak policy. -->
+
+<!-- - Best responses:   -->
+<!--   - If B cooperates → A prefers **Cooperate** (3 > 1)   -->
+<!--   - If B defects → A prefers **Cooperate** (2 > 1) -->
+
+<!-- :::{fragment} -->
+<!-- 👉 **Unique NE = (Cooperate, Cooperate)**   -->
+<!-- CBAMs **remove the free-rider reward** and make cooperation each country’s best response. -->
+
+<!-- ::: -->

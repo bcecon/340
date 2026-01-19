@@ -1,0 +1,120 @@
+project:
+  type: website 
+  output-dir: "."
+  
+website:
+  title: ""
+  # favicon: img/favicon.ico
+  description: 'A collection of environmental economics by Byeong-Hak Choe'
+  reader-mode: false
+  back-to-top-navigation: true
+
+  navbar:
+    background: "#1c4982"
+    logo: img/geneseo-logo-squared.png
+    pinned: true
+    right:
+      - text: 💡 What I Do
+        href: about.qmd
+      - text: ' '
+      # - text: 🚀 Lecture
+      #   href: listing-econ-340-lec.qmd
+      # - text: ' '
+      # - text: ⌨️ Classwork
+      #   href: listing-econ-340-cw.qmd
+      # - text: ' '
+      # - text: 💻 Homework
+      #   href: listing-econ-340-hw.qmd
+      # - text: ' '
+    
+  sidebar:
+    style: docked
+    search: false
+    pinned: true
+    collapse-level: 0
+    contents:
+      - text: 🏠 Home
+        href: index.qmd
+      - text: 📓 Syllabus
+        href: syllabus.qmd
+      - text: 🅱 Brightspace
+        href: https://mylearning.suny.edu/d2l/home/2152120
+        target: _blank
+      
+      - text: 🚀 Lecture
+        href: listing-econ-340-lec.qmd
+      - text: 📝 Classwork
+        href: listing-econ-340-cw.qmd
+      - text: 📚 Homework
+        href: listing-econ-340-hw.qmd
+      - text: 💡 Research Feedback
+        href: listing-econ-340-rw-feedback.qmd
+        
+      - section: ✍️️ Project
+        contents:
+          - text: 📄 Guideline
+            href: econ-rw/econ-340-team-project.qmd
+          - text: 🧾 Research Kick-off
+            href: econ-rw/econ-340-project-kickoff.qmd
+                
+      - section: 🗓️ Weeks
+        contents:
+          - text: Week 01
+            href: econ-wk/wk-01.qmd
+          - text: Week 02
+            href: econ-wk/wk-02.qmd
+          - text: Week 03
+            href: econ-wk/wk-03.qmd
+          - text: Week 04
+            href: econ-wk/wk-04.qmd
+          - text: Week 05
+            href: econ-wk/wk-05.qmd
+          - text: Week 06
+            href: econ-wk/wk-06.qmd
+          - text: Week 07
+            href: econ-wk/wk-07.qmd
+          - text: Week 08
+            href: econ-wk/wk-08.qmd
+          - text: Week 09
+            href: econ-wk/wk-09.qmd
+          - text: Week 10
+            href: econ-wk/wk-10.qmd
+          - text: Week 11
+            href: econ-wk/wk-11.qmd
+          - text: Week 12
+            href: econ-wk/wk-12.qmd
+          - text: Week 13
+            href: econ-wk/wk-13.qmd
+          - text: Week 14
+            href: econ-wk/wk-14.qmd
+          - text: Weeks 15-16
+            href: econ-wk/wk-15.qmd
+      
+        
+  page-footer: 
+    border: false
+    center: "powered with github, quarto, and rstudio<br>byeong-hak choe, 2025"
+    # foreground: dark
+    # background: '#9b4e55' 
+
+
+execute:
+  echo: true
+  eval: true
+  message: false
+  warning: false
+  
+format:
+  html: 
+    grid:
+      margin-width: 400px
+      sidebar-width: 200px
+    link-external-newwindow: true
+    theme:
+      light: [flatly]  # flatly litera sandstone 'assets/scss/light.scss'
+      dark: [darkly, theme-dark.scss] # darkly cyborg slate solra superhero
+    css: [styles.css, assets/css/font.css] # , font.css
+    highlight-style: atom-one # espresso   tango
+    mainfont:  sans-serif; serif; ui-sans-serif  # Gill Sans, sans-serif;
+    include-after-body: [sidebar-button-mobile.html]
+

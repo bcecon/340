@@ -1,0 +1,1107 @@
+---
+title: Lecture 16
+subtitle: "Climate Risk and Adaptation"
+
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-12-01
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+library(formattable)
+
+theme_set(theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+
+
+```
+
+
+# Climate Risk and Adaptation {background-color="#1c4982"}
+
+
+<!-- ## Number and Cost of Billion-Dollar Disasters -->
+
+<!-- | Period      | Annual Average Cost | Average Events per Year | -->
+<!-- |-------------|---------------------|-------------------------| -->
+<!-- | 1980-2020   | $45.7 billion       | 7.0                     | -->
+<!-- | 2011-2020   | $89.0 billion       | 13.5                    | -->
+<!-- | 2016-2020   | $121.3 billion      | 16.2                    | -->
+
+
+<!-- - 2020 was the 4th-highest annual costs ($95.0 billion) -->
+
+<!-- - **Flooding** causes more damage and impacts more people worldwide than any other natural disaster. -->
+<!--   - Hurricane Ida in 2021 caused $75 billion -->
+<!--   - Hurricane Ian in 2022 caused $113 billion -->
+
+
+## What is Climate Risk?
+
+<div style="display:block; margin:-15px;"></div>
+
+<div class="fragment" style="font-size:1.75rem; text-align:center; margin-top:1.5rem;">
+  <blockquote>
+    **Climate risk** is the potential for adverse consequences for human and ecological systems, arising from the interaction of **climate-related hazards** with the **exposure** and **vulnerability** of people, ecosystems, and their biodiversity.
+  </blockquote>
+</div>
+
+
+:::: {.columns}
+::: {.column width="32.5%"}
+
+::: fragment
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/ipcc-risk-propeller-minimal.jpg"
+       style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold; font-size:1.25rem;">Source: IPCC (2022)</p>
+</div>
+
+:::
+
+:::
+::: {.column width="67.5%"}
+
+- Climate risk is **not just** about how big the storm or flood is.
+- It comes from **three ingredients**:
+  - **Climate Hazard** – the physical climate event (heat waves, droughts, floods, storms)
+  - **Exposure** – who/what is in harm’s way
+  - **Vulnerability** – how fragile or resilient society and ecosystems are
+
+:::
+::::
+
+<div style="display:block; margin:-10px;"></div>
+
+::: fragment
+
+In shorthand we can think of:
+<div style="display:block; margin:-35px;"></div>
+
+$$ 
+\boxed{\color{purple}{(\textbf{Climate Risk})} \;\propto\; \color{#1f77b4}{(\textbf{Climate Hazard})} \times \color{#17becf}{(\textbf{Exposure})} \times \color{#E69F00}{(\textbf{Vulnerability})}}
+$$
+:::
+
+<!-- - Under **risk**, outcomes are **uncertain**, but we can assign **probabilities** to different possible outcomes. -->
+
+
+
+## U.S. Billion-Dollar Weather and Climate Disasters
+### 1980-2024 (CPI-Adjusted)
+<div style="display:block; margin:-25px;"></div>
+
+<div style="text-align: center; width: 77.5%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/noaa-disaster-no-trend.jpg" style="width: 100%; margin-bottom: -30px;">
+</div>
+
+  <p style="font-weight: bold; font-size:1.7rem; text-align: center;">Source: [Billion-Dollar Weather and Climate Disasters](https://www.ncei.noaa.gov/access/billions/), NOAA (2024)</p>
+
+## 🌎 Mitigation & Adaptation
+### Two Ways to Reduce Climate Risk
+<div style="display:block; margin:-10px;"></div>
+
+<!-- - **Some climate change impacts are now unavoidable.** -->
+
+- Because we are already committed to **climate change**, we need a **two-track strategy**:
+  - 🏭🌫 **Climate Mitigation** – *reducing greenhouse gas emissions*  
+    <span class="fragment">(e.g., ↓ fossil fuels, ↑ energy efficiency, ↑ carbon sinks such as forests, soils, oceans).</span>
+  - 💧🔥 **Climate Adaptation** – *reducing vulnerability  climate hazards*
+    <span class="fragment">(e.g., upgrading **flood defenses**,</span> <span class="fragment">improving **drainage systems**,</span> <span class="fragment">implementing **heat-wave plans**,</span> <span class="fragment">adopting **drought/heat-tolerant crops**,</span> <span class="fragment">and strengthening **critical infrastructure**).</span>
+
+<div style="display:block; margin:-20px;"></div>
+
+:::: fragment
+::: callout-note
+### Global mitigation, local adaptation
+
+**Mitigation** mainly has **global** benefits; **adaptation** is mostly **local / region-specific**.
+
+:::
+::::
+
+
+<!-- ## What Shapes Hazard, Exposure, and Vulnerability? -->
+
+<!-- - **Climate (left side)** -->
+<!--   - Natural variability -->
+<!--   - Anthropogenic climate change   -->
+<!--   $\Rightarrow$ changes the **hazard** (frequency/intensity of extremes). -->
+
+<!-- - **Socioeconomic processes (right side)** -->
+<!--   - Socioeconomic pathways (population, income, urbanization) -->
+<!--   - **Adaptation and Mitigation** actions -->
+<!--   - Governance and institutions   -->
+<!--   $\Rightarrow$ shape **exposure** and **vulnerability**. -->
+
+<!-- - **Emissions and land-use change** -->
+<!--   - Greenhouse gas emissions -->
+<!--   - Deforestation, urbanization, land conversion   -->
+<!--   $\Rightarrow$ drive climate change **and** determine where and how people live. -->
+
+<!-- ## Policy Levers: How Can We Reduce Risk? -->
+
+<!-- - **Reduce hazards** -->
+<!--   - Mitigation: lower emissions, protect/restore ecosystems, change land use. -->
+<!-- - **Reduce exposure** -->
+<!--   - Zoning, building codes, managed retreat, not building in high-risk areas. -->
+<!-- - **Reduce vulnerability** -->
+<!--   - Poverty reduction, safety nets, infrastructure, health and education, -->
+<!--     early warning systems, strong institutions. -->
+
+<!-- ::: callout-tip -->
+<!-- In practice, **effective climate policy** combines all three: -->
+<!-- mitigation, smart spatial planning, and investments that build resilience. -->
+
+<!-- ::: -->
+
+
+# 🌧️⚡ Cost Benefit Analysis under Uncertainty {background-color="#1c4982"}
+
+##  Cost–Benefit Analysis under Uncertainty 
+
+:::callout-note
+## What is Risk in Economics?
+- Under **risk**, outcomes are **uncertain**, but we can assign **probabilities** to different possible outcomes.
+:::
+
+- Many real-world **policy projects** have uncertain outcomes:
+  - **Dams and flood-control projects** (risk of catastrophic failure or being overtopped)
+  - **Urban drainage and stormwater systems** (may be underdesigned for future intense rainfall)
+  - **Drought adaptation in agriculture** (e.g., new irrigation systems or drought-tolerant crops may underperform under future climate)
+  
+- A robust **Cost–Benefit Analysis (CBA)** must account for:
+  - The **range of possible outcomes**, and  
+  - **How likely** each outcome is.
+
+
+<!-- ::: callout-note -->
+<!-- CBA under risk asks:   -->
+<!-- > *What is the project’s **expected net benefit**, given different possible futures and their probabilities?* -->
+<!-- ::: -->
+
+
+
+
+##  📐 Incorporating Risk into CBA: Expected Value
+
+Suppose a project can lead to three different outcomes $x_i$, where $i = 1,2,3$:
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: fragment
+- Each outcome $x_i$ has:
+  - Probability $P(x_i)$
+  - Net benefit $NB(x_i)$ 
+  
+:::
+:::
+
+
+::: {.column width="50%"}
+
+::: fragment
+- For a **single** outcome:
+  $$E[NB(x_i)] = P(x_i)\times NB(x_i)$$
+
+:::
+:::
+::::
+
+::: fragment
+- For **all** possible outcomes, the **expected net benefit** of the project is:
+  $$
+  \begin{aligned}
+  E[NB(X)] &= \sum_{i=1}^3 \bigl[ P(x_i)\times NB(x_i) \bigr]\\
+  &= P(x_1)\times NB(x_1) \,+\,P(x_2)\times NB(x_2) \,+\,P(x_3)\times NB(x_3)
+  \end{aligned}
+  $$
+:::
+
+<div style="display:block; margin:-25px;"></div>
+
+- We use this as a summary measure of **what the project delivers on average**, given the possible outcomes and their probabilities.
+
+
+## 🌊🏗️ CBA on Dam for Flood Control 
+
+- Proposal: build a **dam** for flood control.
+  - Construction cost: **\$7 million**.
+  - Benefits depend on **future precipitation** (and resulting flood risk).
+
+<span class="fragment">
+<div style="font-size: 0.75em; width: 90%; margin: 0 auto;">
+
+<hr style="margin-bottom: 0.3em;">
+
+| Scenario                                     | Net Benefit $NB(x_i)$ | Probability $P(x_i)$ | Expected Value $P(x_i)\times NB(x_i)$ |
+|---------------------------------------------|-----------------------|----------------------|----------------------------------------|
+| Low precipitation                           | \$5 million           | $0.27$               | \$1.35 million                         |
+| Average precipitation                       | \$10 million          | $0.49$               | \$4.90 million                         |
+| High precipitation                          | \$20 million          | $0.23$               | \$4.60 million                         |
+| Extremely high precipitation (dam fails)    | $-\$100$ million      | $0.01$               | $-\$1.00$ million                      |
+<hr style="margin-bottom: 0.3em;">
+
+</div>              
+</span>
+<div style="display:block; margin:-10px;"></div>
+
+- **Expected net benefit** of the project:
+<div style="display:block; margin:-20px;"></div>
+
+  $$E[NB(X)] \approx \$9.85\text{ million}$$
+
+<div style="display:block; margin:-40px;"></div>
+- Would CBA recommend building the dam?
+
+
+## Risk Aversion
+
+Imagine you must choose **one** option:
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: fragment
+- **Option A:** Receive **\$50** for sure.  
+
+- **Option B:** Toss a coin:  
+  - Heads → **\$100**   
+  - Tails → **\$0**
+
+:::
+:::
+
+
+::: {.column width="50%"}
+
+::: fragment
+- The **expected value** of both options is:  
+
+  $$EV = 0.5\times \$100 + 0.5\times \$0 = \$50$$
+
+:::
+
+:::
+::::
+
+
+
+- Your **risk preference** can be categorized as:
+  - **Risk-averse** → prefers A (safe \$50).  
+  - **Risk-loving** → prefers B (chance at \$100).  
+  - **Risk-neutral** → indifferent (cares only about EV).
+
+
+
+
+## 😬 Risk Aversion: Why Expected Value Isn’t Everything
+
+<div style="display:block; margin:-25px;"></div>
+
+Imagine you must choose **one** option:
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: fragment
+- **Option A:** Receive **\$100** for sure.  
+- **Option B:** $50\%$ chance of **+\$300**, and $50\%$ chance of **–\$100**.
+
+
+:::
+:::
+
+
+::: {.column width="50%"}
+
+::: fragment
+
+<div style="display:block; margin:-25px;"></div>
+The **expected value** of both options:  
+
+<div style="display:block; margin:-10px;"></div>
+
+$$
+\begin{aligned}
+EV(B) &= 0.5\times \$300 + 0.5\times (-\$100) \\
+&= \$150 - \$50 = \$100
+\end{aligned}
+$$
+
+:::
+
+:::
+::::
+
+
+- Expected value treats **gains and losses symmetrically**, weighted by probabilities.
+- But many people are **risk averse**:
+  - They dislike **small chances of large losses**, even if the EV looks attractive.
+
+- In expected value terms, **A and B are equal** ($EV = \$100$),  
+  but many people still pick **A** → evidence of **risk aversion**.
+
+
+
+## 🎲❓ Risk vs. Uncertainty (Economist’s Definitions)
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: fragment
+### Risk
+- Variability or randomness that can be **quantified**.  
+- We can list possible outcomes and attach **probabilities** we trust.
+- <u>Example</u>:
+  - A **$1$-in-$1,000$** chance of a nuclear accident over the plant’s life.
+  - A **$1$-in-$5,000$** chance of a major offshore oil spill.
+  - Health risks of smoking estimated from statistical data.
+
+:::
+:::
+
+::: {.column width="50%"}
+
+::: fragment
+### Uncertainty
+- Variability or randomness that **cannot be reliably quantified**.
+- <u>Example</u>: extreme, poorly understood climate outcomes:
+  - Massive methane release from thawing permafrost,
+  - Large shifts in ocean currents (e.g., weakening of the Gulf Stream).
+
+:::
+:::
+::::
+
+<!-- ::: callout-important -->
+<!-- In **risk**, we think we know the probabilities.   -->
+<!-- In **uncertainty**, we don’t. -->
+<!-- ::: -->
+
+
+## 🚨 Uncertainty & the Precautionary Principle
+
+<div style="display:block; margin:-5px;"></div>
+
+::: fragment
+::: {.callout-important}
+### Precautionary Principle & Safe Minimum Standards
+
+When potential impacts are **large, irreversible, and deeply uncertain**, economists and policymakers often argue for a **precautionary principle** or a **safe minimum standard**, rather than relying only on expected value.
+:::
+:::
+
+<div style="display:block; margin:-15px;"></div>
+
+- <u>**Precautionary principle**</u>:  
+  Policies should account for uncertainty by taking steps to **avoid low-probability but catastrophic events**.
+
+- <u>**Safe minimum standard**</u>:  
+  Set environmental policies so as to **avoid possible catastrophic consequences**.
+
+
+
+- In the **dam example**:
+  - A **1% chance** of catastrophic failure barely changes $E[NB]$,
+  - but for people downstream, even a **small chance of huge damages** may be unacceptable.
+
+
+
+
+# 🌧️🏠💰 Flood Insurance, Moral Hazard, and Underinsurance {background-color="#1c4982"}
+
+
+## 🌧 Flood Insurance Choices – Scenario️
+
+Imagine you own a **house next to a river**.
+
+- Each year, there is a **5% chance** of a major flood.
+- If a flood hits, your house suffers **\$200,000** in damage.
+
+<span class="fragment">You are considering three options:</span>
+
+1. **No insurance**
+2. **Partial, subsidized insurance**
+3. **Full, risk-based insurance**
+
+
+## 🧮 Flood Insurance Choices – The Options
+
+**Flood probability:** $5\%$ per year  
+**Damage if flood:** \$200,000  
+
+$$
+(\text{Expected annual loss if uninsured}) = 0.05 \times 200,000 = \$10,000.
+$$
+
+::: fragment
+Here are your choices:
+
+| Option | Annual Premium | You Pay If Flood | Description                                  |
+|--------|----------------|------------------|----------------------------------------------|
+| A      | \$0            | \$200,000        | No Insurance         |
+| B      | \$500          | \$50,000         | Partial Insurance (substantial loss remains)    |
+| C      | \$2,000        | \$1,000          | Full Insurance (tiny deductible)       |
+
+:::
+
+<div style="display:block; margin:-10px;"></div>
+
+<span class="fragment">**Question:** Which option would *you* choose?</span>
+
+
+
+## Why Flood Insurance Matters in the U.S.
+
+
+:::: {.columns}
+
+::: {.column width="70%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+<p style="font-weight: bold; font-size:1.7rem; text-align: center;">[Billion-Dollar Weather and Climate Disasters](https://www.ncei.noaa.gov/access/billions/), NOAA (2024)</p>
+  <img src="https://bcdanl.github.io/lec_figs/noaa-disaster-no-trend.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="30%"}
+
+<div style="display:block; margin:60px;"></div>
+
+- **Floods and storms**: the most frequent and costly natural disasters in the U.S.
+  <!-- - Losses are **large, sudden, and highly uneven across locations**. -->
+- **Private insurance markets**: historically reluctant to offer affordable coverage.
+
+:::
+::::
+
+<!-- - **Households and communities**   -->
+  <!-- - Face large, sudden losses. -->
+
+
+
+## The National Flood Insurance Program (NFIP)
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="75%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/fema-nfip-flood.png" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="25%"}
+
+::: nonincremental
+- <u>Created:</u> 1968 (National Flood Insurance Act)  
+- <u>Managed by:</u> **Federal Emergency Management Agency (FEMA)**
+
+:::
+:::
+::::
+
+<div style="display:block; margin:-65px;"></div>
+::: fragment
+<u>Basic idea:</u>  
+
+1. Provide **flood insurance** where **private market** is thin.
+2. Lower the need for **emergency federal disaster assistance**.
+3. Encourage **safer building & land use** in risky areas.
+
+:::
+
+<!-- ## NFIP: Main Goals -->
+
+<!-- 1. **Provide Flood Insurance** -->
+<!--    - Fill the gap when private insurers consider floods “uninsurable.” -->
+<!-- 2. **Improve Floodplain Management** -->
+<!--    - Encourage better land-use and building standards. -->
+<!-- 3. **Develop Floodplain Maps** -->
+<!--    - Identify flood-prone areas and measure risk. -->
+
+
+
+## NFIP in Practice: Growing Claims Payments
+<div style="display:block; margin:-35px;"></div>
+
+<div style="text-align:center; width: 70%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/nfip-loss.png" alt="NFIP Loss" style="max-width: 1000px; width: 100%; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,.15); margin-bottom: -20px;">
+</div>
+
+
+- A small number of major hurricanes drive a **large share of total claims**.
+- NFIP has repeatedly required **Treasury borrowing**.
+- Outstanding debt reached roughly **$22.5 billion (U.S. Government Accountability Office, 2025)**.
+
+<!-- - Cumulative NFIP claims have **risen sharply** over time. -->
+<!-- - Major hurricanes (Katrina, Sandy, Harvey, Ian, Helene…) account for a large share of losses. -->
+<!-- - NFIP has repeatedly borrowed from the U.S. Treasury and carried **large debt**. -->
+
+
+
+<!-- ## Where NFIP Policies and Flood Risk Are Concentrated -->
+
+<!-- :::: {.columns} -->
+
+<!-- ::: {.column width="50%"} -->
+
+<!-- <div style="text-align: center; width: 100%; margin: auto;"> -->
+<!--   <p style="font-weight: bold;">Top 30 Counties by Number of NFIP Policies</p> -->
+<!--   <img src="https://bcdanl.github.io/lec_figs/kousky-2020-flood-risk-housing-5.jpeg" style="width: 80%; margin-bottom: -20px;"> -->
+<!-- </div> -->
+
+<!-- ::: -->
+
+
+<!-- ::: {.column width="50%"} -->
+<!-- <div style="text-align: center; width: 100%; margin: auto;"> -->
+<!--   <p style="font-weight: bold;">Increase in Flooding due to Climate Change from 2020 to 2050 (in %)</p> -->
+<!--   <img src="https://bcdanl.github.io/lec_figs/nature-2022-flood-risk-5.jpg" style="width: 80%; margin-bottom: -20px;"> -->
+<!-- </div> -->
+<!-- ::: -->
+
+<!-- :::: -->
+
+<!-- - NFIP coverage is **highly concentrated** in certain coastal and riverine counties. -->
+<!-- - Many of these areas are also where **climate-driven flood risk is rising**. -->
+
+
+
+<!-- ## Climate Change and Flood Risk -->
+
+<!-- ### Increase in Average Annual Exposure to Flooding from 2020 to 2050 (in %) -->
+
+<!-- <div style="text-align: center; width: 80%; margin: auto;"> -->
+<!--   <img src="https://bcdanl.github.io/lec_figs/nature-2022-flood-risk-5.jpeg" style="width: 70%; margin-bottom: -20px;"> -->
+<!-- </div> -->
+
+<!-- - In many states, exposure to flooding is projected to **increase** due to climate change. -->
+<!-- - NFIP must operate in a world where **today’s risk is not tomorrow’s risk**. -->
+
+
+
+<!-- ## What Would an “Efficient” Flood Insurance System Look Like? -->
+
+<!-- 1. **Premium Levels** -->
+<!--    - On average, premiums should be **high enough to cover expected claims** and administrative costs. -->
+<!-- 2. **Risk-Reflective Pricing** -->
+<!--    - Each property’s premium should reflect its **individual risk** (location, elevation, building type, etc.). -->
+<!-- 3. **Risk-Reducing Incentives** -->
+<!--    - Insurance design should **reward mitigation** (elevating homes, floodproofing, better zoning). -->
+
+
+
+## 📈🌧️ Why Are NFIP Costs & Debt Rising?
+
+<div style="display:block; margin:-20px;"></div>
+
+
+:::: {.columns}
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="25%"}
+<div style="display:block; margin:-20px;"></div>
+
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/ipcc-risk-propeller-minimal.jpg"
+       style="width: 100%; margin-bottom: -20px;">
+</div>
+
+
+:::
+
+::: {.column width="65%"}
+
+
+<div style="text-align:center;">
+  **Flood *losses* rise**  
+  **when any of these increase:**
+</div>
+
+<div style="display:block; margin:-22.5px;"></div>
+
+$$
+\boxed{
+\begin{aligned}
+\color{purple}{\textbf{(Losses)}}
+&\;\propto\;
+\;\color{#1f77b4}{\textbf{(Climate Hazard)}} \\
+&\qquad\times\;
+\color{#17becf}{\textbf{(Exposure)}} \\
+&\qquad\times\;
+\color{#E69F00}{\textbf{(Vulnerability)}}
+\end{aligned}
+}
+$$
+:::
+
+
+::: {.column width="5%"}
+:::
+
+::::
+
+
+- **Climate Hazard:** stronger storms, heavier rainfall, sea-level rise
+- **Exposure:** more development & repeated rebuilding in flood-prone areas
+- **Vulnerability:** limited investment in infrastructure, rising construction and repair costs, **legacy underpricing of premiums**
+
+<div style="display:block; margin:-30px;"></div>
+
+
+<div class="fragment" style="font-size:2rem; text-align:center; margin-top:1.5rem;">
+  <blockquote>
+    It is a **joint climate–economic–policy problem**, not just a storm problem.
+  </blockquote>
+</div>
+
+
+## From NFIP Problems to Economic Incentives
+
+<!-- **Key question:**   -->
+
+<div style="font-size:2rem; text-align:center; margin-top:1.5rem;">
+  <blockquote>
+    When we insure people against flood losses, do we unintentionally encourage them to **take more risk**?
+  </blockquote>
+</div>
+
+
+- Cheap or heavily subsidized insurance can:
+  - Make it more attractive to **stay in high-risk areas**.
+  - Make **rebuilding in the same risky spot** more likely.
+- This brings us to the central concept: **moral hazard**.
+
+:::: {.fragment}
+::: {.callout-note style="font-size: 2rem;"}
+### Moral Hazard
+
+<div style="font-size: 1.75rem;">
+**Moral hazard** occurs when having insurance causes people to **change their behavior**, taking **more risk** because they do **not bear the full cost** of bad outcomes.
+</div>
+:::
+::::
+
+- Example: One home flooded **40 times**, receiving **$428,379** in payments.
+
+
+
+## How FEMA Is Addressing Moral Hazard in NFIP
+<div style="display:block; margin:-15px;"></div>
+
+**FEMA has already implemented several key reforms:**
+
+<div style="display:block; margin:-10px;"></div>
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Risk-based pricing ([Risk Rating 2.0](https://www.fema.gov/sites/default/files/documents/fema_rr-2.0_04-2025.pdf))** – Premiums now reflect:
+  - Distance to water  
+  - Flood frequency  
+  - Elevation  
+- **Mitigation incentives** – Premium discounts for:
+  - Elevation  
+  - Floodproofing  
+  - Compliance with updated building standards  
+    
+:::
+
+
+::: {.column width="50%"}
+- **Repeated-loss controls**
+  - Coverage limits and mitigation requirements after multiple claims.
+- **Community Rating System**
+  - **Better floodplain management** 
+    (e.g., zoning, building codes, drainage, 
+    <span class="levee-tooltip">
+      _levees_
+      <span class="levee-popup">
+        <img src="https://bcdanl.github.io/lec_figs/flood-levee.jpg" alt="Levee example" style="max-width:180px;">
+      </span>
+    </span>, and other protective measures)
+    <span class="fragment">⇒ **lower premiums for all residents**.</span>
+  - Over 1,500 participating communities.
+
+<!-- *These tools are designed to strengthen the link between **risk, price, and behavior**.* -->
+
+:::
+::::
+
+## Why Incentives Are Still Weakened
+<div style="display:block; margin:-15px;"></div>
+
+**Despite reforms, pricing still does not fully reflect true flood risk due to:**
+
+- **Political pressures**
+  - Resistance to sharp premium increases in high-risk districts.
+  - Rate caps and delayed adjustments weaken price signals.
+- **Affordability concerns**
+  - Fully risk-based premiums can be difficult for low- and middle-income households.
+  - Subsidies and caps soften the link between risk and price.
+- **Legacy underpricing & grandfathering**
+  - Many older properties still pay premiums based on outdated, lower-risk conditions.
+  - Similar-risk homes can face very different insurance prices.
+
+<!-- **Bottom line:** -->
+<!-- FEMA’s reforms move incentives in the right direction, but **pricing still does not fully reflect true flood risk for all properties**, limiting the program’s ability to fully control moral hazard. -->
+
+
+<!-- ## Addressing Moral Hazard in NFIP (Property Level) -->
+
+<!-- 1. **Premium Adjustments** -->
+<!--    - Move toward **risk-based premiums** so that riskier properties pay more. -->
+<!-- 2. **Mitigation Incentives** -->
+<!--    - Offer **premium discounts** for: -->
+<!--      - Elevating buildings   -->
+<!--      - Floodproofing   -->
+<!--      - Moving mechanical systems above flood level -->
+<!-- 3. **Restrictions on Rebuilding** -->
+<!--    - Limit coverage or require mitigation for properties with **repeated claims**. -->
+
+
+
+<!-- ## Addressing Moral Hazard in NFIP (Community Level) -->
+
+<!-- 4. **Community Rating System (CRS)** -->
+<!--    - NFIP scores communities based on their **flood risk management** efforts. -->
+<!--    - Better scores ⇒ **premium discounts** for all policyholders in that community. -->
+<!--    - Gives local governments incentives to: -->
+<!--      - Improve zoning and building codes. -->
+<!--      - Invest in drainage, levees, and other protective measures. -->
+
+## Underinsurance Despite High Flood Risk
+
+- Moral hazard predicts **too much risk-taking** when people are insured.
+- **Yet in practice**, the dominant problem in flood insurance markets is the opposite: **underinsurance.**
+  - Only about **49%** of residents in high-risk flood zones purchase flood insurance.
+
+- This low take-up is explained by several factors:
+  - **Affordability** of coverage
+  - **Limited understanding** of insurance
+  - **Misperceptions of federal disaster aid**
+  - **Incomplete or unclear risk information**
+
+- In addition, **systematic behavioral biases** strongly shape how homeowners perceive and respond to flood risk.
+
+
+
+
+## 1. Myopia (Present Bias) in Flood Risk Perception
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/flood-myopia.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+
+- **Myopia (Present Bias):**  
+  Tendency to focus on immediate costs and heavily discount future benefits.  
+  - Up-front premium feels large; future flood loss feels distant.
+:::
+:::
+::::
+
+
+## 2. Optimism in Flood Risk Perception
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/flood-optimism.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+- **Optimism:**  
+  Tendency to underestimate the likelihood of future losses.  
+  - Homeowners believe flooding is unlikely to happen to them.
+
+:::
+:::
+::::
+
+
+## 3. Inertia in Flood Risk Perception
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/flood-inertia.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+- **Inertia:**  
+  Tendency to stick with the status quo under uncertainty.  
+  - Delay buying or renewing flood insurance.
+
+:::
+:::
+::::
+
+
+## 4. Amnesia in Flood Risk Perception
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/flood-amnesia.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+- **Amnesia:**  
+  Tendency to quickly forget past disasters.  
+  - If no recent flood has occurred, perceived risk declines.
+
+:::
+:::
+::::
+
+
+## 5. Simplification in Flood Risk Perception
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/flood-simplification.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+- **Simplification:**  
+  Tendency to ignore complex or detailed risk information.  
+  - Overlook flood maps, probabilities, and damage estimates.
+
+:::
+:::
+::::
+
+
+## 6. Social Herding in Flood Risk Perception
+
+<div style="display:block; margin:15px;"></div>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/flood-herding.jpg" style="width: 100%; margin-bottom: -30px; margin-top: -30px;">
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+::: nonincremental
+- **Herding:**  
+  Tendency to base decisions on others’ behavior.  
+  - “None of my neighbors have insurance, so I don’t need it.”
+
+:::
+:::
+::::
+
+  
+  
+
+
+
+## How FEMA Is Addressing Underinsurance in NFIP?
+<div style="display:block; margin:-22.5px;"></div>
+
+**FEMA has implemented several key *choice-architecture tools* and behavioral policy features:**
+
+<div style="display:block; margin:-5px;"></div>
+
+:::: {.columns}
+::: {.column width="52.5%"}
+
+::: fragment
+
+<!-- <div style="display:block; margin:-25px;"></div> -->
+
+- **Automatic insurance through mortgages**  
+  - Flood insurance is **mandatory by default** for many federally backed mortgages in high-risk zones.
+  - This already functions as a **default enrollment mechanism** for some households.
+
+:::
+:::
+
+::: {.column width="47.5%"}
+- **Risk communication improvements** – FEMA provides:
+  - [Flood maps](https://msc.fema.gov/nfhl)  
+  - Property-level flood risk estimates
+- **Premium _signaling_ under Risk Rating 2.0** strengthens the **salience of risk through price**.
+- **Post-disaster outreach:** Increased insurance marketing and rebuilding guidance after major floods.
+
+:::
+::::
+
+## Why Does Underinsurance Persist in the NFIP?
+<div style="display:block; margin:-10px;"></div>
+
+- **No universal default enrollment**
+  - Households outside mortgage requirements are not **actively opt in**.
+- **Weak default framing**
+  - Flood insurance is treated as an **optional add-on**, not a standard form of protection.
+
+- **Limited behavioral nudges**
+  - **Lack of simple tools** that express risk in dollar terms or provide reminders at key disaster-related housing decisions
+
+- **Complex information environment**
+  - Flood maps and insurance rules are **technically accurate but cognitively demanding**.
+
+<div style="display:block; margin:-30px;"></div>
+
+<div class="fragment" style="font-size:1.75rem; text-align:center; margin-top:1.5rem;">
+  <blockquote>
+    FEMA relies mainly on **voluntary purchase** and **information disclosure**, which are often insufficient when **myopia, optimism, and inertia** are dominantly present.
+  </blockquote>
+</div>
+
+## 📈🌧️ Why Are NFIP Costs & Debt Rising? — Revisited
+<div style="display:block; margin:-15px;"></div>
+
+Beyond climate hazard, exposure, and vulnerability, **insurance behavior and policy further amplify NFIP losses**:
+
+- **Moral hazard**, concentrated in a **small subset of repetitive-loss properties**, keeps the riskiest structures in place.
+- **Underinsurance shrinks the risk pool**, so premium revenue is **too low to absorb catastrophic losses**.
+- Reliance on **post-disaster aid rather than insurance** weakens incentives to relocate, mitigate, or reform land-use policy—keeping **exposure and vulnerability high over time**.
+
+<div style="display:block; margin:-15px;"></div>
+
+<div class="fragment" style="font-size:1.9rem; text-align:center; margin-top:1.5rem;">
+  <blockquote>
+    Rising NFIP losses reflect a **system-wide interaction of climate change, development patterns, and insurance design** — not just by the choices of individual homeowners.
+  </blockquote>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const style = document.createElement("style");
+  style.textContent = `
+.levee-tooltip {
+  position: relative;
+  cursor: help;
+  text-decoration: underline dotted;
+  display: inline-block;
+}
+
+/* Popup appears to the RIGHT of "levees" instead of below */
+.levee-tooltip .levee-popup {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  top: -0.5em;           /* roughly aligned with the word vertically */
+  left: 110%;            /* just to the right of the word */
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.levee-tooltip:hover .levee-popup {
+  display: block;
+}
+  `;
+  document.head.appendChild(style);
+});
+</script>

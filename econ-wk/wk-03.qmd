@@ -1,0 +1,69 @@
+---
+title: Week 3
+subtitle: Externalities
+date: 2025-09-08
+from: markdown+emoji
+---
+
+In Week 3, we will wrap up welfare analysis in competitive markets using the supply–demand framework, then move on to environmental externalities and contrast that with the standard competitive-market analysis from the microeconomics review.
+
+
+## 🏫 Lecture Slides 
+
+- **Lecture 4 - Externalities**  
+  [View Slides](../econ-lec/econ-340-lec-04-2025-0905.html){target="_blank"}  
+
+
+🎥 Looking for lecture recordings? You can only find those on Brightspace.
+
+
+### Useful Keyboard Shortcuts for Lecture Slides
+- **CTRL + Shift + F**: Search
+- **M**: Toggle menu
+- **E**: PDF export/printing mode
+
+
+<!-- ## ✍️ Classwork -->
+
+<!-- 🏫 [Classwork 2](../econ-cw/econ-340-cw-02.html){target="_blank"} reviews the welfare analysis of externalities. 🏫   -->
+
+
+## 📝 Homework
+🏡 [Homework 1](../econ-hw/econ-340-hw-01.html){target="_blank"} will be posted. 🏡
+
+
+
+## 📚 Recommended Reading
+
+- S&P Global Sustainable1, [Unpriced Environmental Costs: The Top Externalities of the Global Market](https://bcecon.github.io/docs/Unpriced-Environmental-Costs-The-Top-Externalities-of-the-Global-Market-Report.pdf), July 2024.
+
+### Practical Issues with Pigovian Taxes
+
+Pigovian taxes offer a strong case for government regulation when negative externalities are present. By making polluters pay for the social and environmental harm they cause, such taxes can move society toward a more efficient outcome. Yet this raises a key question: should Pigovian taxes be imposed on every product or activity that produces pollution? Since nearly all goods and services involve some environmental damage, it might appear that most products deserve a tax.
+
+In practice, however, there are reasons not to impose Pigovian taxes universally. First, determining the correct tax requires careful economic and scientific analysis, which can be costly. For goods that create relatively small damages, the costs of designing the tax may exceed the benefits. Second, administering and collecting taxes carries its own expenses, and if environmental damages are minor, the revenues generated may not justify the effort. Trying to calculate an appropriate tax for every individual good would be overwhelming. For example, even a basic product like a shirt involves numerous processes—growing cotton, using petroleum-based synthetics, or applying dyes—that each contribute some degree of environmental harm. Ideally, different types of shirts would require different taxes depending on their materials and production methods, but this would create unmanageable complexity.
+
+Economists therefore also recommend targeting Pigovian taxes as far “upstream” in the production process as possible. Instead of taxing every final product, taxes can be imposed on raw materials such as fossil fuels, cotton, or toxic chemicals. These input costs then work their way into final product prices depending on how much of each input is used. This approach limits administrative burdens and ensures that the greatest ecological harms are addressed. A 2013 study estimated that global externalities from primary industries like agriculture, mining, fishing, and power generation amounted to $7.3 trillion, or about 13 percent of world GDP. For comparison, global tax revenues in 2018 were around 15 percent of GDP. This suggests that, in theory, a comprehensive system of Pigovian taxes on major raw materials could generate enough revenue to replace most other taxes worldwide.
+
+Another important issue is how the tax burden is shared between producers and consumers. It is common to assume that taxes are fully passed on to consumers through higher prices, but in reality, the burden is divided. For instance, a unit tax raises the price consumers pay by less than the full tax amount, meaning producers also absorb part of the cost. The exact split depends on supply and demand elasticities—that is, how responsive buyers and sellers are to price changes. Sometimes consumers bear most of the tax; in other cases, producers do.
+
+Equity is also a concern. Environmental taxes often fall more heavily on low-income households, which spend a larger share of their income on fuel and electricity. To address this, governments may return some of the revenues through rebates or tax credits, softening the impact on vulnerable groups. Finally, it is worth noting that environmental policy does not rely solely on taxes. Regulations such as fuel efficiency standards or requirements for catalytic converters in automobiles can reduce pollution in other ways. While these policies may increase vehicle purchase prices, they also reduce long-term operating costs, achieving outcomes similar to Pigovian taxes through different mechanisms.
+
+#### References
+- Harris J. and Roach B., *Chapter 4. Theory of Environmental Externality*, **Environmental and Natural Resource Economics: A Contemporary Approach** (5th Edition)
+
+⚠️ Note: These contents from the above book chapter are shared under fair use for educational purposes to support your learning.
+
+
+## 💬 Discussion
+
+<font size = "5">Welcome to our Week 3 Discussion Board! 👋 </font>
+
+
+This space is designed for you to engage with your classmates about the material covered in Week 3.
+
+Whether you are looking to delve deeper into the content, share insights, or have questions about the content, this is the perfect place for you.
+
+If you have any specific questions for Byeong-Hak (**@bcecon**) or peer classmate (@GitHub-Username) regarding the Week 3 materials or need clarification on any points, don't hesitate to ask here. 
+
+Let's collaborate and learn from each other!

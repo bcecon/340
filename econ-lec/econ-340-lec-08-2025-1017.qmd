@@ -1,0 +1,519 @@
+---
+title: Lecture 8
+subtitle: Information, Incentives, and Behavioral Anomalies
+format:
+  clean-revealjs:
+    self-contained: false
+    chalkboard: true
+    incremental: true
+    code-annotations: hover
+    scrollable: false
+
+    # logo: logo-title-slide.png
+author:
+  - name: Byeong-Hak Choe
+    email: bchoe@geneseo.edu
+    affiliations: SUNY Geneseo
+date: 2025-10-17
+execute: 
+  eval: true
+  echo: false
+callout-icon: false
+
+from: markdown+emoji
+include-after-body: target-hover.html # effect.html
+
+# bibliography: refs.bib
+---
+
+```{r setup}
+#| include: false
+
+library(tidyverse)
+library(lubridate)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+library(viridis)
+library(rmarkdown)
+library(gapminder)
+library(ggrepel)
+
+theme_set(theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.75),
+                               margin = margin(0,10,0,0)),
+                axis.text.x = element_text(size = rel(1.75)),
+                axis.text.y = element_text(size = rel(1.75)),
+                strip.text = element_text(size = rel(1.5)),
+                legend.position = "top",
+                legend.text = element_text(size = rel(1.5)),
+                legend.title = element_text(size = rel(1.5))
+                )
+          )
+
+# Set global options for color-blind-friendly scales
+# scale_colour_discrete <- function(...) scale_colour_viridis_d(...)
+
+scale_colour_discrete <- function(...) scale_color_colorblind(...)
+scale_fill_discrete <- function(...) scale_fill_colorblind(...)
+
+
+# install.packages("ggplot2") # if needed
+library(ggplot2)
+library(ggthemes)
+library(hrbrthemes)
+
+# -- Curves (choose simple linear forms) --
+# Supply:    P = a + bQ
+# Demand*:   P = c - dQ          (without bias)
+# Demand_b:  P = c2 - dQ         (with bias; parallel & lower)
+a  <- 10; 
+b <- 0.6
+c  <- 80; 
+d <- 1
+
+c2 <- 50
+
+inv_supply      <- function(Q) a + b*Q
+inv_demand_star <- function(Q) c - d*Q
+inv_demand_bias <- function(Q) c2 - d*Q
+
+# -- Intersections --
+# Equilibrium with bias (Q, P)
+Qb <- (c2 - a) / (b + d)
+Pb <- inv_supply(Qb)
+
+# Socially optimal (with unbiased demand) (Q*, P*)
+Qstar <- (c - a) / (b + d)
+Pstar <- inv_supply(Qstar)
+
+# Reference prices (to match the figure)
+P1 <- inv_demand_star(Qb)  # price on unbiased demand at Q
+P2 <- inv_supply(Qstar)    # same as Pstar here
+
+# -- Data for plotting --
+Qmax <- max(Qstar, Qb) * 1.14
+gridQ <- seq(0, Qmax, length.out = 200)
+
+curves <- rbind(
+  data.frame(Q = gridQ, P = inv_supply(gridQ),      curve = "Supply"),
+  data.frame(Q = gridQ, P = inv_demand_star(gridQ), curve = "Demand without bias"),
+  data.frame(Q = gridQ, P = inv_demand_bias(gridQ), curve = "Demand with bias")
+)
+
+# Shaded welfare-loss triangle (vertices: (Q, P1), (Q*, P*), (Q, P))
+wl_poly <- data.frame(
+  Q = c(Qb, Qstar, Qb),
+  P = c(P1, Pstar, Pb)
+)
+
+# -- Plot --
+p <- ggplot() +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_polygon(data = wl_poly, aes(Q, P), fill = "grey80", color = NA) +
+  # curves
+  geom_line(data = curves, aes(Q, P, linetype = curve, color = curve),
+            linewidth = 2) +
+  # welfare loss
+  # equilibrium points
+  geom_point(aes(Qb, Pb)) +
+  geom_point(aes(Qstar, Pstar)) +
+  
+  
+  annotate("text", x = .75 * Qb, y = 1.25 * Pstar, label = "↓", size = 10) +
+  
+  # guide lines (verticals to Q and Q*)
+  geom_segment(aes(x = Qb, xend = Qb, y = 0, yend = Pb), linetype = 3) +
+  geom_segment(aes(x = Qstar, xend = Qstar, y = 0, yend = Pstar), linetype = 3) +
+  # horizontals at P, P2, P1
+  geom_segment(aes(x = 0, xend = Qb, y = Pb,    yend = Pb),    linetype = 3) +
+  geom_segment(aes(x = 0, xend = Qstar, y = P2, yend = P2),    linetype = 3) +
+  geom_segment(aes(x = 0, xend = Qb,    y = P1, yend = P1),    linetype = 3) +
+  annotate("text", x = .9*(Qb+Qstar)/2, y = (Pb+P1)/2 - 3.33, label = "Deadweight\nloss (DWL)") +
+  # axis labels and theme
+  labs(x = "Q", y = "P", linetype = "", color = "") +
+  scale_x_continuous(breaks = c(Qb, Qstar),
+                     label = c("Q", "Q*")) +
+  scale_y_continuous(breaks = c(Pb, P2, P1),
+                     label = c("P", "P*", "")) +
+  scale_linetype_manual(
+    values = c(
+      "Demand with bias" = "dotdash",
+      "Demand without bias" = "dashed",
+      "Supply" = "solid")
+  ) +
+  scale_color_tableau() +
+  theme(axis.title.y = element_text(vjust = 1, angle = 0),
+        axis.title.x = element_text(hjust = 1, margin = margin(r = -10)),
+        panel.grid = element_blank(),   # ✅ Ensure no gridlines
+        panel.background = element_blank(),
+        legend.position = c(0.75, 0.85),     # ✅ place legend inside plot
+        legend.background = element_rect(color = "black", fill = "white"), # ✅ boxed legend
+        legend.title = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_text(margin = margin(t = -10)),
+        axis.text.y = element_text(margin = margin(r = -10)),
+        aspect.ratio = 1
+  ) +
+  guides(
+    color = guide_legend(nrow = 3, byrow = TRUE),  # ✅ 3 rows in legend
+    linetype = guide_legend(nrow = 3, byrow = TRUE)
+  )
+
+        
+```
+
+
+# Market Failures {background-color="#1c4982"}
+
+## Sources of Market Failure
+
+1. **Externalities** — private decisions impose unpriced costs or benefits on others  
+2. **Public Goods & Common-Pool Resources** — non-excludability leads to free-riding or overuse  
+3. **Lack of Competition** — market power (monopoly or collusive oligopoly) distorts price and quantity  
+4. **Information Problems** — imperfect or asymmetric information skews choices  
+5. **Principal–Agent Problems** — split incentives between decision-maker and payer  
+6. **Behavioral Anomalies** — bounded rationality, willpower, and social norms affect decisions  
+
+
+# Information and Principal–Agent Problems {background-color="#1c4982"}
+
+
+## Information Problems — What & Why
+
+- **Imperfect information** — consumers lack clear and accurate information about **energy-saving technologies** (appliances, vehicles, buildings, heating systems) and **energy-producing options** such as solar.
+- **Asymmetric information** — sellers possess or selectively present information that buyers cannot easily verify or compare.
+- **Consequence** — leads to **distorted decision-making**, resulting in **under-adoption of efficient technologies**, **misallocation of resources**, and **welfare loss**.
+
+- **Policy responses** may include **energy labels, public energy audits, neutral advisory services, and targeted information campaigns** to correct these informational gaps.
+
+
+<!-- ## Asymmetric Information in Practice -->
+
+<!-- - Heating system vendors tend to promote familiar **fossil fuel-based technologies**, downplaying efficient alternatives. -->
+<!-- - Sales incentives in vehicle markets encourage dealerships to favor **internal combustion engine vehicles (ICE)** over electric vehicles (EVs). -->
+<!-- - When information is biased or incomplete, consumers **overweight the upfront price** and **undervalue long-term lifecycle costs**. -->
+
+
+
+## Principal–Agent Problems (Split Incentives)
+
+- **Setup**: Building **owner (agent)** chooses efficiency/heating; **tenant (principal)** pays energy bills.
+- **Externality**: Owner’s choice → tenant’s energy costs & pollution.
+- **Asymmetry**: Tenants can’t observe full tech set/quality.
+
+- **Outcomes**
+  - Owners **underinvest** in efficient/heating upgrades (high capital expenditures; they don’t pay operating expenditures).
+  - Tenants & society **lose** (higher bills, greater emissions, slow progress in energy-efficient retrofits).
+
+- **Policy fixes**
+  - **Mandatory energy certificates**, disclosure
+  - **Minimum efficiency standards**
+  - **Info** on renewables/adaptation (e.g., shading, natural ventilation)
+
+
+
+# Behavioral Anomalies {background-color="#1c4982"}
+
+## Behavioral Anomalies — Overview
+
+Behavioral anomalies explain why **households and firms deviate from fully rational decision-making**.
+
+We categorize them into **three systematic departures**:
+
+1. **Bounded rationality** — limited cognitive processing and biased perception  
+2. **Bounded willpower** — preferences for future outcomes do not translate into present actions  
+3. **Bounded self-interest** — decisions shaped by **fairness**, **altruism**, and **social norms**
+
+<div style="display:block; margin:-10px;"></div>
+
+::: callout-note
+- **Outcome:** Both households and firms tend to **overweight upfront costs** and **undervalue future savings or efficiency gains**, leading to **underinvestment in energy-efficient and low-carbon technologies**.
+
+:::
+
+## 🧠 Bounded Rationality — Mechanisms
+
+- **Cognitive limitations** in processing complex evaluations  
+- **Loss aversion** — losses are weighted more heavily than equivalent gains in decision-making
+  - **Status quo bias** — preference for keeping existing technology/behavior  
+  - **Endowment effect** — greater value attached to what one already owns  
+- **Framing effects** — decisions change depending on how information is presented  
+- **Limited use of information** due to:  
+  - **Limited attention** to relevant attributes  
+  - **Limited salience** of long-term operating costs  
+  - **Faulty priors/beliefs** about what information matters  
+  
+  
+
+
+## 🧠 Bounded Rationality — Impacts
+
+- Difficulty assessing **lifetime costs** of energy-consuming durables  
+- Underuse of available efficiency information due to **low salience**  
+- Reliance on **heuristics** instead of formal cost-benefit reasoning  
+- **Inertia** — continued use of outdated, inefficient technologies  
+
+
+
+
+## ⏳ Bounded Willpower — Experiment
+
+::: {.columns}
+::: {.column width="50%"}
+
+### **Poll 1 — Now vs. Soon**
+
+- **Be honest — which one *feels* better right now?**
+  - **Option A:** Get **$5 right now** at checkout  
+  - **Option B:** Get **$8 credited to your account in _1 month_**
+
+<!-- 🧠 *Typical reaction:* Many choose **$5 now**, even though waiting **doubles** the payoff. -->
+<!-- → **Reveals high discounting of the near future** -->
+
+:::
+::: {.column width="50%"}
+
+### **Poll 2 — Soon vs. Later**
+
+- **Now imagine both options happen in the future — same 1-month delay.**
+  - **Option C:** Get **$5 in _12 months_**  
+  - **Option D:** Get **$8 in _13 months_**
+
+<!-- 🔁 *Typical reaction:* Most switch to **$10 in 13 months** -->
+<!-- → **Shows lower discounting between future periods**   -->
+
+
+:::
+:::
+
+<!-- For those who choose **Option A** and **Option D**, their future-selves in 12 months want **Option C** over **Option D** -->
+
+- Those who choose **A** in Poll 1 but **D** in Poll 2 reveal a **time-inconsistent preference**
+  - Their *future selves* would rather wait, but their *present selves* can’t resist **immediate gratification**.
+  
+
+
+## ⏳ Bounded Willpower — Mechanisms
+
+<div style="display:block; margin:-10px;"></div>
+
+::: callout-note
+A **discount rate** reflects how much less individuals value **future outcomes** compared to **immediate outcomes** — similar to how an **interest rate** reflects the cost of waiting to receive money later rather than now, based on the **time value of money**.
+:::
+
+<div style="display:block; margin:-20px;"></div>
+
+- **Myopia / Present Bias**  
+  - Individuals value the **present disproportionately more than the future**, applying a **high discount rate to near-term outcomes** and a **lower rate to distant outcomes**
+  - This causes the **first few years of future benefits to be heavily undervalued**, while **upfront costs are felt fully with no discounting**
+  - As a result, **immediate costs dominate future benefits**
+  
+<!-- - **Attitude–behavior gap**   -->
+<!--   - Declared environmental attitudes do **not align with actual purchasing or usage behavior**   -->
+
+## ⏳ Bounded Willpower — Impacts
+
+- **Present Bias** causes a **time inconsistency problem — future actions fail to align with one's original optimal plan**
+  - Environmental concern does **not translate** into efficient purchasing behavior  
+  - **Upfront cost is overweighted** relative to long-term operating savings  
+  - **Adaptation and efficiency decisions** are delayed or postponed  
+
+
+
+## 🤝 Bounded Self-Interest — Mechanisms
+
+- **Altruism** — willingness to act for social or environmental benefit without direct personal gain  
+- **Fairness preferences** — concern for equitable outcomes in energy and climate policy  
+- **Social norms** — behavior shaped by what is perceived as acceptable or common within peer groups  
+
+## 🤝 Bounded Self-Interest — Impacts
+
+- **Social comparison of energy use** can reduce overconsumption  
+- **Peer effects in technology adoption** — visibility of efficient choices encourages diffusion  
+- Potential for **positive spillovers** through collective behavioral change  
+
+
+
+
+## Behavioral Bias → Market Equilibrium
+
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 100%
+#| fig-width: 6
+#| fig-height: 6
+
+
+p
+```
+
+
+:::
+
+
+::: {.column width="50%"}
+<!-- **Idea**: Demand with biases (bounded rationality/willpower) vs. rational demand -->
+
+- Biases shift demand **down** for **energy-efficient products** (status quo, loss aversion).
+- Equilibrium moves from **(P\*, Q\*)** (social optimum) to **(P, Q)** (biased market) with **Q < Q\***.
+- Due to behavioral bias, how much welfare is lost relative to the rational, unbiased market outcome?
+
+:::
+::::
+
+<div style="display:block; margin:-40px;"></div>
+
+<!-- - Deadweight loss here represents the **gap between what consumers would have gained under rational valuation (at Q\*)** and **what they actually gain under biased decisions (at Q),** reference to rational demand. -->
+
+- Behavioral DWL here is the **difference between potential surplus at Q\*** (with rational demand) and **actual surplus at Q** (with biased demand), using **rational demand as the welfare benchmark**.
+
+<!-- - How much welfare is lost compared to the outcome under rational, unbiased demand? -->
+
+
+<!-- - How much welfare is lost relative to what would be achieved under rational, unbiased demand? -->
+
+<!-- - DWL here represents the **gap between the surplus under rational valuation (at Q\*)** and **the surplus actually realized under biased decisions (at Q)** — using the **rational demand** as the welfare reference. -->
+
+<!-- These units are not adopted only because **behavioral biases shift demand below true willingness to pay**, creating **inefficiency**. -->
+
+
+# Policy Design: Putting It Together  {background-color="#1c4982"}
+
+## 🎯 Policy Design: Putting It Together
+
+<div style="display:block; margin:-15px;"></div>
+
+To correct market failures, policy must integrate:
+
+| 💰 **Incentives** | 🧠 **Information** | 🏛 **Institutions** | 🤝 **Social Norms** |
+|------------------|------------------|--------------------|--------------------|
+| Align financial signals with efficient choices | Make efficiency visible, comparable, and easy to act on | Set rules and structures that correct split incentives | Use peer effects and social signaling to shift behavior |
+
+<div style="display:block; margin:-60px;"></div>
+
+> **Effective policy design = Aligned incentives + Salient information + Supportive institutions + Reinforced social norms**
+
+<div style="display:block; margin:-15px;"></div>
+
+:::callout-note
+- **Economics** is fundamentally about **policy design** — improving **human well-being** through **exchange** and **coordinated action** by designing **incentives, information, institutions**, and **social norms** so that **scarce resources and time** are used more effectively.
+
+:::
+
+## 💰 Incentives — Align Costs and Benefits
+
+- **Carbon / energy taxes** — effective in theory but require attention to **bounded rationality** and **present bias**
+  - Should be paired with **complementary decision aids** (e.g., **visible energy labels**, **default green options**, or **simplified prompts**)
+- **On-bill financing** — spreads costs over time by recovering investments through **utility bills** instead of requiring **large upfront payments**
+- **Performance-based contracts** — repayment is **tied to documented energy savings**, reducing perceived risk
+- **Subsidies or rebates** — more impactful when paired with **salient, easy-to-understand information** rather than passive financial incentives
+
+
+## 🧠 Information — Make the Efficient Choice Obvious
+
+- **Energy labels with lifecycle cost information**, not just efficiency class
+- **Standardized comparison tools** — appliance efficiency rankings, certification platforms
+- **Real-time consumption feedback** — smart meters, usage comparisons on bills
+- **Framing and default design** — present efficient options as the **default choice**
+- **Public reporting of building or appliance energy performance**
+
+## 🏛 Institutions — Rules and Market Governance
+
+- **Minimum Energy Performance Standards (MEPS)** — remove worst-performing products
+- **Building codes** — enforce baseline energy efficiency and retrofit standards
+- **Green leases** — contractually align landlord–tenant incentives
+  - **Cost-sharing rule**: Landlord installs efficient system; tenant agrees to slight rent premium.
+  - **Energy savings clause**: Rent adjustment linked to verified energy savings.
+  - **Submetering requirement**: Energy billing based on individual usage.
+  
+<!-- - **Regulation of <span style="color:#e63946; font-weight:700;" data-tippy-content="Due to cost structure (declining average costs over relevant demand) → single provider more efficient than many duplicative networks.">natural monopolies</span>** — prevent price abuse in electricity/gas networks -->
+<!-- - **Competition authorities** — monitor oligopoly/collusion in energy technology markets -->
+
+
+
+
+<!-- ::: callout-note -->
+<!-- - **Natural monopoly**:  -->
+<!-- ::: -->
+
+## 🤝 Social Norms — Activate Peer Effects
+
+- **Home energy reports with neighbor comparisons** to trigger social benchmarking
+- **Public commitments** — voluntary efficiency pledges, visible certification badges
+- **Community adoption challenges** — neighborhood or campus energy competitions
+- **Visible adoption signals** — solar panels, EV chargers, energy labels as social cues
+- **Use social recognition** to reinforce efficient behavior as the norm
+
+## 🤝 Social Norms in Action — LPG Adoption in India
+
+
+<div style="display:block; margin:-10px;"></div>
+
+:::: {.columns}
+::: {.column width="50%"}
+<div style="text-align: center; width: 100%; margin: auto;">
+  <img src="https://bcdanl.github.io/lec_figs/india-lpg-adoption.png" alt="" style="width: 100%; margin-bottom: -20px;">
+  <p style="font-weight: bold;"></p>
+</div>
+:::
+::: {.column width="50%"}
+
+- In many developing regions, households continue using **firewood and biomass**, leading to **indoor air pollution and health risks**.
+- Adoption of **cleaner LPG fuel** rises significantly **when neighboring households or members of the same social network have already adopted it**.
+
+
+:::
+
+::::
+
+- **Peer visibility and social spillovers** act as **positive social norms**, speeding up the transition to clean energy.
+
+- **Policy insight:** Support energy transitions by activating **community-level adoption signals**, not only through prices or information.
+
+
+<!-- Load Tippy.js -->
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<!-- Custom tooltip style -->
+<style>
+.tippy-box[data-theme~='light-border'] {
+  font-size: 2rem;        /* increase overall text size */
+  line-height: 1.5;         /* better spacing */
+  color: #1c1c1c;
+  background-color: #fefefe;
+  border: 1px solid #cccccc;
+  padding: 10px;
+}
+.tippy-arrow {
+  color: #fefefe;
+}
+</style>
+
+<!-- Initialize tooltip -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  tippy('[data-tippy-content]', {
+    allowHTML: true,
+    theme: 'light-border',
+    maxWidth: 600,
+    placement: 'top',
+    animation: 'scale',
+    delay: [100, 100],
+  });
+});
+</script>
