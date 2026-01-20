@@ -906,6 +906,6 @@ On your laptop, follow these steps to access the SCE for **ECON 340**:
 
 
 <div style="display:block; margin:-75px;"></div>
-- **Before**: Our class is 24% less disagreement than professional economists.
-- **After**: Our class is 28% less disagreement than professional economists.
+- **Before**: Our class is 24% less disagreement than economists.
+- **After**: Our class is 28% less disagreement than economists.
 
